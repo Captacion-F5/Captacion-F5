@@ -291,97 +291,75 @@ return [
 
     'menu' => [
         // Navbar items:
-        [
-            'type'         => 'navbar-search',
-            'text'         => 'buscar',
-            'topnav_right' => true,
-        ],
-        [
-            'type'         => 'fullscreen-widget',
-            'topnav_right' => true,
-        ],
+        // [
+        //     'type'         => 'navbar-search',
+        //     'text'         => 'buscar',
+        //     'topnav_right' => true,
+        // ],
+        // [
+        //     'type'         => 'fullscreen-widget',
+        //     'topnav_right' => true,
+        // ],
 
         // Sidebar items:
+     
+        // [
+        //     'text' => 'blog',
+        //     'url'  => 'admin/blog',
+        //     'can'  => 'manage-blog',
+        // ],
+        
+        ['header' => 'Escuelas'],
+        // [
+        //     'text' => 'Admin',
+        //     'url'  => 'admin/settings',
+        //     'icon' => 'fas fa-fw fa-user',
+        // ],
+        // [
+        //     'text' => 'Cambio de contraseña',
+        //     'url'  => 'admin/settings',
+        //     'icon' => 'fas fa-fw fa-lock',
+        // ],
         [
-            'type' => 'sidebar-menu-search',
-            'text' => 'buscar',
-        ],
-        [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
-        ],
-        [
-            'text'        => 'Páginas',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
-        ],
-        ['header' => 'Participantes'],
-        [
-            'text' => 'Admin',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'Cambio de contraseña',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-        [
-            'text'    => 'Bootcamps',
-            'icon'    => 'fas fa-fw fa-share',
+            'text'    => 'Asturias',
             'submenu' => [
                 [
-                    'text' => 'Asturias',
+                    'text' => 'Promos Activas',
+                    'icon_color' => 'green',
                     'url'  => '#',
-                ],
-                [
-                    'text'    => 'FemCoders Norte',
-                    'url'     => '#',
                     'submenu' => [
                         [
-                            'text' => 'Galicia',
+                            'text' => 'FemCoders',
                             'url'  => '#',
                         ],
                         [
-                            'text'    => 'Asturias',
+                            'text'    => 'RuralCamp',
                             'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'Gijón',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'Oviedo',
-                                    'url'  => '#',
-                                ],
-                            ],
                         ],
-                    ],
+                        
+                ],
+                
                 ],
                 [
-                    'text' => 'Rural Camp',
+                    'text' => 'Promos Inactivas',
+                    'icon_color' => 'red',
                     'url'  => '#',
+                    'submenu' => [
+                        [
+                            'text' => 'FemCoders',
+                            'url'  => '#',
+                        ],
+                        [
+                            'text'    => 'RuralCamp',
+                            'url'     => '#',
+                        ],
+                        
                 ],
+                
+                ],
+                
             ],
-        ],
-        ['header' => 'Proceso'],
-        [
-            'text'       => 'Descartados',
-            'icon_color' => 'red',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'Preseleccionados',
-            'icon_color' => 'yellow',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'Seleccionados',
-            'icon_color' => 'cyan',
-            'url'        => '#',
+            
         ],
     ],
 
