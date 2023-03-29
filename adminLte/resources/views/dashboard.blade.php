@@ -36,6 +36,11 @@
     <x-section-button class="ml-3">
         {{ __('Comunicación') }}
     </x-section-button>
+    <div>
+        <x-profile-table class="w-100">
+
+        </x-profile-table>
+    </div>
 @stop
 
 @section('css')
