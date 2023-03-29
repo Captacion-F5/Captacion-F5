@@ -33,6 +33,4 @@
     <link rel="stylesheet" href="/css/admin_custom.css">
 @stop
 
-@section('js')
-    <script> Swal.fire('Buenos días, compañeras', 'Ánimo que ya es viernes!!') </script>
-@stop
+
