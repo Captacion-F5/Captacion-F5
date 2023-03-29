@@ -38,8 +38,11 @@
     </x-section-button>
     <div>
         <x-profile-table class="w-100">
-
         </x-profile-table>
+    </div>
+    <div>
+        <x-process-table class="w-100">
+        </x-process-table>
     </div>
 @stop
 
