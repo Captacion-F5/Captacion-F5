@@ -6,32 +6,38 @@
       <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-12 mt-10">
         <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
           <table class="min-w-full divide-y divide-gray-200 ">
-            <thead class="bg-gray-50 ">
+            <thead class="bg-naranja text-white text-left text-xs font-medium  uppercase">
               <tr>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-naranja uppercase tracking-wider ">
+                <th scope="col" class="px-6 py-3  tracking-wider ">
                   Apellidos
                 </th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-naranja uppercase tracking-wider">
+                <th scope="col" class="px-6 py-3 tracking-wider">
                   Nombre
                 </th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-naranja uppercase tracking-wider">
+                <th scope="col" class="px-6 py-3 tracking-wider">
                   Email
                 </th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-naranja uppercase tracking-wider">
-                  Localidad
-                </th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-naranja uppercase tracking-wider">
+
+                <th scope="col" class="px-6 py-3 tracking-wider">
                   Comunidad autónoma
                 </th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th scope="col" class="px-6 py-3 tracking-wider">
                   Edad
                 </th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+
+                <th scope="col" class="px-6 py-3 tracking-wider">
                   Nivel de Estudios
                 </th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th scope="col" class="px-6 py-3 tracking-wider">
+                  Homologado
+                </th>
+                <th scope="col" class="px-6 py-3 tracking-wider">
                   Género
                 </th>
+                <th scope="col" class="px-6 py-3 tracking-wider">
+                  Situación laboral
+                </th>
+
               </tr>
             </thead>
             <tbody class="bg-white divide-y divide-gray-200">
@@ -47,9 +53,6 @@
                         anasantos@example.com
                       </td>
                       <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                        Oviedo
-                      </td>
-                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                         Asturias
                       </td>
                       <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
@@ -60,7 +63,13 @@
                         ESO
                       </td>
                       <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        Si
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                         Mujer
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        Desempleado
                       </td>
                     </tr>
                     <tr class="hover:bg-orange-100">
@@ -74,9 +83,6 @@
                         alex@example.com
                       </td>
                       <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                        Lugo
-                      </td>
-                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                         Galicia
                       </td>
                       <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
@@ -87,7 +93,13 @@
                         Ciclo Grado Superior
                       </td>
                       <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        No
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                         No binario
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        Desempleado
                       </td>
                     </tr>
                     <tr class="hover:bg-orange-100">
@@ -101,9 +113,6 @@
                         juan.perez@example.com
                       </td>
                       <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
-                        Santander
-                      </td>
-                      <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
                         Cantabria
                       </td>
                       <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
@@ -112,8 +121,14 @@
                       <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
                         Bachillerato
                       </td>
+                      <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                        Si
+                      </td>
                       <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                         Hombre
+                      </td>
+                      <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        Trabajando
                       </td>
                     </tr>
 

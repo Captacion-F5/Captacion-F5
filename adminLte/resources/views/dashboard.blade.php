@@ -44,6 +44,10 @@
         <x-process-table class="w-100">
         </x-process-table>
     </div>
+    <div>
+        <x-events-table class="w-100">
+        </x-events-table>
+    </div>
 @stop
 
 @section('css')
