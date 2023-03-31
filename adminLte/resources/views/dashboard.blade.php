@@ -28,14 +28,24 @@
 @section('content')
     {{-- <p>Bienvenida a tu panel de administradora</p> --}}
     <x-section-button class="ml-3">
-        {{ __('Proceso') }}
+        {{ __('General') }}
     </x-section-button>
     <x-section-button class="ml-3">
-        {{ __('Perfil') }}
+        {{ __('Ejercicios') }}
     </x-section-button>
     <x-section-button class="ml-3">
-        {{ __('Comunicación') }}
+        {{ __('RIC') }}
     </x-section-button>
+    <x-section-button class="ml-3">
+        {{ __('JPA') }}
+    </x-section-button>
+    <x-section-button class="ml-3">
+        {{ __('TF5') }}
+    </x-section-button>
+    <x-section-button class="ml-3">
+        {{ __('TPB') }}
+    </x-section-button>
+
     <div>
         <x-profile-table class="w-100">
         </x-profile-table>
@@ -53,6 +63,3 @@
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
 @stop
-
-
-

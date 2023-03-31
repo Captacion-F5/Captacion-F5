@@ -107,25 +107,25 @@
 
                         </tr>
                         <tr class="hover:bg-orange-100">
-                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm  text-gray-900">
                                 Pérez
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm  text-gray-900">
                                 Juan
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-md text-center text-gray-500">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-center text-gray-500">
                                 NO
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                 NO
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                 NO
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                 SI
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-md text-gray-500">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                 SI
                             </td>
                         </tr>
