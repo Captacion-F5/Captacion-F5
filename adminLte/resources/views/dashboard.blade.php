@@ -45,19 +45,15 @@
     <x-section-button class="ml-3">
         {{ __('TPB') }}
     </x-section-button>
-
     <div>
         <x-profile-table class="w-100">
         </x-profile-table>
     </div>
-    <div>
+    {{-- <div>
         <x-process-table class="w-100">
         </x-process-table>
-    </div>
-    <div>
-        <x-events-table class="w-100">
-        </x-events-table>
-    </div>
+    </div> --}}
+
 @stop
 
 @section('css')
