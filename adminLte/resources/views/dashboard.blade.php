@@ -45,14 +45,12 @@
     <x-section-button class="ml-3">
         {{ __('TPB') }}
     </x-section-button>
-    <div>
-        <x-profile-table class="w-100">
-        </x-profile-table>
-    </div>
-    {{-- <div>
-        <x-process-table class="w-100">
-        </x-process-table>
-    </div> --}}
+
+    <x-process-table class="w-100 m-3">
+    </x-process-table>
+
+    <x-exercices-table class="w-100 m-10">
+    </x-exercices-table>
 
 @stop
 
