@@ -45,7 +45,7 @@
     <x-section-button class="ml-3">
         {{ __('TPB') }}
     </x-section-button>
-
+    <x-search></x-search>
     <x-process-table class="w-100 m-3">
     </x-process-table>
 

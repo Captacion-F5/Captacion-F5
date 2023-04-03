@@ -3,7 +3,7 @@
 <div class="m-auto">
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
         <div class="search filter d-flex">
-            <div class="p-3">
+            {{-- <div class="p-3">
                 <label for="table-search" class="sr-only">Search</label>
                 <div class="relative mt-1">
                     <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -19,7 +19,7 @@
                         placeholder="Buscar aplicante">
 
                 </div>
-            </div>
+            </div> --}}
             <div>
                 <!-- dropdown filter -->
                 <div class="group inline-block mt-4">
@@ -89,7 +89,7 @@
             </div>
         </div>
         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-            <thead class="text-xs text-white uppercase bg-naranja dark:bg-gray-700 dark:text-gray-400">
+            <thead class="px- py-2 text-xs text-white uppercase bg-naranja dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                     <th scope="col" class="p-4">
                         <div class="flex items-center">
@@ -98,29 +98,28 @@
                             <label for="checkbox-all-search" class="sr-only">checkbox</label>
                         </div>
                     </th>
-                    <th scope="col" class="px-2 py-3">
+                    <th scope="col" class="">
                         Aplicante
                     </th>
-                    <th scope="col" class="px-2 py-3">
+                    <th scope="col" class="">
                         Ejercicios > 50%
                     </th>
-                    <th scope="col" class="px-2 py-3">
+                    <th scope="col" class="">
                         RIC
                     </th>
-                    <th scope="col" class="px-2 py-3">
+                    <th scope="col" class="">
                         JPA
                     </th>
-                    <th scope="col" class="px-2 py-3">
+                    <th scope="col" class="">
                         TPB
                     </th>
-                    <th scope="col" class="px-2 py-3">
+                    <th scope="col" class="">
                         TF5
                     </th>
-                    <th scope="col" class="px-2 py-3">
+                    <th scope="col" class="">
                         Estatus
                     </th>
-                    <th scope="col" class="px-2 py-3">
-                        Acción
+                    <th scope="col" class="">
                     </th>
                 </tr>
             </thead>
@@ -241,7 +240,7 @@
                         </div>
                     </td>
                     <th scope="row" class="px-2 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                        Tania
+                        Díaz, Tania
                     </th>
                     <td class="px-5 py-4">
                         No
