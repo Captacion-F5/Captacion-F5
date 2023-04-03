@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.backgroundOrange{
+   background-color: #FF4700; 
+}
+
+.factoLogo{
+   height: 50px;
+   width: 200px;
+   background-image: url('public/assets/blanco-factorizado.png');
+}
+
