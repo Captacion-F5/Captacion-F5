@@ -5,7 +5,7 @@
     <svg class="w-8 h-8 text-white bg-naranja rounded-full mr-2" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
         <path d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
     </svg>
-</button>
     <span class="text-gray-700 font-medium">Añadir evento</span>
+</button>
 
 

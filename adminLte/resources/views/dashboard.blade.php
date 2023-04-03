@@ -27,28 +27,34 @@
 
 @section('content')
     {{-- <p>Bienvenida a tu panel de administradora</p> --}}
-    <x-section-button class="ml-3">
-        {{ __('General') }}
-    </x-section-button>
-    <x-section-button class="ml-3">
-        {{ __('Ejercicios') }}
-    </x-section-button>
-    <x-section-button class="ml-3">
-        {{ __('RIC') }}
-    </x-section-button>
-    <x-section-button class="ml-3">
-        {{ __('JPA') }}
-    </x-section-button>
-    <x-section-button class="ml-3">
-        {{ __('TF5') }}
-    </x-section-button>
-    <x-section-button class="ml-3">
-        {{ __('TPB') }}
-    </x-section-button>
-    <x-event-button class="ml-3">
-        {{ __('+ evento') }}
-    </x-event-button>
+    <div class="flex justify-between">
+        <div class="m-10">
+            <x-section-button class="m-auto">
+                {{ __('General') }}
+            </x-section-button>
+            <x-section-button class="">
+                {{ __('Ejercicios') }}
+            </x-section-button>
+            <x-section-button class="">
+                {{ __('RIC') }}
+            </x-section-button>
+            <x-section-button class="">
+                {{ __('JPA') }}
+            </x-section-button>
+            <x-section-button class="">
+                {{ __('TF5') }}
+            </x-section-button>
+            <x-section-button class="">
+                {{ __('TPB') }}
+            </x-section-button>
+        </div>
+        <div class="m-10">
+            <x-event-button>
+            </x-event-button>
+        </div>
+    </div>
     <x-searchbar></x-searchbar>
+    <x-general-table></x-general-table>
     <x-process-table class="">
     </x-process-table>
 
