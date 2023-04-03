@@ -46,10 +46,10 @@
         {{ __('TPB') }}
     </x-section-button>
     <x-searchbar></x-searchbar>
-    <x-process-table class="w-100 m-3">
+    <x-process-table class="">
     </x-process-table>
 
-    <x-exercices-table class="w-100 m-10">
+    <x-exercices-table class="">
     </x-exercices-table>
 
 @stop
