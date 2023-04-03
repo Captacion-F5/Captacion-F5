@@ -19,7 +19,7 @@
                         <th scope="col" class="px-2 py-3">
                             Perfil Code
                         </th>
-                        <th scope="col" class="">
+                        <th scope="col" class="text-center">
                             Notificación
                         </th>
                         <th scope="col" class="px-2 py-3">
@@ -54,9 +54,7 @@
                             Si
                         </td>
                         <td class="px-3 py-4">
-                            <input id="checkbox-all-search" type="checkbox"
-                                class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                            <label for="checkbox-all-search" class="sr-only">checkbox</label>
+                            <x-mail-button></x-mail-button>
                         </td>
                         <td class="px-3 py-4">
                             <input id="checkbox-all-search" type="checkbox"
@@ -64,7 +62,7 @@
                             <label for="checkbox-all-search" class="sr-only">checkbox</label>
                         </td>
                         <td class="px-3 py-4">
-                       <x-mail-button></x-mail-button>
+                            <x-mail-button></x-mail-button>
                         </td>
 
                         <td class="py-4">
@@ -106,9 +104,7 @@
                             Si
                         </td>
                         <td class="px-3 py-4">
-                            <input id="checkbox-all-search" type="checkbox"
-                                class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                            <label for="checkbox-all-search" class="sr-only">checkbox</label>
+                            <x-mail-button></x-mail-button>
                         </td>
 
                         <td class="px-3 py-4">
@@ -117,14 +113,11 @@
                             <label for="checkbox-all-search" class="sr-only">checkbox</label>
                         </td>
                         <td class="px-3 py-4">
-                            <input id="checkbox-all-search" type="checkbox"
-                                class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                            <label for="checkbox-all-search" class="sr-only">checkbox</label>
+                            <x-mail-button></x-mail-button>
                         </td>
                         <td class=" py-4">
                             <a href="#"
                                 class="p-2 rounded-full font-medium text-green bg-blue-200 hover:underline">Pendiente</a>
-
                         </td>
                         <td class="">
                             <div class="flex">
@@ -161,9 +154,7 @@
                             No
                         </td>
                         <td class="px-3 py-4">
-                            <input id="checkbox-all-search" type="checkbox"
-                                class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                            <label for="checkbox-all-search" class="sr-only">checkbox</label>
+                            <x-mail-button></x-mail-button>
                         </td>
                         <td class="px-3 py-4">
                             <input id="checkbox-all-search" type="checkbox"
@@ -171,11 +162,8 @@
                             <label for="checkbox-all-search" class="sr-only">checkbox</label>
                         </td>
                         <td class="px-3 py-4">
-                            <input id="checkbox-all-search" type="checkbox"
-                                class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                            <label for="checkbox-all-search" class="sr-only">checkbox</label>
+                            <x-mail-button></x-mail-button>
                         </td>
-
                         <td class=" py-4">
                             <a href="#"
                                 class="p-2 rounded-full font-medium text-blue bg-blue-200 hover:underline">Pendiente</a>
@@ -215,9 +203,7 @@
                             No
                         </td>
                         <td class="px-3 py-4">
-                            <input id="checkbox-all-search" type="checkbox"
-                                class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                            <label for="checkbox-all-search" class="sr-only">checkbox</label>
+                            <x-mail-button></x-mail-button>
                         </td>
                         <td class="px-3 py-4">
                             <input id="checkbox-all-search" type="checkbox"
@@ -226,9 +212,7 @@
                         </td>
 
                         <td class="px-3 py-4">
-                            <input id="checkbox-all-search" type="checkbox"
-                                class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                            <label for="checkbox-all-search" class="sr-only">checkbox</label>
+                            <x-mail-button></x-mail-button>
                         </td>
                         <td class=" py-4">
                             <a href="#"
