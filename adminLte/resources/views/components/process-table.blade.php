@@ -160,7 +160,7 @@
                         <label for="checkbox-all-search" class="sr-only">checkbox</label>
                     </td>
                     <td class="py-4">
-                        <a href="#" class=" rounded font-medium text-blue bg-blue-100 hover:underline">En
+                        <a href="#" class="p-2 rounded-full font-medium text-blue bg-blue-200 hover:underline">En
                             proceso</a>
                     </td>
                     <td class="">
@@ -214,7 +214,7 @@
                     </td>
                     <td class=" py-4">
                         <a href="#"
-                            class="p-2 rounded font-medium text-green bg-green-100 hover:underline">Admisión</a>
+                            class="p-2 rounded-full font-medium text-green bg-green-200 hover:underline">Admisión</a>
 
                     </td>
                     <td class="">
@@ -268,7 +268,7 @@
                     </td>
                     <td class=" py-4">
                         <a href="#"
-                            class="p-2 rounded font-medium text-red bg-red-100 hover:underline">Descarte</a>
+                            class="p-2 rounded-full font-medium text-red bg-red-200 hover:underline">Descarte</a>
                     </td>
                     <td class="">
                         <div class="flex">
@@ -320,7 +320,7 @@
                         <label for="checkbox-all-search" class="sr-only">checkbox</label>
                     </td>
                     <td class=" py-4">
-                        <a href="#" class="p-2 rounded font-medium text-blue bg-blue-100 hover:underline">En
+                        <a href="#" class="p-2 rounded-full font-medium text-blue bg-blue-200 hover:underline">En
                             proceso</a>
 
                     </td>
