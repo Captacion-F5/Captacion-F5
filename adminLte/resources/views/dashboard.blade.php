@@ -45,6 +45,12 @@
     <x-section-button class="ml-3">
         {{ __('TPB') }}
     </x-section-button>
+    <x-section-button class="ml-3">
+        {{ __('TPB') }}
+    </x-section-button>
+    <x-event-button class="ml-3">
+        {{ __('+ evento') }}
+    </x-event-button>
     <div>
         <x-profile-table class="w-100">
         </x-profile-table>
