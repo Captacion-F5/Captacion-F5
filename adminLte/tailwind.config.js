@@ -16,7 +16,7 @@ module.exports = {
             colors: {
                 'naranja': '#FF4700',
                 'gris' : '#9C9C9C',
-                'melocoton' : '#FFA37F',
+                'melocoton' : '#FFA37F'
 
             },
         },
