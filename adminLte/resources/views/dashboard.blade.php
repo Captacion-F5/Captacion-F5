@@ -9,36 +9,40 @@
 @stop --}}
 
 @section('content')
-    <p>Bienvenida a tu panel de administradora</p>
+<h2 class="text-naranja text-lg mt-2">Bienvenida a tu panel de administradora</h2>
+
+<div class="flex justify-between">
+    <div class="m-10">
+        <x-section-button class="m-auto">
+            {{ __('General') }}
+        </x-section-button>
+        <x-section-button class="">
+            {{ __('Ejercicios') }}
+        </x-section-button>
+        <x-section-button class="">
+            {{ __('RIC') }}
+        </x-section-button>
+        <x-section-button class="">
+            {{ __('JPA') }}
+        </x-section-button>
+        <x-section-button class="">
+            {{ __('TF5') }}
+        </x-section-button>
+        <x-section-button class="">
+            {{ __('TPB') }}
+        </x-section-button>
+    </div>
+    <div class="m-10">
+        <x-event-button>
+        </x-event-button>
+    </div>
+</div>
     <x-panel class="ml-3">
     </x-panel>
-    {{-- <p>Bienvenida a tu panel de administradora</p> --}}
-
-    <div class="flex justify-between">
-        <div class="m-10">
-            <x-section-button class="m-auto">
-                {{ __('General') }}
-            </x-section-button>
-            <x-section-button class="">
-                {{ __('Ejercicios') }}
-            </x-section-button>
-            <x-section-button class="">
-                {{ __('RIC') }}
-            </x-section-button>
-            <x-section-button class="">
-                {{ __('JPA') }}
-            </x-section-button>
-            <x-section-button class="">
-                {{ __('TF5') }}
-            </x-section-button>
-            <x-section-button class="">
-                {{ __('TPB') }}
-            </x-section-button>
-        </div>
-        <div class="m-10">
-            <x-event-button>
-            </x-event-button>
-        </div>
+    <div class="flex flex-row">
+        <x-donut ></x-donut>
+        <x-donut-genero></x-donut-genero>
+        <x-stick-chart></x-stick-chart>
     </div>
     <x-searchbar></x-searchbar>
     <x-general-table></x-general-table>
@@ -55,12 +59,8 @@
 
 
 
-   
-    {{-- <div class="flex flex-row">
-        <x-donut ></x-donut>
-        <x-donut-genero></x-donut-genero>
-        <x-stick-chart></x-stick-chart>
-    </div> --}}
+
+
 @stop
 
 
