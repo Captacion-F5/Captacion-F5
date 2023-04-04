@@ -4,7 +4,7 @@
 @section('plugins.Sweetalert2', true)
 
 @section('content_header')
-    <h1>Botcamp rural</h1>
+    <h1>Bootcamp rural</h1>
 @stop
 
 @section('content')
