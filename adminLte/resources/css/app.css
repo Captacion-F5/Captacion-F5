@@ -1,3 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.backgroundOrange {
+    background-color: #ff4700;
+    color:white;
+}
+.factoLogo {
+    border: none;
+    width: 120px;
+    height: 50px;
+    margin-left: 25px;
+}
+.textColor {
+    color: black;
+}
+p {
+    color:white;
+
+}
+p:hover {
+   font-weight: bold;
+    text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
+}
+i:hover{
+    font-weight: bold;
+}
