@@ -25,6 +25,9 @@
 @stop --}}
 
 @section('content')
+    <p>Bienvenida a tu panel de administradora</p>
+    <x-panel class="ml-3">
+    </x-panel>
     {{-- <p>Bienvenida a tu panel de administradora</p> --}}
     <x-section-button class="ml-3">
         {{ __('Proceso') }}
