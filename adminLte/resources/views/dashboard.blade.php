@@ -15,9 +15,8 @@
         </div>
     </div>
 </x-app-layout> --}}
-
+@vite(['resources/js/app.js','resources/css/app.css'])
 @extends('adminlte::page')
-
 @section('title', 'Captación F5')
 @section('plugins.Sweetalert2', true)
 
@@ -36,11 +35,13 @@
     <x-section-button class="ml-3">
         {{ __('Comunicación') }}
     </x-section-button>
+    {{-- <div class="flex flex-row">
+        <x-donut ></x-donut>
+        <x-donut-genero></x-donut-genero>
+        <x-stick-chart></x-stick-chart>
+    </div> --}}
 @stop
 
-@section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
-@stop
 
 
 
