@@ -1,5 +1,6 @@
 <?php
 
+
 return [
 
     /*
@@ -65,7 +66,7 @@ return [
 
     'logo' => '',
     'logo_img' => 'assets/blanco-factorizado.png',
-    'logo_img_class' => 'factoLogo elevation-3',
+    'logo_img_class' => 'factoLogo ',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
     'logo_img_alt' => 'Admin Logo',
@@ -192,7 +193,7 @@ return [
     'classes_content_wrapper' => '',
     'classes_content_header' => '',
     'classes_content' => '',
-    'classes_sidebar' => 'backgroundOrange elevation-4',
+    'classes_sidebar' => 'backgroundOrange white elevation-4',
     'classes_sidebar_nav' => '',
     'classes_topnav' => 'backgroundOrange',
     'classes_topnav_nav' => 'navbar-expand',
