@@ -1,20 +1,4 @@
-{{-- <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
-                </div>
-            </div>
-        </div>
-    </div>
-</x-app-layout> --}}
 @vite(['resources/js/app.js','resources/css/app.css'])
 @extends('adminlte::page')
 @section('title', 'Captación F5')
@@ -29,21 +13,56 @@
     <x-panel class="ml-3">
     </x-panel>
     {{-- <p>Bienvenida a tu panel de administradora</p> --}}
-    <x-section-button class="ml-3">
-        {{ __('Proceso') }}
-    </x-section-button>
-    <x-section-button class="ml-3">
-        {{ __('Perfil') }}
-    </x-section-button>
-    <x-section-button class="ml-3">
-        {{ __('Comunicación') }}
-    </x-section-button>
+
+    <div class="flex justify-between">
+        <div class="m-10">
+            <x-section-button class="m-auto">
+                {{ __('General') }}
+            </x-section-button>
+            <x-section-button class="">
+                {{ __('Ejercicios') }}
+            </x-section-button>
+            <x-section-button class="">
+                {{ __('RIC') }}
+            </x-section-button>
+            <x-section-button class="">
+                {{ __('JPA') }}
+            </x-section-button>
+            <x-section-button class="">
+                {{ __('TF5') }}
+            </x-section-button>
+            <x-section-button class="">
+                {{ __('TPB') }}
+            </x-section-button>
+        </div>
+        <div class="m-10">
+            <x-event-button>
+            </x-event-button>
+        </div>
+    </div>
+    <x-searchbar></x-searchbar>
+    <x-general-table></x-general-table>
+    <x-process-table class="">
+    </x-process-table>
+
+    <x-exercices-table class="">
+    </x-exercices-table>
+
+    {{-- <div>
+        <x-profile-table class="w-100">
+        </x-profile-table>
+    </div> --}}
+
+
+
+   
     {{-- <div class="flex flex-row">
         <x-donut ></x-donut>
         <x-donut-genero></x-donut-genero>
         <x-stick-chart></x-stick-chart>
     </div> --}}
 @stop
+
 
 
 
