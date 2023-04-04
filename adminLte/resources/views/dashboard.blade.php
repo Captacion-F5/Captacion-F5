@@ -15,24 +15,36 @@
         </div>
     </div>
 </x-app-layout> --}}
-
+@vite(['resources/js/app.js','resources/css/app.css'])
 @extends('adminlte::page')
-
 @section('title', 'Captación F5')
 @section('plugins.Sweetalert2', true)
 
-@section('content_header')
+{{-- @section('content_header')
     <h1>Proceso de selección</h1>
-@stop
+@stop --}}
 
 @section('content')
     <p>Bienvenida a tu panel de administradora</p>
     <x-panel class="ml-3">
     </x-panel>
+    {{-- <p>Bienvenida a tu panel de administradora</p> --}}
+    <x-section-button class="ml-3">
+        {{ __('Proceso') }}
+    </x-section-button>
+    <x-section-button class="ml-3">
+        {{ __('Perfil') }}
+    </x-section-button>
+    <x-section-button class="ml-3">
+        {{ __('Comunicación') }}
+    </x-section-button>
+    {{-- <div class="flex flex-row">
+        <x-donut ></x-donut>
+        <x-donut-genero></x-donut-genero>
+        <x-stick-chart></x-stick-chart>
+    </div> --}}
 @stop
 
-@section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
-@stop
+
 
 

@@ -302,13 +302,13 @@ return [
         // ],
 
         // Sidebar items:
-     
+
         // [
         //     'text' => 'blog',
         //     'url'  => 'admin/blog',
         //     'can'  => 'manage-blog',
         // ],
-        
+
         ['header' => 'Escuelas'],
         // [
         //     'text' => 'Admin',
@@ -336,9 +336,9 @@ return [
                             'text'    => 'RuralCamp',
                             'url'     => '#',
                         ],
-                        
+
                 ],
-                
+
                 ],
                 [
                     'text' => 'Promos Inactivas',
@@ -353,13 +353,13 @@ return [
                             'text'    => 'RuralCamp',
                             'url'     => '#',
                         ],
-                        
+
                 ],
-                
+
                 ],
-                
+
             ],
-            
+
         ],
     ],
 

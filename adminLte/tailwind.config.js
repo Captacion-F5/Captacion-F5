@@ -13,19 +13,21 @@ module.exports = {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
+
             
         },
     },
 
     theme: {
         extend: {
-        colors: { 
-            '00c6bb': '#00c6bb',
-            'f8e483': '#f8e483',
-            'd6a329': '#d6a329',
-            'fbd800': '#fbd800',
-            'naranja-factoria': '#FF4700',
-        },
+        
+            colors: {
+                'naranja': '#FF4700',
+                'gris' : '#9C9C9C',
+                'melocoton' : '#FFA37F',
+
+            },
+
         },
     },
 
