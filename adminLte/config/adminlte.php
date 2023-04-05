@@ -261,6 +261,7 @@ return [
     'password_reset_url' => 'password/reset',
     'password_email_url' => 'password/email',
     'profile_url' => 'profile',
+    
 
     /*
     |--------------------------------------------------------------------------
@@ -293,8 +294,8 @@ return [
     'menu' => [
         // Navbar items:
         // [
-        //     'type'         => 'navbar-search',
-        //     'text'         => 'buscar',
+        //     'text'=> 'Añadir Usuario',
+        //     'url' => 'register',
         //     'topnav_right' => true,
         // ],
         // [
@@ -321,6 +322,8 @@ return [
         //     'url'  => 'admin/settings',
         //     'icon' => 'fas fa-fw fa-lock',
         // ],
+     
+
         [
             'text'    => 'Asturias',
             'submenu' => [
@@ -360,9 +363,11 @@ return [
                 ],
 
             ],
+           
 
         ],
     ],
+   
 
     /*
     |--------------------------------------------------------------------------
