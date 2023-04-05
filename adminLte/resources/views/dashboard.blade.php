@@ -58,6 +58,8 @@
         </x-profile-table>
     </div> --}}
 
+    <x-applicant-form></x-applicant-form>
+
 
 
 
