@@ -15,7 +15,7 @@
 .textColor {
     color: black;
 }
-p {
+a > p {
     color:white;
 
 }

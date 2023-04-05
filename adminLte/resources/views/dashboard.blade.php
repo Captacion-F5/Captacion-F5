@@ -10,7 +10,7 @@
 
 @section('content')
 <h2 class="text-naranja text-lg mt-2">Bienvenida a tu panel de administradora</h2>
-
+<x-school-form></x-school-form>
 <div class="flex justify-between">
     <div class="m-10">
         <x-section-button class="m-auto">
