@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Bootcamp extends Model
 {
     use HasFactory;
+    protected $fillable = ['nombre','inicio'];
 }
