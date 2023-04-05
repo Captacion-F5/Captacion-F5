@@ -1,11 +1,11 @@
-<x-guest-layout class="school-form">
+<x-guest-layout>
     <form method="POST" action="{{ route('login') }}">
         @csrf
 
         <!-- Event name -->
-        <div >
-            <x-input-label for="school" :value="__('Nueva escuela')" />
-            <x-text-input id="school" class="block mt-1 w-full" type="text" name="school" :value="old('school')" required autofocus autocomplete="username" />
+        <div>
+            <x-input-label for="bootcamp" :value="__('Nuevo bootcamp')" />
+            <x-text-input id="bootcamp" class="block mt-1 w-full" type="text" name="bootcamp" :value="old('bootcamp')" required autofocus autocomplete="username" />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
