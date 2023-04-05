@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.bootcamp-form {
+    background-color: white;
+}
+
 .backgroundOrange {
     background-color: #ff4700;
     color:white;
