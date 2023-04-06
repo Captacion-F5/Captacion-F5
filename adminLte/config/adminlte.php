@@ -295,7 +295,7 @@ return [
         // Navbar items:
         [
             'text' => '',
-            'url' => 'register',
+            'url' => 'myregister',
             'icon' => 'fa fa-user-plus',
 
             'topnav_right' => true,
@@ -312,8 +312,6 @@ return [
         //     'url'  => 'admin/blog',
         //     'can'  => 'manage-blog',
         // ],
-
-
 
         ['header' => 'Escuelas'],
         [

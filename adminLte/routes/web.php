@@ -19,6 +19,12 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+
+Route::get('/myregister', function () {
+    return view('myregister');
+})->name('myregister');
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -40,6 +46,9 @@ Route::middleware('auth')->group(function () {
 Route::get('/bootcamp', function () {
     return view('bootcamp.index');
 })->name('bootcamp.index');
+
+
+
 Route::get('/bootcamp/create', [BootcampController::class, 'create'])->name('bootcamp.create');
 
 
