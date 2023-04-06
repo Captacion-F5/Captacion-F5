@@ -9,4 +9,6 @@ class Postulado extends Model
 {
     use HasFactory;
     protected $fillable = ['nombre', 'genero', 'mail', 'telefono', 'url-perfil'];
+
+    protected $table = 'postulado';
 }
