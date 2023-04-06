@@ -7,12 +7,16 @@
 @section('content')
     <div class="flex justify-between">
         <div class="m-10">
-            <x-section-button class="m-auto">
-                {{ __('General') }}
-            </x-section-button>
-            <x-section-button class="">
-                {{ __('Ejercicios') }}
-            </x-section-button>
+            <a href="{{ url('/general') }}">
+                <x-section-button class="m-auto">
+                    {{ __('General') }}
+                </x-section-button>
+            </a>
+            <a href="{{ url('/exercises') }}">
+                <x-section-button class="">
+                    {{ __('Ejercicios') }}
+                </x-section-button>
+            </a>
             <x-section-button class="">
                 {{ __('RIC') }}
             </x-section-button>
