@@ -10,7 +10,7 @@
 
 @section('content')
 <h2 class="text-naranja text-lg mt-2">Bienvenida a tu panel de administradora</h2>
-<x-school-form></x-school-form>
+{{-- <x-school-form></x-school-form>--}}
 <x-bootcamp-form></x-bootcamp-form>
 <div class="flex justify-between">
     <div class="m-10">
@@ -33,8 +33,9 @@
             {{ __('TPB') }}
         </x-section-button>
     </div>
-    <div class="m-10">
+    <div class="mt-10">
         <x-event-button>
+            {{ __('Evento')}}
         </x-event-button>
     </div>
 </div>
@@ -58,7 +59,7 @@
         </x-profile-table>
     </div> --}}
 
-    <x-applicant-form></x-applicant-form>
+    {{-- <x-applicant-form></x-applicant-form> --}}
 
 
 
