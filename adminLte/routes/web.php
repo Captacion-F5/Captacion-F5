@@ -3,6 +3,7 @@
 use App\Http\Controllers\BootcampController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\RegisteredUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +21,15 @@ Route::get('/', function () {
 });
 
 
-Route::get('/myregister', function () {
-    return view('myregister');
-})->name('myregister');
+Route::middleware(['web'])->group(function () {
+    Route::get('/myregister', function () {
+        return view('auth.register');
+    })->name('myregister');
+
+    Route::post('/myregister', [RegisteredUserController::class, 'store'])->name('myregister.store');
+});
+
+
 
 
 Route::get('/dashboard', function () {
@@ -37,6 +44,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
 });
 
 // Bootcamp

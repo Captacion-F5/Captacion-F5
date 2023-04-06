@@ -253,14 +253,14 @@ return [
     |
     */
 
-    'use_route_url' => false,
+    'use_route_url' => true,
     'dashboard_url' => 'dashboard',
     'logout_url' => 'logout',
     'login_url' => 'login',
-    'register_url' => 'register',
+    'register_url' => 'myregister',
     'password_reset_url' => 'password/reset',
     'password_email_url' => 'password/email',
-    'profile_url' => 'profile',
+    'profile_url' => 'profile.edit',
     
 
     /*
@@ -296,7 +296,7 @@ return [
         // Navbar items:
         [
             'text' => '',
-            'url' => 'myregister',
+            'route' => 'myregister',
             'icon' => 'fa fa-user-plus',
 
             'topnav_right' => true,
