@@ -32,10 +32,10 @@
             </x-event-button>
         </div>
     </div>
-    <x-searchbar></x-searchbar>
+    <x-atoms.searchbar></x-atoms.searchbar>
 
-    <x-exercices-table class="">
-    </x-exercices-table>
+    <x-tables.exercices-table class="">
+    </x-tables.exercices-table>
 
 
 @stop

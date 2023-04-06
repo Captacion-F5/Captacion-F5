@@ -12,9 +12,11 @@
         <x-section-button class="m-auto">
             {{ __('General') }}
         </x-section-button>
-        <x-section-button class="">
-            {{ __('Ejercicios') }}
-        </x-section-button>
+        <a href="{{ url('/exercises') }}">
+            <x-section-button class="">
+                {{ __('Ejercicios') }}
+            </x-section-button>
+        </a>
         <x-section-button class="">
             {{ __('RIC') }}
         </x-section-button>
@@ -35,10 +37,10 @@
     </div>
 </div>
 
-<x-searchbar></x-searchbar>
+<x-atoms.searchbar></x-atoms.searchbar>
 
-    <x-process-table class="">
-    </x-process-table>
+    <x-tables.process-table class="">
+    </x-tables.process-table>
 
 @stop
 

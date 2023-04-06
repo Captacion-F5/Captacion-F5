@@ -8,14 +8,14 @@
 @section('content')
     <h2 class="text-naranja text-lg mt-2">Vista general de los procesos de selección.</h2>
     <br>
-    <x-general-table></x-general-table>
+    <x-tables.general-table></x-tables.general-table>
     <br>
-    <x-panel class="ml-3"></x-panel>
+    <x-atoms.panel class="ml-3"></x-atoms.panel>
     <br>
     <div class="flex flex-row">
-        <x-donut ></x-donut>
-        <x-donut-genero></x-donut-genero>
-        <x-stick-chart></x-stick-chart>
+        <x-molecules.donut></x-molecules.donut>
+        <x-molecules.donut-genero></x-molecules.donut-genero>
+        <x-molecules.stick-chart></x-molecules.stick-chart>
     </div>
 
 

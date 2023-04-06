@@ -34,10 +34,10 @@
     </div>
 </div>
 
-    <x-searchbar></x-searchbar>
+    <x-atoms.searchbar></x-atoms.searchbar>
 
-        <x-participate-table class="w-100">
-        </x-participate-table>
+        <x-tables.participate-table class="w-100">
+        </x-tables.participate-table>
 
 
 @stop
