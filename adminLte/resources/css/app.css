@@ -23,7 +23,7 @@ a > p {
     color:white;
 
 }
-p:hover {
+a > p:hover {
    font-weight: bold;
     text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
 }

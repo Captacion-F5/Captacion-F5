@@ -291,17 +291,20 @@ return [
     |
     */
 
+
     'menu' => [
         // Navbar items:
-        // [
-        //     'text'=> 'Añadir Usuario',
-        //     'url' => 'register',
-        //     'topnav_right' => true,
-        // ],
-        // [
-        //     'type'         => 'fullscreen-widget',
-        //     'topnav_right' => true,
-        // ],
+        [
+            'text' => '',
+            'url' => 'myregister',
+            'icon' => 'fa fa-user-plus',
+
+            'topnav_right' => true,
+        ],
+        [
+            'type'         => 'fullscreen-widget',
+            'topnav_right' => true,
+        ],
 
         // Sidebar items:
 
@@ -312,11 +315,15 @@ return [
         // ],
 
         ['header' => 'Escuelas'],
-        // [
-        //     'text' => 'Admin',
-        //     'url'  => 'admin/settings',
-        //     'icon' => 'fas fa-fw fa-user',
-        // ],
+        [
+
+            'text' => 'Escuela',
+            'url' => 'school.create',
+            'icon_color' => 'white',
+            'icon' => 'fa fa-plus',
+
+        ],
+
         // [
         //     'text' => 'Cambio de contraseña',
         //     'url'  => 'admin/settings',
@@ -325,40 +332,48 @@ return [
      
 
         [
-            'text'    => 'Asturias',
+
+            'text' => 'Asturias',
             'submenu' => [
+                [
+                    'text' => 'Bootcamp',
+                    'url' => 'bootcamp.create',
+                    'icon_color' => 'white',
+                    'icon' => 'fa fa-plus',
+
+                ],
                 [
                     'text' => 'Promos Activas',
                     'icon_color' => 'green',
-                    'url'  => '#',
+                    'url' => '#',
                     'submenu' => [
                         [
                             'text' => 'FemCoders',
-                            'url'  => '#',
+                            'url' => '#',
                         ],
                         [
-                            'text'    => 'RuralCamp',
-                            'url'     => '#',
+                            'text' => 'RuralCamp',
+                            'url' => '#',
                         ],
 
-                ],
+                    ],
 
                 ],
                 [
                     'text' => 'Promos Inactivas',
                     'icon_color' => 'red',
-                    'url'  => '#',
+                    'url' => '#',
                     'submenu' => [
                         [
                             'text' => 'FemCoders',
-                            'url'  => '#',
+                            'url' => '#',
                         ],
                         [
-                            'text'    => 'RuralCamp',
-                            'url'     => '#',
+                            'text' => 'RuralCamp',
+                            'url' => '#',
                         ],
 
-                ],
+                    ],
 
                 ],
 

@@ -12,7 +12,7 @@
             </div>
 
             <div class="flex items-center justify-center mt-4">
-                <x-primary-button class="ml-3">
+                <x-primary-button class="ml-3 bg-naranja">
                     {{ __('Añadir') }}
                 </x-primary-button>
             </div>
