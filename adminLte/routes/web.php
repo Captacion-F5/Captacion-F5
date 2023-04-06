@@ -80,8 +80,8 @@ Route::get('/bootcamp', function () {
 })->name('bootcamp.index');
 
 
-
 Route::get('/bootcamp/create', [BootcampController::class, 'create'])->name('bootcamp.create');
 
-
 require __DIR__.'/auth.php';
+
+
