@@ -261,7 +261,7 @@ return [
     'password_reset_url' => 'password/reset',
     'password_email_url' => 'password/email',
     'profile_url' => 'profile.edit',
-    
+
 
     /*
     |--------------------------------------------------------------------------
@@ -329,7 +329,7 @@ return [
         //     'url'  => 'admin/settings',
         //     'icon' => 'fas fa-fw fa-lock',
         // ],
-     
+
 
         [
 
@@ -337,7 +337,7 @@ return [
             'submenu' => [
                 [
                     'text' => 'Bootcamp',
-                    'url' => 'bootcamp.create',
+                    'url' => 'bootcamps.create',
                     'icon_color' => 'white',
                     'icon' => 'fa fa-plus',
 
@@ -378,11 +378,11 @@ return [
                 ],
 
             ],
-           
+
 
         ],
     ],
-   
+
 
     /*
     |--------------------------------------------------------------------------

@@ -14,7 +14,8 @@ class BootcampController extends Controller
     public function index()
     {
         $bootcamps = Bootcamp::all();
-        return view('bootcamps.index', compact('bootcamps'));
+
+    return view('bootcamps.index', compact('bootcamps'));
     }
 
     /**
@@ -23,8 +24,9 @@ class BootcampController extends Controller
 
     public function create()
     {
-        $schools = School::all();
-        return view('bootcamps.create', compact('schools'));
+        // $schools = School::all();
+        // return view('bootcamps.create', compact('schools'));
+        return view('bootcamps.create');
     }
 
 
@@ -35,19 +37,25 @@ class BootcampController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'school_id' => 'required',
-            'nombre' => 'required',
-            'inicio' => 'required|date',
-        ]);
+        // $request->validate([
+        //     'school_id' => 'required',
+        //     'nombre' => 'required',
+        //     'inicio' => 'required|date',
+        // ]);
 
-        Bootcamp::create([
-            'school_id' => $request->escuela_id,
-            'nombre' => $request->nombre,
-            'inicio' => $request->fecha_inicio,
-        ]);
+        // Bootcamp::create([
+        //     'school_id' => $request->escuela_id,
+        //     'nombre' => $request->nombre,
+        //     'inicio' => $request->fecha_inicio,
+        // ]);
+
+        $bootcamp = new Bootcamp();
+        $bootcamp->name = $request->input('name');
+        $bootcamp->start_date = $request->input('start_date');
+        $bootcamp->save();
 
         return redirect()->route('bootcamps.index');
+        // ->with('success', 'Bootcamp creado exitosamente.')
     }
 
 
@@ -59,7 +67,7 @@ class BootcampController extends Controller
      */
     public function show(Bootcamp $bootcamp)
     {
-        //
+        return view('bootcamps.show', compact('bootcamp'));
     }
 
     /**
@@ -67,26 +75,30 @@ class BootcampController extends Controller
      */
     public function edit(Bootcamp $bootcamp)
     {
-        //
+        return view('bootcamps.edit', compact('bootcamp'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $bootcamp)
     {
-        $request->validate([
-            'school_id' => 'required',
-            'nombre' => 'required',
-            'fecha_inicio' => 'required|date',
-        ]);
+        // $request->validate([
+        //     'school_id' => 'required',
+        //     'nombre' => 'required',
+        //     'fecha_inicio' => 'required|date',
+        // ]);
 
-        $bootcamp = Bootcamp::findOrFail($id);
-        $bootcamp->update([
-            'school_id' => $request->escuela_id,
-            'nombre' => $request->nombre,
-            'fecha_inicio' => $request->fecha_inicio,
-        ]);
+        // $bootcamp = Bootcamp::findOrFail($id);
+        // $bootcamp->update([
+        //     'school_id' => $request->escuela_id,
+        //     'nombre' => $request->nombre,
+        //     'fecha_inicio' => $request->fecha_inicio,
+        // ]);
+
+        $bootcamp->name = $request->input('name');
+        $bootcamp->start_date = $request->input('start_date');
+        $bootcamp->save();
 
         return redirect()->route('bootcamps.index');
     }
@@ -96,6 +108,8 @@ class BootcampController extends Controller
      */
     public function destroy(Bootcamp $bootcamp)
     {
-        //
+        $bootcamp->delete();
+
+        return redirect()->route('bootcamps.index');
     }
 }

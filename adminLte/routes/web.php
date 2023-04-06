@@ -75,13 +75,19 @@ Route::middleware('auth')->group(function () {
 
 // Route::resource('bootcamps', 'BootcampController');
 
-Route::get('/bootcamp', function () {
-    return view('bootcamp.index');
-})->name('bootcamp.index');
+// Route::get('/bootcamp', function () {
+//     return view('bootcamp.index');
+// })->name('bootcamp.index');
 
 
 
-Route::get('/bootcamp/create', [BootcampController::class, 'create'])->name('bootcamp.create');
+Route::get('/bootcamps/create', [BootcampController::class, 'create'])->name('bootcamps.create');
+Route::get('/bootcamps/index', [BootcampController::class, 'create'])->name('bootcamps.index');
+Route::get('/bootcamps/edit', [BootcampController::class, 'create'])->name('bootcamps.edit');
+Route::get('/bootcamps/show', [BootcampController::class, 'create'])->name('bootcamps.show');
+Route::get('/bootcamps/store', [BootcampController::class, 'create'])->name('bootcamps.store');
+
+
 
 
 require __DIR__.'/auth.php';
