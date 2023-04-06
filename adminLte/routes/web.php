@@ -19,11 +19,25 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-
 Route::get('/myregister', function () {
     return view('myregister');
 })->name('myregister');
 
+Route::get('/general', function () {
+    return view('pages.general');
+})->name('general');
+
+Route::get('/exercises', function () {
+    return view('pages.exercises');
+})->name('exercises');
+
+Route::get('/event', function () {
+    return view('pages.event');
+})->name('event');
+
+Route::get('/pruebas', function () {
+    return view('pruebas');
+})->name('pruebas');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

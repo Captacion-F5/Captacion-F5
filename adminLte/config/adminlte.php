@@ -346,7 +346,7 @@ return [
                     'submenu' => [
                         [
                             'text' => 'FemCoders',
-                            'url' => '#',
+                            'url' => '/general',
                         ],
                         [
                             'text' => 'RuralCamp',

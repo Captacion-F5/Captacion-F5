@@ -5,7 +5,6 @@
 
 
 @section('content')
-<h2 class="text-naranja text-lg mt-2">Bienvenida a tu panel de administradora</h2>
 
 <div class="flex justify-between">
     <div class="m-10">
@@ -35,10 +34,11 @@
     </div>
 </div>
 
-<x-searchbar></x-searchbar>
+    <x-searchbar></x-searchbar>
 
-    <x-process-table class="">
-    </x-process-table>
+        <x-participate-table class="w-100">
+        </x-participate-table>
+
 
 @stop
 
