@@ -82,12 +82,13 @@ Route::middleware('auth')->group(function () {
 
 
 Route::get('/bootcamps/create', [BootcampController::class, 'create'])->name('bootcamps.create');
-Route::get('/bootcamps/index', [BootcampController::class, 'create'])->name('bootcamps.index');
-Route::get('/bootcamps/edit', [BootcampController::class, 'create'])->name('bootcamps.edit');
-Route::get('/bootcamps/show', [BootcampController::class, 'create'])->name('bootcamps.show');
-Route::get('/bootcamps/store', [BootcampController::class, 'create'])->name('bootcamps.store');
-
+Route::get('/bootcamps/index', [BootcampController::class, 'index'])->name('bootcamps.index');
+Route::get('/bootcamps/edit', [BootcampController::class, 'edit'])->name('bootcamps.edit');
+Route::get('/bootcamps/show', [BootcampController::class, 'show'])->name('bootcamps.show');
+Route::get('/bootcamps/store', [BootcampController::class, 'store'])->name('bootcamps.store');
 
 
 
 require __DIR__.'/auth.php';
+
+

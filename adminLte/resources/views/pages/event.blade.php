@@ -32,7 +32,7 @@
         </x-section-button>
     </div>
     <div class="mt-10">
-        <x-event-button>
+        <x-event-button texto="evento">
             {{ __('Evento')}}
         </x-event-button>
     </div>
@@ -40,8 +40,6 @@
 
     <x-atoms.searchbar></x-atoms.searchbar>
 
-        <x-tables.participate-table class="w-100">
-        </x-tables.participate-table>
 
 
 @stop

@@ -20,7 +20,7 @@
                     <label for="start_date">Fecha de inicio</label>
                     <input type="date" name="start_date" id="start_date" class="form-control">
                 </div>
-                <button type="submit" class="btn btn-naranja">Añadir</button>
+                <x-event-button>{{'Añadir'}}</x-event-button>
             </form>
         </div>
     </div>
