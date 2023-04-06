@@ -5,11 +5,10 @@
 
 
 @section('content')
-<h2 class="text-naranja text-lg mt-2">Bienvenida a tu panel de administradora</h2>
 
 <div class="flex justify-between">
     <div class="m-10">
-        <a href="{{ url('/general') }}">
+    <a href="{{ url('/general') }}">
             <x-section-button class="m-auto">
                 {{ __('General') }}
             </x-section-button>
@@ -39,10 +38,11 @@
     </div>
 </div>
 
-<x-atoms.searchbar></x-atoms.searchbar>
+    <x-atoms.searchbar></x-atoms.searchbar>
 
-    <x-tables.process-table class="">
-    </x-tables.process-table>
+        <x-tables.participate-table class="w-100">
+        </x-tables.participate-table>
+
 
 @stop
 

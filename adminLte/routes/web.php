@@ -30,7 +30,31 @@ Route::middleware(['web'])->group(function () {
 });
 
 
+Route::middleware(['web'])->group(function () {
+    Route::get('/myregister', function () {
+        return view('auth.register');
+    })->name('myregister');
 
+    Route::post('/myregister', [RegisteredUserController::class, 'store'])->name('myregister.store');
+});
+
+
+
+Route::get('/general', function () {
+    return view('pages.general');
+})->name('general');
+
+Route::get('/exercises', function () {
+    return view('pages.exercises');
+})->name('exercises');
+
+Route::get('/event', function () {
+    return view('pages.event');
+})->name('event');
+
+Route::get('/pruebas', function () {
+    return view('pruebas');
+})->name('pruebas');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
