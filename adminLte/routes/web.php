@@ -88,4 +88,5 @@ Route::get('/bootcamp/create', [BootcampController::class, 'create'])->name('boo
 require __DIR__.'/auth.php';
 
 Route::resource('school',SchoolController::class);
-Route::get('/school/create', [SchoolController::class, 'create'])->name('school.create');
+Route::post('/school/create', [SchoolController::class, 'create'])->name('school.create');
+Route::post('/school/store', [SchoolController::class, 'store'])->name('school.store');
