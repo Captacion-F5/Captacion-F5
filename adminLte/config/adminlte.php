@@ -318,7 +318,7 @@ return [
         [
 
             'text' => 'Escuela',
-            'url' => 'school.create',
+            'url' => '/school/create',
             'icon_color' => 'white',
             'icon' => 'fa fa-plus',
 
@@ -379,6 +379,14 @@ return [
 
             ],
            
+
+        ],
+        [
+
+            'text' => 'Añadir Escuela',
+            'url' => '/school/create',
+            'icon_color' => 'white',
+            'icon' => 'fa fa-plus',
 
         ],
     ],
