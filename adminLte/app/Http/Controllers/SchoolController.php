@@ -20,7 +20,8 @@ class SchoolController extends Controller
      */
     public function create()
     {
-        //
+        $schools = School::all();
+        return view('bootcamps.create', compact('schools'));
     }
 
     /**

@@ -14,17 +14,17 @@
                 @method('PUT')
 
                 <div class="mb-3">
-                    <label for="name" class="form-label">Nombre</label>
-                    <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ $bootcamp->name }}">
-                    @error('name')
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input type="text" class="form-control @error('name') is-invalid @enderror" id="nombre" name="nombre" value="{{ $bootcamp->nombre }}">
+                    @error('nombre')
                         <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
 
                 <div class="mb-3">
-                    <label for="start_date" class="form-label">Fecha de inicio</label>
-                    <input type="date" class="form-control @error('start_date') is-invalid @enderror" id="start_date" name="start_date" value="{{ $bootcamp->start_date }}">
-                    @error('start_date')
+                    <label for="inicio" class="form-label">Fecha de inicio</label>
+                    <input type="date" class="form-control @error('inicio') is-invalid @enderror" id="inicio" name="inicio" value="{{ $bootcamp->inicio }}">
+                    @error('inicio')
                         <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>

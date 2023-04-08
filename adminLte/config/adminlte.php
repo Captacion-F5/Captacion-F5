@@ -318,7 +318,7 @@ return [
         [
 
             'text' => 'Escuela',
-            'url' => 'school.create',
+            'url' => '/school',
             'icon_color' => 'white',
             'icon' => 'fa fa-plus',
 
@@ -337,7 +337,7 @@ return [
             'submenu' => [
                 [
                     'text' => 'Bootcamp',
-                    'url' => 'bootcamps.create',
+                    'url' => '/bootcamps/index',
                     'icon_color' => 'white',
                     'icon' => 'fa fa-plus',
 

@@ -10,18 +10,41 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            <form action="{{ route('bootcamps.store') }}" method="POST">
+            <form method="POST" action="{{ route('bootcamps.store') }}" class="max-w-lg mx-auto my-8">
                 @csrf
-                <div class="form-group">
-                    <label for="name">Nombre</label>
-                    <input type="text" name="name" id="name" class="form-control">
+                <div class="mb-4">
+                    <label for="nombre" class="block text-gray-700 font-bold mb-2">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" class="form-input w-full @error('name') border-red-500 @enderror" value="{{ old('name') }}" required>
+                    @error('name')
+                        <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                    @enderror
                 </div>
-                <div class="form-group">
-                    <label for="start_date">Fecha de inicio</label>
-                    <input type="date" name="start_date" id="start_date" class="form-control">
+                <div class="mb-4">
+                    <label for="inicio" class="block text-gray-700 font-bold mb-2">Fecha de inicio:</label>
+                    <input type="date" id="inicio" name="inicio" class="form-input w-full @error('inicio') border-red-500 @enderror" value="{{ old('start_date') }}" required>
+                    @error('inicio')
+                        <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                    @enderror
                 </div>
-                <x-event-button>{{'Añadir'}}</x-event-button>
+                <div class="mb-4">
+                    <label for="school_id" class="block text-gray-700 font-bold mb-2">Escuela:</label>
+                    <select id="school_id" name="school_id" class="form-select w-full @error('school_id') border-red-500 @enderror" required>
+                        <option value="">Seleccione una escuela</option>
+                        @foreach($schools as $school)
+                            <option value="{{ $school->id }}" {{ old('school_id') == $school->id ? 'selected' : '' }}>{{ $school->name }}</option>
+                        @endforeach
+                    </select>
+                    @error('school_id')
+                        <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                    @enderror
+                </div>
+                <div class="flex justify-end">
+                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                        Crear bootcamp
+                    </button>
+                </div>
             </form>
+
         </div>
     </div>
 @stop

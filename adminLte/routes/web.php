@@ -80,13 +80,13 @@ Route::middleware('auth')->group(function () {
 // })->name('bootcamp.index');
 
 
-
 Route::get('/bootcamps/create', [BootcampController::class, 'create'])->name('bootcamps.create');
 Route::get('/bootcamps/index', [BootcampController::class, 'index'])->name('bootcamps.index');
-Route::get('/bootcamps/edit', [BootcampController::class, 'edit'])->name('bootcamps.edit');
-Route::get('/bootcamps/show', [BootcampController::class, 'show'])->name('bootcamps.show');
-Route::get('/bootcamps/store', [BootcampController::class, 'store'])->name('bootcamps.store');
-
+Route::get('/bootcamps/edit/{id}', [BootcampController::class, 'edit'])->name('bootcamps.edit');
+Route::get('/bootcamps/show/{id}', [BootcampController::class, 'show'])->name('bootcamps.show');
+Route::post('/bootcamps/store', [BootcampController::class, 'store'])->name('bootcamps.store');
+Route::put('/bootcamps/update/{id}', [BootcampController::class, 'update'])->name('bootcamps.update');
+Route::delete('/bootcamps/destroy/{id}', [BootcampController::class, 'destroy'])->name('bootcamps.destroy');
 
 
 require __DIR__.'/auth.php';
