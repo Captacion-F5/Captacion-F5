@@ -337,7 +337,7 @@ return [
             'submenu' => [
                 [
                     'text' => 'Bootcamp',
-                    'url' => '/bootcamps/index',
+                    'url' => '/bootcamps/create',
                     'icon_color' => 'white',
                     'icon' => 'fa fa-plus',
 
