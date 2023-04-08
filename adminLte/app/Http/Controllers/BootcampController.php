@@ -13,7 +13,7 @@ class BootcampController extends Controller
      */
     public function index()
     {
-        $bootcamps = Bootcamp::all();
+       $bootcamps = Bootcamp::with('school')->get();
 
     return view('bootcamps.index', compact('bootcamps'));
     }
@@ -24,9 +24,8 @@ class BootcampController extends Controller
 
     public function create()
     {
-        // $schools = School::all();
-        // return view('bootcamps.create', compact('schools'));
-        return view('bootcamps.create');
+        $schools = School::all();
+        return view('bootcamps.create', compact('schools'));
     }
 
 
@@ -50,12 +49,12 @@ class BootcampController extends Controller
         // ]);
 
         $bootcamp = new Bootcamp();
-        $bootcamp->name = $request->input('name');
-        $bootcamp->start_date = $request->input('start_date');
+        $bootcamp->nombre = $request->input('nombre');
+        $bootcamp->inicio = $request->input('inicio');
+        $bootcamp->school = $request->input('school_id');
         $bootcamp->save();
 
-        return redirect()->route('bootcamps.index');
-        // ->with('success', 'Bootcamp creado exitosamente.')
+        return redirect()->route('bootcamps.index')->with('success', 'Bootcamp creado exitosamente.');
     }
 
 
@@ -67,7 +66,8 @@ class BootcampController extends Controller
      */
     public function show(Bootcamp $bootcamp)
     {
-        return view('bootcamps.show', compact('bootcamp'));
+        $bootcamps = Bootcamp::findOrFail($bootcamp);
+        return view('bootcamp.show', compact('bootcamp'));
     }
 
     /**
@@ -108,6 +108,7 @@ class BootcampController extends Controller
      */
     public function destroy(Bootcamp $bootcamp)
     {
+        $bootcamp = Bootcamp::findOrFail($bootcamp);
         $bootcamp->delete();
 
         return redirect()->route('bootcamps.index');

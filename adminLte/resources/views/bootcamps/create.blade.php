@@ -29,7 +29,7 @@
                 <div class="mb-4">
                     <label for="school_id" class="block text-gray-700 font-bold mb-2">Escuela:</label>
                     <select id="school_id" name="school_id" class="form-select w-full @error('school_id') border-red-500 @enderror" required>
-                        <option value="">Seleccione una escuela</option>
+                        <option value="Selecciona">Seleccione una escuela</option>
                         @foreach($schools as $school)
                             <option value="{{ $school->id }}" {{ old('school_id') == $school->id ? 'selected' : '' }}>{{ $school->name }}</option>
                         @endforeach

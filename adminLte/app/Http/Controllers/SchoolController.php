@@ -12,7 +12,8 @@ class SchoolController extends Controller
      */
     public function index()
     {
-        //
+        $schools = School::all();
+        return view('schools.index', compact('schools'));
     }
 
     /**
@@ -20,8 +21,7 @@ class SchoolController extends Controller
      */
     public function create()
     {
-        $schools = School::all();
-        return view('bootcamps.create', compact('schools'));
+        return view('schools.create');
     }
 
     /**
@@ -29,7 +29,17 @@ class SchoolController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|max:255',
+        ]);
+
+        $school = new School([
+            'name' => $request->get('name'),
+        ]);
+        $school->save();
+
+        return redirect()->route('schools.index')
+                         ->with('success', 'Escuela creada correctamente');
     }
 
     /**
@@ -37,7 +47,7 @@ class SchoolController extends Controller
      */
     public function show(School $school)
     {
-        //
+        return view('schools.show', compact('school'));
     }
 
     /**
@@ -45,7 +55,7 @@ class SchoolController extends Controller
      */
     public function edit(School $school)
     {
-        //
+        return view('schools.edit', compact('school'));
     }
 
     /**
@@ -53,7 +63,15 @@ class SchoolController extends Controller
      */
     public function update(Request $request, School $school)
     {
-        //
+        $request->validate([
+            'name' => 'required|max:255',
+        ]);
+
+        $school->name = $request->get('name');
+        $school->save();
+
+        return redirect()->route('schools.index')
+                         ->with('success', 'Escuela actualizada correctamente');
     }
 
     /**
@@ -61,6 +79,9 @@ class SchoolController extends Controller
      */
     public function destroy(School $school)
     {
-        //
+        $school->delete();
+
+        return redirect()->route('schools.index')
+                         ->with('success', 'Escuela eliminada correctamente');
     }
 }
