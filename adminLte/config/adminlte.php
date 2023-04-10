@@ -316,12 +316,10 @@ return [
 
         ['header' => 'Escuelas'],
         [
-
             'text' => 'Escuela',
             'url' => '/school',
             'icon_color' => 'white',
             'icon' => 'fa fa-plus',
-
         ],
 
         // [

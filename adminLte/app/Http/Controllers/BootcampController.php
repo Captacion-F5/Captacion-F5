@@ -13,9 +13,8 @@ class BootcampController extends Controller
      */
     public function index()
     {
-       $bootcamps = Bootcamp::with('school')->get();
-
-    return view('bootcamps.index', compact('bootcamps'));
+        $bootcamps = Bootcamp::with('school')->get();
+        return view('bootcamps.index', compact('bootcamps'));
     }
 
     /**
@@ -101,12 +100,13 @@ class BootcampController extends Controller
         $request->validate([
             'nombre' => 'required',
             'inicio' => 'required|date',
-            'school_id' => 'required',
+            'school_id' => 'required'
         ]);
 
         $bootcamp->nombre = $request->input('nombre');
         $bootcamp->inicio = $request->input('inicio');
-        $bootcamp->school_id = $request->input('school_id');
+        // $bootcamp->school_id = $request->input('school_id');
+        $bootcamp->school_id = 1;
         $bootcamp->save();
 
         return redirect()->route('bootcamps.index')->with('success', 'Bootcamp actualizado exitosamente.');
@@ -116,13 +116,7 @@ class BootcampController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-//     public function destroy(Bootcamp $bootcamp)
-// {
-//     $bootcamp->delete();
-
-//     return redirect()->route('bootcamps.index');
-// }
-public function destroy($id)
+    public function destroy($id)
     {
         $bootcamp = Bootcamp::findOrFail($id);
         $bootcamp->delete();

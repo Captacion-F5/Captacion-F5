@@ -1,3 +1,4 @@
+@vite(['resources/js/app.js', 'resources/css/app.css'])
 @extends('adminlte::page')
 
 @section('title', 'Editar Bootcamp')
@@ -11,7 +12,7 @@
         <div class="card-body">
             <form action="{{ route('bootcamps.update', $bootcamp) }}" method="POST">
                 @csrf
-                @method('PUT')
+                @method('PATCH')
 
                 <div class="mb-3">
                     <label for="nombre" class="form-label">Nombre</label>
@@ -28,61 +29,54 @@
                         <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
-
-                <button type="submit" class="btn btn-primary">Actualizar</button>
-            </form>
-        </div>
-    </div>
-@stop
-
-
-{{-- @extends('adminlte::page')
-
-@section('title', 'Editar bootcamp')
-
-@section('content_header')
-    <h1>Editar bootcamp</h1>
-@stop
-
-@section('content')
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="box box-primary">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Editar bootcamp</h3>
+                <div class="mb-3">
+                    <label for="school_id" class="form-label">Escuela</label>
+                    <input type="text" class="form-control @error('school_id') is-invalid @enderror" id="school_id" name="school_id" value="{{ $bootcamp->school_id }}">
+                    @error('school_id')
+                        <span class="invalid-feedback">{{ $message }}</span>
+                    @enderror
                 </div>
-                <!-- /.box-header -->
-                <!-- form start -->
-                <form role="form" method="POST" action="{{ route('bootcamps.update', $bootcamp->id) }}">
-                    {{ method_field('PUT') }}
-                    {{ csrf_field() }}
-                    <div class="box-body">
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name">Nombre</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Introduzca el nombre del bootcamp" value="{{ $bootcamp->name }}" required>
-                            @if ($errors->has('name'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('name') }}</strong>
-                                </span>
-                            @endif
-                        </div>
-                        <div class="form-group{{ $errors->has('start_date') ? ' has-error' : '' }}">
-                            <label for="start_date">Fecha de inicio</label>
-                            <input type="date" class="form-control" id="start_date" name="start_date" value="{{ $bootcamp->start_date }}" required>
-                            @if ($errors->has('start_date'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('start_date') }}</strong>
-                                </span>
-                            @endif
-                        </div>
-                    </div>
-                    <!-- /.box-body -->
-                    <div class="box-footer">
-                        <button type="submit" class="btn btn-primary">Guardar cambios</button>
-                        <a href="{{ route('bootcamps.index') }}" class="btn btn-default">Cancelar</a>
-                    </div>
-                </form>
-            </div>
+                {{-- <div class="mb-4">
+                    <label for="school_id" class="block text-gray-700 font-bold mb-2">Escuela:</label>
+                    <select id="school_id" name="school_id" class="form-select w-full @error('school_id') border-red-500 @enderror" required>
+                        <option value="Selecciona">Seleccione una escuela</option>
+                        @foreach($schools as $school)
+                            <option value="{{ $school->id }}" {{ old('school_id') == $school->id ? 'selected' : '' }}>{{ $school->name }}</option>
+                        @endforeach
+                    </select>
+                    @error('school_id')
+                        <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                    @enderror
+                </div> --}}
+
+
+                {{-- <div class="mb-4">
+                    <label for="school_id" class="block text-gray-700 font-bold mb-2">Escuela:</label>
+                    <select id="school_id" name="school_id" class="form-select w-full @error('school_id') border-red-500 @enderror" required>
+                        <option value="Selecciona">Seleccione una escuela</option>
+                        @foreach($schools as $school)
+                            <option value="{{ $school->id }}" {{ old('school_id') == $school->id ? 'selected' : '' }}>{{ $school->name }}</option>
+                        @endforeach
+                    </select>
+                    @error('school_id')
+                        <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                    @enderror
+                </div> --}}
+                <div class="flex justify-center">
+                    <button type="submit" class="bg-naranja hover:bg-melocoton text-white font-bold py-2 px-4 rounded">
+                        Actualizar bootcamp
+                    </button>
+                </div>
+            </form>
+            <a href="{{ route('bootcamps.index') }}" class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white bg-naranja rounded-full mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+
+                Ver bootcamps
+            </a>
         </div>
     </div>
 @stop
+
+
