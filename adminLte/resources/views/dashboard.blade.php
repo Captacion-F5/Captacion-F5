@@ -17,8 +17,6 @@
         <x-molecules.donut-genero></x-molecules.donut-genero>
         <x-molecules.stick-chart></x-molecules.stick-chart>
     </div>
-
-
 @stop
 
 
