@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use App\Models\Bootcamp;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -12,63 +13,80 @@ class EventController extends Controller
      * Display a listing of the resource.
      */
     public function index() {
-      
+        {
+            $eventos = Event::with('bootcamp')->get();
+            return view('eventos.index', ['eventos' => $eventos]);
+        }
         
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create(Request $request)
-    {
-        $validatedData = $request->validate([
-            'nombre' => 'required',
-            'fecha' => 'required|date'
-        ]);
-        
-        $event = new Event;
-        $event->nombre = $validatedData['nombre'];
-        $event->fecha = $validatedData['fecha'];
-        $event->save();
-        
-        return redirect()->route('events.index')->with('success', 'Evento creado correctamente');
-    }
+    public function create()
+{
+    $bootcamps = Bootcamp::pluck('nombre', 'id')->toArray();
+     return view('eventos.create', ['bootcamps' => $bootcamps]);
+}
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store()
+    public function store(Request $request)
     {
-       
+        $evento = new Event;
+        $evento->nombre = $request->input('nombre');
+        $evento->fecha = $request->input('fecha');
+        $evento->bootcamp_id = $request->input('bootcamp_id');
+        $evento->save();
+
+        return redirect()->route('eventos.index');
     }
+
 
     /**
      * Display the specified resource.
      */
-    public function show(Event $event)
+    public function show($id)
     {
-        //
+        $evento = Event::with('bootcamp')->findOrFail($id);
+        return view('eventos.show', ['evento' => $evento]);
     }
+
 
     /**
      * Show the form for editing the specified resource.
      */
     public function edit($id)
     {
-      
+        $evento = Event::findOrFail($id);
+        $bootcamps = Bootcamp::pluck('nombre', 'id')->toArray();
+
+        return view('eventos.edit', ['evento' => $evento, 'bootcamps' => $bootcamps]);
     }
+
 
     /**
      * Update the specified resource in storage.
      */
-    public function update() {
-  
-    }
+    public function update(Request $request, $id)
+    {
+        $evento = Event::findOrFail($id);
+        $evento->nombre = $request->input('nombre');
+        $evento->fecha = $request->input('fecha');
+        $evento->bootcamp_id = $request->input('bootcamp_id');
+        $evento->save();
 
+        return redirect()->route('eventos.index');
+    }
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id) {
-        
+    public function destroy($id)
+    {
+        $evento = Event::findOrFail($id);
+        $evento->delete();
+
+        return redirect()->route('eventos.index');
     }
 }
