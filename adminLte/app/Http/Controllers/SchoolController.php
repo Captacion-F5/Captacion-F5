@@ -15,7 +15,7 @@ class SchoolController extends Controller
      */
     public function index()
     {
-        $schools = School::latest();
+        $schools = School::latest('id', 'name')->get();
         
         return view('school.index',compact('schools'));
     }
