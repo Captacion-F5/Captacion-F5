@@ -10,6 +10,8 @@
     <br>
     <x-tables.general-table></x-tables.general-table>
     <br>
+    <x-tables.events-table></x-tables.events-table>
+    <br>
     <x-atoms.panel class="ml-3"></x-atoms.panel>
     <br>
     <div class="flex flex-row">
