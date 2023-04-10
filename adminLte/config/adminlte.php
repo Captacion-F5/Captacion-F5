@@ -370,23 +370,12 @@ return [
             'icon_color' => 'white',
             'icon' => 'fa fa-plus',
         ],
-
-        // [
-        //     'text' => 'Cambio de contraseña',
-        //     'url'  => 'admin/settings',
-        //     'icon' => 'fas fa-fw fa-lock',
-        // ],
-
-
         [
 
-            'text' => 'Asturias',
-            'submenu' => [
-                [
-                    'text' => 'Bootcamp',
-                    'url' => '/bootcamps/create',
-                    'icon_color' => 'white',
-                    'icon' => 'fa fa-plus',
+            'text' => 'Añadir Bootcamp',
+            'url' => '/bootcamps/create',
+            'icon_color' => 'white',
+            'icon' => 'fa fa-plus',
 
         ],
         [

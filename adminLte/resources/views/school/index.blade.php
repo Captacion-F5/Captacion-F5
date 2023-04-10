@@ -1,5 +1,5 @@
 @extends('adminlte::page')
-
+@vite(['resources/js/app.js','resources/css/app.css'])
 @section('content_header')
 <br>
 @stop
@@ -55,7 +55,7 @@
   <a href="{{ route('school.create') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
     Añadir Escuela
   </a>
-
+  <div class="flex justify-center items-center min-h-screen">
   <table class="table-auto">
     <thead>
       <tr>
@@ -87,4 +87,5 @@
       @endforeach
     </tbody>
   </table>
+  </div>
  --}}
