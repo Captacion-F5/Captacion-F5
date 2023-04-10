@@ -261,7 +261,7 @@ return [
     'password_reset_url' => 'password/reset',
     'password_email_url' => 'password/email',
     'profile_url' => 'profile.edit',
-    
+
 
     /*
     |--------------------------------------------------------------------------
@@ -308,81 +308,94 @@ return [
 
         // Sidebar items:
 
-        // [
-        //     'text' => 'blog',
-        //     'url'  => 'admin/blog',
-        //     'can'  => 'manage-blog',
-        // ],
+        ['header' => 'Navegar'],
+        [   'text' => 'Escuelas',
+            'submenu' => [
+                [ 
+                'text' => 'Asturias',
+                'submenu' => [
+                    // [
+                    //     'text' => 'Bootcamp',
+                    //     'url' => 'bootcamp.create',
+                    //     'icon_color' => 'white',
+                    //     'icon' => 'fa fa-plus',
 
-        ['header' => 'Escuelas'],
+                    // ],
+                    [
+                        'text' => 'Promos Activas',
+                        'icon_color' => 'green',
+                        'url' => '#',
+                        'submenu' => [
+                            [
+                                'text' => 'FemCoders',
+                                'url' => '/general',
+                            ],
+                            [
+                                'text' => 'RuralCamp',
+                                'url' => '#',
+                            ],
+
+                        ],
+
+                    ],
+                    [
+                        'text' => 'Promos Inactivas',
+                        'icon_color' => 'red',
+                        'url' => '#',
+                        'submenu' => [
+                            [
+                                'text' => 'FemCoders',
+                                'url' => '#',
+                            ],
+                            [
+                                'text' => 'RuralCamp',
+                                'url' => '#',
+                            ],
+
+                        ],
+
+                    ],
+                ],
+
+            ],
+        ],
+
+        ],
+
+        ['header' => 'Crear'],
         [
 
-            'text' => 'Escuela',
-            'url' => 'school.create',
+            'text' => 'Añadir Escuela',
+            'url' => '/school/create',
+            'icon_color' => 'white',
+            'icon' => 'fa fa-plus',
+        ],
+        [
+
+            'text' => 'Añadir Bootcamp',
+            'url' => '/bootcamps/create',
             'icon_color' => 'white',
             'icon' => 'fa fa-plus',
 
         ],
-
-        // [
-        //     'text' => 'Cambio de contraseña',
-        //     'url'  => 'admin/settings',
-        //     'icon' => 'fas fa-fw fa-lock',
-        // ],
-     
-
         [
 
-            'text' => 'Asturias',
-            'submenu' => [
-                [
-                    'text' => 'Bootcamp',
-                    'url' => 'bootcamp.create',
-                    'icon_color' => 'white',
-                    'icon' => 'fa fa-plus',
+            'text' => 'Añadir Evento',
+            'url' => '#',
+            'icon_color' => 'white',
+            'icon' => 'fa fa-plus',
 
-                ],
-                [
-                    'text' => 'Promos Activas',
-                    'icon_color' => 'green',
-                    'url' => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'FemCoders',
-                            'url' => '/general',
-                        ],
-                        [
-                            'text' => 'RuralCamp',
-                            'url' => '#',
-                        ],
+        ],
+        [
 
-                    ],
-
-                ],
-                [
-                    'text' => 'Promos Inactivas',
-                    'icon_color' => 'red',
-                    'url' => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'FemCoders',
-                            'url' => '#',
-                        ],
-                        [
-                            'text' => 'RuralCamp',
-                            'url' => '#',
-                        ],
-
-                    ],
-
-                ],
-
-            ],
-           
+            'text' => 'Añadir Postulante',
+            'url' => '#',
+            'icon_color' => 'white',
+            'icon' => 'fa fa-plus',
 
         ],
     ],
-   
+
 
     /*
     |--------------------------------------------------------------------------

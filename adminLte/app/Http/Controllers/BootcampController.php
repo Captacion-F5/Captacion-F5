@@ -13,7 +13,7 @@ class BootcampController extends Controller
      */
     public function index()
     {
-        $bootcamps = Bootcamp::all();
+        $bootcamps = Bootcamp::with('school')->get();
         return view('bootcamps.index', compact('bootcamps'));
     }
 
@@ -35,31 +35,40 @@ class BootcampController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'school_id' => 'required',
-            'nombre' => 'required',
-            'inicio' => 'required|date',
-        ]);
+        $bootcamp = new Bootcamp();
+        $bootcamp->nombre = $request->input('nombre');
+        $bootcamp->inicio = $request->input('inicio');
+        $bootcamp->school_id = $request->input('school_id');
+        $bootcamp->save();
 
-        Bootcamp::create([
-            'school_id' => $request->escuela_id,
-            'nombre' => $request->nombre,
-            'inicio' => $request->fecha_inicio,
-        ]);
+        return redirect()->route('bootcamps.index')->with('success', 'Bootcamp creado exitosamente.');
+        // $request->validate([
+        //     'school_id' => 'required',
+        //     'nombre' => 'required',
+        //     'inicio' => 'required|date',
+        // ]);
 
-        return redirect()->route('bootcamps.index');
+        // Bootcamp::create([
+        //     'school_id' => $request->escuela_id,
+        //     'nombre' => $request->nombre,
+        //     'inicio' => $request->fecha_inicio,
+        // ]);
+
+        // $bootcamp = new Bootcamp();
+        // $bootcamp->nombre = $request->input('nombre');
+        // $bootcamp->inicio = $request->input('inicio');
+        // $bootcamp->school = $request->input('school_id');
+        // $bootcamp->save();
+
+        // return redirect()->route('bootcamps.index')->with('success', 'Bootcamp creado exitosamente.');
     }
-
-
-
-
 
     /**
      * Display the specified resource.
      */
     public function show(Bootcamp $bootcamp)
     {
-        //
+        return view('bootcamp.show', compact('bootcamp'));
     }
 
     /**
@@ -67,35 +76,51 @@ class BootcampController extends Controller
      */
     public function edit(Bootcamp $bootcamp)
     {
-        //
+        return view('bootcamps.edit', compact('bootcamp'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $id)
+    // public function update(Request $request, Bootcamp $bootcamp)
+    // {
+    //     if ($bootcamp->exists()) {
+    //         $bootcamp->nombre = $request->input('nombre');
+    //         $bootcamp->inicio = $request->input('inicio');
+    //         $bootcamp->school_id = $request->input('school_id');
+    //         $bootcamp->save();
+
+    //         return redirect()->route('bootcamps.index');
+    //     } else {
+    //         return redirect()->back()->withErrors(['message' => 'El bootcamp que estás intentando actualizar no existe.']);
+    //     }
+    // }
+    public function update(Request $request, Bootcamp $bootcamp)
     {
         $request->validate([
-            'school_id' => 'required',
             'nombre' => 'required',
-            'fecha_inicio' => 'required|date',
+            'inicio' => 'required|date',
+            'school_id' => 'required'
         ]);
 
-        $bootcamp = Bootcamp::findOrFail($id);
-        $bootcamp->update([
-            'school_id' => $request->escuela_id,
-            'nombre' => $request->nombre,
-            'fecha_inicio' => $request->fecha_inicio,
-        ]);
+        $bootcamp->nombre = $request->input('nombre');
+        $bootcamp->inicio = $request->input('inicio');
+        // $bootcamp->school_id = $request->input('school_id');
+        $bootcamp->school_id = 1;
+        $bootcamp->save();
 
-        return redirect()->route('bootcamps.index');
+        return redirect()->route('bootcamps.index')->with('success', 'Bootcamp actualizado exitosamente.');
     }
+
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Bootcamp $bootcamp)
+    public function destroy($id)
     {
-        //
+        $bootcamp = Bootcamp::findOrFail($id);
+        $bootcamp->delete();
+        return redirect()->route('bootcamps.index')->with('success', 'El bootcamp ha sido eliminado.');
     }
+
 }
