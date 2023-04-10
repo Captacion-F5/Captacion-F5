@@ -44,43 +44,13 @@
                     </button>
                 </div>
             </form>
+            <a href="{{ route('bootcamps.index') }}" class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white bg-naranja rounded-full mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
 
+                ver bootcamps
+            </a>
         </div>
     </div>
 @stop
-
-
-{{-- @extends('layouts.app')
-
-@section('content')
-  <h1>Crear Bootcamp</h1>
-
-  <form action="{{ route('bootcamps.store') }}" method="POST">
-    @csrf
-
-    <div class="mb-4">
-      <label class="block text-gray-700 font-bold mb-2" for="escuela_id">
-        Escuela
-      </label>
-      <select name="escuela_id" id="escuela_id" class="form-select block w-full mt-1">
-        @foreach($escuelas as $escuela)
-          <option value="{{ $escuela->id }}">{{ $escuela->nombre }}</option>
-        @endforeach
-      </select>
-    </div>
-
-    <div class="mb-4">
-      <label class="block text-gray-700 font-bold mb-2" for="nombre">
-        Nombre
-      </label>
-      <input type="text" name="nombre" id="nombre" class="form-input w-full @error('nombre') border-red-500 @enderror" value="{{ old('nombre') }}">
-      @error('nombre')
-        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
-      @enderror
-    </div>
-
-    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-      Crear Bootcamp
-    </button>
-  </form>
-@endsection --}}

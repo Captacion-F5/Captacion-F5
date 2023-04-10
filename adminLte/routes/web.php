@@ -85,7 +85,7 @@ Route::get('/bootcamps/index', [BootcampController::class, 'index'])->name('boot
 Route::get('/bootcamps/edit/{id}', [BootcampController::class, 'edit'])->name('bootcamps.edit');
 Route::get('/bootcamps/show/{id}', [BootcampController::class, 'show'])->name('bootcamps.show');
 Route::post('/bootcamps/store', [BootcampController::class, 'store'])->name('bootcamps.store');
-Route::put('/bootcamps/update/{id}', [BootcampController::class, 'update'])->name('bootcamps.update');
+Route::put('/bootcamps/{bootcamp}', [BootcampController::class, 'update'])->name('bootcamps.update');
 Route::delete('/bootcamps/destroy/{id}', [BootcampController::class, 'destroy'])->name('bootcamps.destroy');
 
 
