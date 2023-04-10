@@ -261,7 +261,7 @@ return [
     'password_reset_url' => 'password/reset',
     'password_email_url' => 'password/email',
     'profile_url' => 'profile.edit',
-    
+
 
     /*
     |--------------------------------------------------------------------------
@@ -369,14 +369,24 @@ return [
             'url' => '/school/create',
             'icon_color' => 'white',
             'icon' => 'fa fa-plus',
-
         ],
+
+        // [
+        //     'text' => 'Cambio de contraseña',
+        //     'url'  => 'admin/settings',
+        //     'icon' => 'fas fa-fw fa-lock',
+        // ],
+
+
         [
 
-            'text' => 'Añadir Bootcamp',
-            'url' => '/bootcamp/create',
-            'icon_color' => 'white',
-            'icon' => 'fa fa-plus',
+            'text' => 'Asturias',
+            'submenu' => [
+                [
+                    'text' => 'Bootcamp',
+                    'url' => '/bootcamps/create',
+                    'icon_color' => 'white',
+                    'icon' => 'fa fa-plus',
 
         ],
         [
@@ -396,7 +406,7 @@ return [
 
         ],
     ],
-   
+
 
     /*
     |--------------------------------------------------------------------------

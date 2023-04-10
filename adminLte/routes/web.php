@@ -74,15 +74,20 @@ Route::middleware('auth')->group(function () {
 
 // Bootcamp
 
-// Route::resource('bootcamps', 'BootcampController');
+Route::resource('bootcamps', BootcampController::class);
 
-Route::get('/bootcamp', function () {
-    return view('bootcamp.index');
-})->name('bootcamp.index');
+// Route::get('/bootcamp', function () {
+//     return view('bootcamp.index');
+// })->name('bootcamp.index');
 
 
-
-Route::get('/bootcamp/create', [BootcampController::class, 'create'])->name('bootcamp.create');
+// Route::get('/bootcamps/create', [BootcampController::class, 'create'])->name('bootcamps.create');
+// Route::get('/bootcamps/index', [BootcampController::class, 'index'])->name('bootcamps.index');
+// Route::get('/bootcamps/{bootcamp}/edit', [BootcampController::class, 'edit'])->name('bootcamps.edit');
+// Route::get('/bootcamps/show/{id}', [BootcampController::class, 'show'])->name('bootcamps.show');
+// Route::post('/bootcamps/store', [BootcampController::class, 'store'])->name('bootcamps.store');
+// Route::put('/bootcamps/{bootcamp}', [BootcampController::class, 'update'])->name('bootcamps.update');
+// Route::delete('/bootcamps/destroy/{id}', [BootcampController::class, 'destroy'])->name('bootcamps.destroy');
 
 
 require __DIR__.'/auth.php';
