@@ -28,7 +28,24 @@ class PostuladoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nombre' => 'required',
+            'mail' => 'required|email',
+            'telefono' => 'required',
+            'url_perfil' => 'required|url',
+        ]);
+
+        // Crea un nuevo postulante con los datos del formulario
+        $postulante = new Postulado();
+        $postulante->nombre = $request->input('nombre');
+        $postulante->mail = $request->input('mail');
+        $postulante->telefono = $request->input('telefono');
+        $postulante->url_perfil = $request->input('url_perfil');
+        $postulante->save();
+
+        // Redirecciona a la página de éxito o muestra un mensaje de éxito
+        return redirect('/dashboard')
+        ->with('success', 'El postulante ha sido añadido exitosamente.');
     }
 
     /**

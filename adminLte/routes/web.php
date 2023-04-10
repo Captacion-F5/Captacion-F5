@@ -4,6 +4,7 @@ use App\Http\Controllers\BootcampController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\PostuladoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,6 +60,8 @@ Route::get('/pruebas', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::post('/postulantes', [PostuladoController::class, 'store'])->name('postulado.store');
 
 // Route::get('/layouts.prueba',function() {
 //     return view('layouts.prueba');

@@ -6,6 +6,7 @@
 
 
 @section('content')
+    <x-forms.applicant-form></x-forms.applicant-form>
     <h2 class="text-naranja text-lg mt-2">Vista general de los procesos de selección.</h2>
     <br>
     <x-tables.general-table></x-tables.general-table>
