@@ -8,12 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class PostuladoAsistenciaEvento extends Model
 {
     use HasFactory;
-    protected $table = 'postulados-asistencias-eventos'; 
+    protected $table = 'postulado-asistencia-evento'; 
 
     
     public function evento()
     {
-        return $this->belongsTo(Evento::class, 'evento_id');
+        return $this->belongsTo(Evento::class, 'event_id');
     }
 
     

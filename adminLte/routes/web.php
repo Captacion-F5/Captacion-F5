@@ -5,6 +5,7 @@ use App\Http\Controllers\SchoolController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\EventController;
 
 /*
 |--------------------------------------------------------------------------
@@ -90,3 +91,9 @@ require __DIR__.'/auth.php';
 Route::resource('school',SchoolController::class);
 Route::post('/school/create', [SchoolController::class, 'create'])->name('school.create');
 Route::post('/school/store', [SchoolController::class, 'store'])->name('school.store');
+
+
+//Eventos
+
+Route::resource('eventos',EventController::class);
+Route::get('/eventos/create', [EventController::class, 'create'])->name('eventos.create');

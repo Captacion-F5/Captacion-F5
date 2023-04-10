@@ -19,8 +19,19 @@ class EventController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create(Request $request) {
-       
+    public function create(Request $request)
+    {
+        $validatedData = $request->validate([
+            'nombre' => 'required',
+            'fecha' => 'required|date'
+        ]);
+        
+        $event = new Event;
+        $event->nombre = $validatedData['nombre'];
+        $event->fecha = $validatedData['fecha'];
+        $event->save();
+        
+        return redirect()->route('events.index')->with('success', 'Evento creado correctamente');
     }
 
     /**
