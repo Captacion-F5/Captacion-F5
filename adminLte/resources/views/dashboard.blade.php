@@ -7,11 +7,6 @@
 
 @section('content')
     <h2 class="text-naranja text-lg mt-2">Vista general de los procesos de selección.</h2>
-    <div class="mt-10">
-        <x-event-button texto="escuela">
-            {{ __('Evento')}}
-        </x-event-button>
-    </div>
     <br>
     <x-tables.general-table></x-tables.general-table>
     <br>
