@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\School;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\View\View;
 
 class SchoolController extends Controller
 {
@@ -12,7 +15,9 @@ class SchoolController extends Controller
      */
     public function index()
     {
-        //
+        $schools = School::latest();
+        
+        return view('school.index',compact('schools'));
     }
 
     /**
@@ -20,7 +25,7 @@ class SchoolController extends Controller
      */
     public function create()
     {
-        //
+        return view('school.create');
     }
 
     /**
@@ -28,7 +33,14 @@ class SchoolController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+        ]);
+    
+        School::create($request->all());
+     
+        return redirect()->route('school.index')
+                        ->with('success','Se ha añadido una nueva escuela.');
     }
 
     /**
@@ -36,7 +48,7 @@ class SchoolController extends Controller
      */
     public function show(School $school)
     {
-        //
+        return view('school.show',compact('school'));
     }
 
     /**
@@ -44,7 +56,7 @@ class SchoolController extends Controller
      */
     public function edit(School $school)
     {
-        //
+        return view('school.edit',compact('school'));
     }
 
     /**
@@ -52,7 +64,15 @@ class SchoolController extends Controller
      */
     public function update(Request $request, School $school)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+        ]);
+    
+        $school->update($request->all());
+    
+        return redirect()->route('school.index')
+                        ->with('success','La escuela se ha actualizado correctamente');
     }
 
     /**
@@ -60,6 +80,9 @@ class SchoolController extends Controller
      */
     public function destroy(School $school)
     {
-        //
+        $school->delete();
+    
+        return redirect()->route('school.index')
+                        ->with('success','La escuela se ha eliminado.');
     }
 }
