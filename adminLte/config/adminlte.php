@@ -261,7 +261,7 @@ return [
     'password_reset_url' => 'password/reset',
     'password_email_url' => 'password/email',
     'profile_url' => 'profile.edit',
-    
+
 
     /*
     |--------------------------------------------------------------------------
@@ -369,12 +369,11 @@ return [
             'url' => '/school/create',
             'icon_color' => 'white',
             'icon' => 'fa fa-plus',
-
         ],
         [
 
             'text' => 'Añadir Bootcamp',
-            'url' => '/bootcamp/create',
+            'url' => '/bootcamps/create',
             'icon_color' => 'white',
             'icon' => 'fa fa-plus',
 
@@ -396,7 +395,7 @@ return [
 
         ],
     ],
-   
+
 
     /*
     |--------------------------------------------------------------------------
