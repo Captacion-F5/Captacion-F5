@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BootcampController;
+use App\Http\Controllers\SchoolController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisteredUserController;
@@ -88,3 +89,7 @@ Route::get('/bootcamp/create', [BootcampController::class, 'create'])->name('boo
 
 
 require __DIR__.'/auth.php';
+
+Route::resource('school',SchoolController::class);
+Route::post('/school/create', [SchoolController::class, 'create'])->name('school.create');
+Route::post('/school/store', [SchoolController::class, 'store'])->name('school.store');
