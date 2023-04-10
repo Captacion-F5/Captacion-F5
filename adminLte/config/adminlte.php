@@ -379,6 +379,22 @@ return [
             'icon' => 'fa fa-plus',
 
         ],
+        [
+
+            'text' => 'Añadir Evento',
+            'url' => '#',
+            'icon_color' => 'white',
+            'icon' => 'fa fa-plus',
+
+        ],
+        [
+
+            'text' => 'Añadir Postulante',
+            'url' => '#',
+            'icon_color' => 'white',
+            'icon' => 'fa fa-plus',
+
+        ],
     ],
    
 
