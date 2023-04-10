@@ -1,3 +1,12 @@
+@extends('adminlte::page')
+@vite(['resources/js/app.js','resources/css/app.css'])
+@section('content_header')
+<br>
+@stop
+
+@section('content')
+
+
 @extends('layouts.app')
 
 @section('content')
