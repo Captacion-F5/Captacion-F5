@@ -65,54 +65,6 @@ class PostuladoController extends Controller
 
 
     /**
-     * Store a newly created resource in storage.
-     */
-    // public function store(Request $request)
-    // {
-    //     $request->validate([
-    //         'nombre' => 'required',
-    //         'mail' => 'required|email',
-    //         'telefono' => 'required',
-    //         'url_perfil' => 'required|url',
-    //         'bootcamp_nombre' => 'required',
-    //     ]);
-
-    //     // Crea un nuevo postulante con los datos del formulario
-    //     $postulante = new Postulado();
-    //     $postulante->nombre = $request->input('nombre');
-    //     $postulante->mail = $request->input('mail');
-    //     $postulante->telefono = $request->input('telefono');
-    //     $postulante->url_perfil = $request->input('url_perfil');
-
-    //     $postulante->save();
-    //     $postuladoId = $postulante->id; 
-
-    //     $bootcampNombre = $request->input('bootcamp_nombre');
-    //     //registrar los id en la tabla bootcamp postulado
-    //     $bootcamp = Bootcamp::where('nombre', $bootcampNombre)->first();
-    //     if ($bootcamp) {
-    //         $bootcampId = $bootcamp->id;
-
-    //         // Crea un nuevo postulado-bootcamp en la tabla pivot
-    //         $postulante->bootcamp()->attach($bootcampId, ['postulado_id' => $postuladoId]);
-            
-    //         $postulante->bootcamp_id = $bootcampId;
-    //     }
-
-    //     $postulante->save();
-    //     // $bootcampNombre = $request->input('bootcamp_nombre');
-    //     // $bootcamp = Bootcamp::where('nombre', $bootcampNombre)->first();
-    //     // if ($bootcamp) {
-    //     //     $postulante->bootcamp_id = $bootcamp->id;
-    //     // }
-    
-        
-    //     // Redirecciona a la página de éxito o muestra un mensaje de éxito
-    //     return redirect()
-    //     ->with('success', 'El postulante ha sido añadido exitosamente.');
-    // }
-
-    /**
      * Display the specified resource.
      */
     public function show(Postulado $postulado)
