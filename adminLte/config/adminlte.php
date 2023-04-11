@@ -381,7 +381,7 @@ return [
         [
 
             'text' => 'Añadir Evento',
-            'url' => '#',
+            'url' => '/eventos/create',
             'icon_color' => 'white',
             'icon' => 'fa fa-plus',
 
