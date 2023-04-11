@@ -1,15 +1,19 @@
-@vite(['resources/js/app.js', 'resources/css/app.css'])
+@extends('adminlte::page')
+@vite(['resources/js/app.js','resources/css/app.css'])
 
+
+
+@section('content_header')
 <div class="m-auto pt-5 pb-5">
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
         <div class="search filter d-flex">
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                <thead class="px-1 py-2 text-center text-xs text-white uppercase bg-naranja  dark:text-gray-400">
+                <thead class="px-1 py-2 text-center text-xs text-white uppercase bg-naranja dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                         <th scope="col" class="p-4">
                             <div class="flex items-center">
                                 <input id="checkbox-all-search" type="checkbox"
-                                    class="w-4 h-4 text-naranja bg-gray-100  rounded focus:ring-naranja dark:focus:ring-naranja ">
+                                    class="w-4 h-4 text-naranja bg-gray-100 border-gray-800 rounded focus:ring-naranja dark:focus:ring-naranja dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                                 <label for="checkbox-all-search" class="sr-only">checkbox</label>
                             </div>
                         </th>
@@ -17,19 +21,19 @@
                             Aplicante
                         </th>
                         <th scope="col">
-                            Perfil
+                            Invitación
                         </th>
                         <th scope="col" class="px-10">
-                            Notificación
+                            Fecha
                         </th>
                         <th scope="col" class="">
-                            Ejercicios < 50%
+                            Inscripción
                         </th>
                         <th scope="col">
                             Notificación
                         </th>
                         <th scope="col">
-                            Estatus
+                            Asistencia
                         </th>
                         <th scope="col">
                         </th>
@@ -40,7 +44,7 @@
                         <td class="w-4 p-4">
                             <div class="flex items-center">
                                 <input id="checkbox-table-search-1" type="checkbox"
-                                    class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja ">
+                                    class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                                 <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
                             </div>
                         </td>
@@ -48,27 +52,30 @@
                             Ríos, Jéssica
                         </th>
                         <td class="px-5 py-4">
-                            https://www.codecademy.com/
+                            <x-mail-button></x-mail-button>
                         </td>
                         <td class="">
-                            <x-mail-button></x-mail-button>
+                            12-04-2023
                         </td>
                         {{-- <td class="px-3 py-4">
                             <input id="checkbox-all-search" type="checkbox"
-                                class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja ">
+                                class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                             <label for="checkbox-all-search" class="sr-only">checkbox</label>
                         </td> --}}
                         <td class="text-center">
-                            <input id="checkbox-all-search" type="checkbox"
-                                class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja">
-                            <label for="checkbox-all-search" class="sr-only">checkbox</label>
+                            <select id="activo" name="activo">
+                                <option value="1">No</option>
+                                <option value="0">Sí</option>
+                            </select>
                         </td>
                         <td class="">
                             <x-mail-button></x-mail-button>
                         </td>
                         <td class="px-3 py-4 text-center">
-                            <a href="#" class="p-2 rounded-full font-medium text-blue bg-blue-200 hover:underline">En
-                                proceso</a>
+                            <select id="activo" name="activo">
+                                <option value="1">No</option>
+                                <option value="0">Sí</option>
+                            </select>
                         </td>
                         <td class="">
                             <div class="flex">
@@ -90,7 +97,7 @@
                         <td class="w-4 p-4">
                             <div class="flex items-center">
                                 <input id="checkbox-table-search-1" type="checkbox"
-                                    class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja">
+                                    class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                                 <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
                             </div>
                         </td>
@@ -98,27 +105,30 @@
                             Raña, Mónica
                         </th>
                         <td class="px-5 py-4">
-                            https://www.codecademy.com/
+                            <x-mail-button></x-mail-button>
                         </td>
                         <td class="">
-                            <x-mail-button></x-mail-button>
+                            12-04-2023
                         </td>
                         {{-- <td class="px-3 py-4">
                             <input id="checkbox-all-search" type="checkbox"
-                                class="w-4 h-4 text-naranja bg-gray-100  rounded focus:ring-naranja dark:focus:ring-naranja ">
+                                class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                             <label for="checkbox-all-search" class="sr-only">checkbox</label>
                         </td> --}}
                         <td class="text-center">
-                            <input id="checkbox-all-search" type="checkbox"
-                                class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja">
-                            <label for="checkbox-all-search" class="sr-only">checkbox</label>
+                            <select id="activo" name="activo">
+                                <option value="1">No</option>
+                                <option value="0">Sí</option>
+                            </select>
                         </td>
                         <td class="">
                             <x-mail-button></x-mail-button>
                         </td>
                         <td class="px-3 py-4 text-center">
-                            <a href="#"
-                                class="p-2 rounded-full font-medium text-green bg-green-200 hover:underline">Admisión</a>
+                            <select id="activo" name="activo">
+                                <option value="1">No</option>
+                                <option value="0">Sí</option>
+                            </select>
                         </td>
                         <td class="">
                             <div class="flex">
@@ -139,7 +149,7 @@
                         <td class="w-4 p-4">
                             <div class="flex items-center">
                                 <input id="checkbox-table-search-1" type="checkbox"
-                                    class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja">
+                                    class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                                 <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
                             </div>
                         </td>
@@ -147,27 +157,30 @@
                             Díaz, Tania
                         </th>
                         <td class="px-5 py-4">
-                            https://www.codecademy.com/
+                            <x-mail-button></x-mail-button>
                         </td>
                         <td class="">
-                            <x-mail-button></x-mail-button>
+                            12-04-2023
                         </td>
                         {{-- <td class="px-3 py-4">
                             <input id="checkbox-all-search" type="checkbox"
-                                class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja d>
+                                class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                             <label for="checkbox-all-search" class="sr-only">checkbox</label>
                         </td> --}}
                         <td class="text-center">
-                            <input id="checkbox-all-search" type="checkbox"
-                                class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja ">
-                            <label for="checkbox-all-search" class="sr-only">checkbox</label>
+                            <select id="activo" name="activo">
+                                <option value="1">No</option>
+                                <option value="0">Sí</option>
+                            </select>
                         </td>
                         <td class="">
                             <x-mail-button></x-mail-button>
                         </td>
                         <td class="px-3 py-4 text-center">
-                            <a href="#"
-                                class="p-2 rounded-full font-medium text-red bg-red-200 hover:underline">Descarte</a>
+                            <select id="activo" name="activo">
+                                <option value="1">No</option>
+                                <option value="0">Sí</option>
+                            </select>
                         </td>
                         <td class="">
                             <div class="flex">
@@ -188,7 +201,7 @@
                         <td class="w-4 p-4">
                             <div class="flex items-center">
                                 <input id="checkbox-table-search-1" type="checkbox"
-                                    class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja">
+                                    class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                                 <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
                             </div>
                         </td>
@@ -196,27 +209,30 @@
                             García, Ana
                         </th>
                         <td class="px-5 py-4">
-                            https://www.codecademy.com/
+                            <x-mail-button></x-mail-button>
                         </td>
                         <td class="">
-                            <x-mail-button></x-mail-button>
+                            12-04-2023
                         </td>
                         {{-- <td class="px-3 py-4">
                             <input id="checkbox-all-search" type="checkbox"
-                                class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja >
+                                class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                             <label for="checkbox-all-search" class="sr-only">checkbox</label>
                         </td> --}}
                         <td class="text-center">
-                            <input id="checkbox-all-search" type="checkbox"
-                                class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja ">
-                            <label for="checkbox-all-search" class="sr-only">checkbox</label>
+                            <select id="activo" name="activo">
+                                <option value="1">No</option>
+                                <option value="0">Sí</option>
+                            </select>
                         </td>
                         <td class="">
                             <x-mail-button></x-mail-button>
                         </td>
                         <td class="px-3 py-4 text-center">
-                            <a href="#" class="p-2 rounded-full font-medium text-blue bg-blue-200 hover:underline">En
-                                proceso</a>
+                            <select id="activo" name="activo">
+                                <option value="1">No</option>
+                                <option value="0">Sí</option>
+                            </select>
 
                         </td>
                         <td class="">
@@ -238,3 +254,4 @@
                 </tbody>
             </table>
         </div>
+    @stop
