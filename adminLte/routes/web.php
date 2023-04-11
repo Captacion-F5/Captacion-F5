@@ -63,7 +63,8 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::post('/postulantes', [PostuladoController::class, 'store'])->name('postulado.store');
-
+Route::get('/components/forms/applicant-form', [PostuladoController::class, 'create', 'eligeBootcamp'])->name('applicant-form.create');
+Route::get('/components/forms/applicant-form', [PostuladoController::class, 'eligeBootcamp'])->name('applicant-form.eligeBootcamp');
 // Route::get('/layouts.prueba',function() {
 //     return view('layouts.prueba');
 // });

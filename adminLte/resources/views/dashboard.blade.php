@@ -6,7 +6,6 @@
 
 
 @section('content')
-    <x-forms.applicant-form></x-forms.applicant-form>
     <h2 class="text-naranja text-lg mt-2">Vista general de los procesos de selección.</h2>
     <div class="mt-10">
         <x-event-button texto="escuela">

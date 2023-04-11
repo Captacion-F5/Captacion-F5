@@ -1,5 +1,13 @@
-<body class="font-sans text-gray-900 antialiased">
-    <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-gris shadow-md overflow-hidden sm:rounded-lg text-black">
+@vite(['resources/css/app.css', 'resources/js/app.js'])
+@extends('adminlte::page')
+@vite(['resources/js/app.js','resources/css/app.css'])
+@section('content_header')
+<br>
+@stop
+
+@section('content')
+<body class="p-auto font-sans text-gray-900 antialiased">
+    <div class="w-full p-4 bg-gris shadow-md overflow-hidden sm:rounded-lg text-black">
         <form method="POST" action="{{ route('postulado.store') }}">
             @csrf
 
@@ -35,7 +43,20 @@
                 <x-text-input id="profile" class="block mt-1 w-full" type="text" name="url_perfil" :value="old('url_perfil')" required autofocus autocomplete="url_perfil" />
                 <x-input-error :messages="$errors->get('url_perfil')" class="mt-2" />
                 <br>
-            </div>      
+            </div>  
+            
+            <!--Bootcamp -->
+            <div class="mb-4">
+                <x-input-label for="bootcamp_nombre" :value="__('Bootcamp')" />
+                <select id="bootcamp_nombre" name="bootcamp_nombre" class="block mt-1 w-full rounded-lg " required autofocus autocomplete="bootcamp_nombre">
+                    @foreach($bootcamps as $bootcamp)
+                        <option value="{{ $bootcamp->nombre }}" {{ old('bootcamp_nombre') == $bootcamp->nombre ? 'selected' : '' }}>{{ $bootcamp->nombre }}</option>
+                    @endforeach
+                </select>    
+                @error('bootcamp_nombre')
+                    <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                @enderror
+            </div>
 
             <div class="flex items-center justify-center mt-4">
             <x-primary-button class="ml-4 bg-naranja">
@@ -55,3 +76,4 @@
         </form>
     </div>
 </body>
+@stop

@@ -14,4 +14,9 @@ class Bootcamp extends Model
     {
         return $this->belongsTo(School::class);
     }
+    public function postulado()
+    {
+        return $this->belongsToMany(Postulado::class);
+    }
+    
 }
