@@ -59,7 +59,7 @@
                     <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
                 </div>
             </td>
-            <th scope="row" class="px-2 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+            <th scope="row" class="px-2 py-4 font-medium text-gray-900  whitespace-nowrap">
                 Asturias
             </th>
             <td class="">
@@ -121,7 +121,7 @@
                     <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
                 </div>
             </td>
-            <th scope="row" class="px-2 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+            <th scope="row" class="px-2 py-4 font-medium text-gray-900  whitespace-nowrap">
                 Asturias
             </th>
             <td class="">
@@ -188,7 +188,7 @@
                     <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
                 </div>
             </td>
-            <th scope="row" class="px-2 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+            <th scope="row" class="px-2 py-4 font-medium text-gray-900  whitespace-nowrap">
                 Asturias
             </th>
             <td class="">
@@ -255,7 +255,7 @@
                     <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
                 </div>
             </td>
-            <th scope="row" class="px-2 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+            <th scope="row" class="px-2 py-4 font-medium text-gray-900  whitespace-nowrap">
                 Asturias
             </th>
             <td class="">

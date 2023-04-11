@@ -44,7 +44,7 @@
                                 <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
                             </div>
                         </td>
-                        <th scope="row" class="px-2 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                        <th scope="row" class="px-2 py-4 font-medium text-gray-900 whitespace-nowrap">
                             Ríos, Jéssica
                         </th>
                         <td class="px-5 py-4">
@@ -94,7 +94,7 @@
                                 <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
                             </div>
                         </td>
-                        <th scope="row" class="px-2 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                        <th scope="row" class="px-2 py-4 font-medium text-gray-900  whitespace-nowrap">
                             Raña, Mónica
                         </th>
                         <td class="px-5 py-4">
@@ -143,7 +143,7 @@
                                 <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
                             </div>
                         </td>
-                        <th scope="row" class="px-2 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                        <th scope="row" class="px-2 py-4 font-medium text-gray-900  whitespace-nowrap">
                             Díaz, Tania
                         </th>
                         <td class="px-5 py-4">
@@ -192,7 +192,7 @@
                                 <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
                             </div>
                         </td>
-                        <th scope="row" class="px-2 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                        <th scope="row" class="px-2 py-4 font-medium text-gray-900  whitespace-nowrap">
                             García, Ana
                         </th>
                         <td class="px-5 py-4">
