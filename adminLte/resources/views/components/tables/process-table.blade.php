@@ -15,7 +15,7 @@
                         </svg>
                     </div>
                     <input type="text" id="table-search"
-                        class="bg-gray-100 border border-gray-800 text-gray-900 text-sm rounded-lg focus:ring-naranja focus:border-naranja block w-80 pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-naranja dark:focus:border-naranja"
+                        class="bg-gray-100 border text-gray-900 text-sm rounded-lg focus:ring-naranja focus:border-naranja block w-80 pl-10 p-2.5  dark:placeholder-gray-400 dark:text-white dark:focus:ring-naranja dark:focus:border-naranja"
                         placeholder="Buscar aplicante">
 
                 </div>
@@ -89,12 +89,12 @@
             </div> --}}
         </div> --}}
         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-            <thead class="px- py-2 text-xs text-white uppercase bg-naranja dark:bg-gray-700 dark:text-gray-400">
+            <thead class="px- py-2 text-xs text-white uppercase bg-naranja dark:bg-naranja-700 dark:text-gray-400">
                 <tr>
                     <th scope="col" class="p-4">
                         <div class="flex items-center">
                             <input id="checkbox-all-search" type="checkbox"
-                                class="w-4 h-4 text-naranja bg-gray-100 border-gray-800 rounded focus:ring-naranja dark:focus:ring-naranja dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                class="w-4 h-4 text-naranja bg-gray-100 rounded focus:ring-naranja dark:focus:ring-naranja dark:border-gray-600">
                             <label for="checkbox-all-search" class="sr-only">checkbox</label>
                         </div>
                     </th>
@@ -128,7 +128,7 @@
                     <td class="w-4 p-4">
                         <div class="flex items-center">
                             <input id="checkbox-table-search-1" type="checkbox"
-                                class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja dark:border-gray-600">
                             <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
                         </div>
                     </td>
@@ -140,22 +140,22 @@
                     </td>
                     <td class="px-3 py-4">
                         <input id="checkbox-all-search" type="checkbox"
-                            class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja  dark:border-gray-600">
                         <label for="checkbox-all-search" class="sr-only">checkbox</label>
                     </td>
                     <td class="px-3 py-4">
                         <input id="checkbox-all-search" type="checkbox"
-                            class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja  dark:border-gray-600">
                         <label for="checkbox-all-search" class="sr-only">checkbox</label>
                     </td>
                     <td class="px-3 py-4">
                         <input id="checkbox-all-search" type="checkbox"
-                            class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja  dark:border-gray-600">
                         <label for="checkbox-all-search" class="sr-only">checkbox</label>
                     </td>
                     <td class="px-3 py-4">
                         <input id="checkbox-all-search" type="checkbox"
-                            class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja  dark:border-gray-600">
                         <label for="checkbox-all-search" class="sr-only">checkbox</label>
                     </td>
                     <td class="py-4">
@@ -181,7 +181,7 @@
                     <td class="w-4 p-4">
                         <div class="flex items-center">
                             <input id="checkbox-table-search-1" type="checkbox"
-                                class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja dark:border-gray-600">
                             <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
                         </div>
                     </td>
@@ -193,22 +193,22 @@
                     </td>
                     <td class="px-3 py-4">
                         <input id="checkbox-all-search" type="checkbox"
-                            class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja  dark:border-gray-600">
                         <label for="checkbox-all-search" class="sr-only">checkbox</label>
                     </td>
                     <td class="px-3 py-4">
                         <input id="checkbox-all-search" type="checkbox"
-                            class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja  dark:border-gray-600">
                         <label for="checkbox-all-search" class="sr-only">checkbox</label>
                     </td>
                     <td class="px-3 py-4">
                         <input id="checkbox-all-search" type="checkbox"
-                            class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja  dark:border-gray-600">
                         <label for="checkbox-all-search" class="sr-only">checkbox</label>
                     </td>
                     <td class="px-3 py-4">
                         <input id="checkbox-all-search" type="checkbox"
-                            class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja  dark:border-gray-600">
                         <label for="checkbox-all-search" class="sr-only">checkbox</label>
                     </td>
                     <td class=" py-4">
@@ -235,7 +235,7 @@
                     <td class="w-4 p-4">
                         <div class="flex items-center">
                             <input id="checkbox-table-search-1" type="checkbox"
-                                class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja  dark:border-gray-600">
                             <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
                         </div>
                     </td>
@@ -247,22 +247,22 @@
                     </td>
                     <td class="px-3 py-4">
                         <input id="checkbox-all-search" type="checkbox"
-                            class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja  dark:border-gray-600">
                         <label for="checkbox-all-search" class="sr-only">checkbox</label>
                     </td>
                     <td class="px-3 py-4">
                         <input id="checkbox-all-search" type="checkbox"
-                            class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja dark:border-gray-600">
                         <label for="checkbox-all-search" class="sr-only">checkbox</label>
                     </td>
                     <td class="px-3 py-4">
                         <input id="checkbox-all-search" type="checkbox"
-                            class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja  dark:border-gray-600">
                         <label for="checkbox-all-search" class="sr-only">checkbox</label>
                     </td>
                     <td class="px-3 py-4">
                         <input id="checkbox-all-search" type="checkbox"
-                            class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja  dark:border-gray-600">
                         <label for="checkbox-all-search" class="sr-only">checkbox</label>
                     </td>
                     <td class=" py-4">
@@ -288,7 +288,7 @@
                     <td class="w-4 p-4">
                         <div class="flex items-center">
                             <input id="checkbox-table-search-1" type="checkbox"
-                                class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja  dark:border-gray-600">
                             <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
                         </div>
                     </td>
@@ -300,22 +300,22 @@
                     </td>
                     <td class="px-3 py-4">
                         <input id="checkbox-all-search" type="checkbox"
-                            class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja  dark:border-gray-600">
                         <label for="checkbox-all-search" class="sr-only">checkbox</label>
                     </td>
                     <td class="px-3 py-4">
                         <input id="checkbox-all-search" type="checkbox"
-                            class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja  dark:border-gray-600">
                         <label for="checkbox-all-search" class="sr-only">checkbox</label>
                     </td>
                     <td class="px-3 py-4">
                         <input id="checkbox-all-search" type="checkbox"
-                            class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja  dark:border-gray-600">
                         <label for="checkbox-all-search" class="sr-only">checkbox</label>
                     </td>
                     <td class="px-3 py-4">
                         <input id="checkbox-all-search" type="checkbox"
-                            class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja  dark:border-gray-600">
                         <label for="checkbox-all-search" class="sr-only">checkbox</label>
                     </td>
                     <td class=" py-4">

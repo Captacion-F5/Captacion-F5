@@ -2,7 +2,7 @@
 
 
 <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-    <thead class="px- py-2 text-xs text-white uppercase bg-naranja dark:bg-gray-700 dark:text-gray-400">
+    <thead class="px- py-2 text-xs text-white uppercase bg-naranja dark:bg-naranja-700 dark:text-gray-400">
         <tr>
             <th scope="col" class="p-4">
                 <div class="flex items-center">
