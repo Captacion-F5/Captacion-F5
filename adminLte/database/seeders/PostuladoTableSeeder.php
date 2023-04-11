@@ -30,7 +30,7 @@ class PostuladoTableSeeder extends Seeder
                 'otra-formacion' => $faker->text,
                 'como-conocido' => $faker->randomElement(['internet', 'amigos', 'redes sociales', 'otros']),
                 'situacion-profesional' => $faker->randomElement(['estudiante', 'trabajando', 'desempleado']),
-                'url-perfil' => $faker->url,
+                'url_perfil' => $faker->url,
                 'terminos' => $faker->randomElement(['aceptado', 'rechazado']),
             ]);
         }
