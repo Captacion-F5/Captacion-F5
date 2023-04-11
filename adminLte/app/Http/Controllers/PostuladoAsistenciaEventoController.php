@@ -12,7 +12,11 @@ class PostuladoAsistenciaEventoController extends Controller
      */
     public function index()
     {
-        //
+        $asistencia_evento = PostuladoAsistenciaEvento::with(['postulado:id,nombre', 'evento:id,fecha'])
+            ->select('postulado_asistencia_evento.id', 'postulado.nombre as postulado', 'evento.fecha as fecha_evento', 'asistencia', 'inscripcion', 'notificado')
+            ->get();
+            
+        return view('eventos.index', compact('asistencia_evento'));
     }
 
     /**
