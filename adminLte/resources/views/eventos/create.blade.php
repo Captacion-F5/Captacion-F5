@@ -21,11 +21,9 @@
                     
                         <option value="">Seleccione un Bootcamp</option>
                         @foreach($bootcamps as $id => $nombre)
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="bootcamp_id[]" id="{{ $id }}" value="{{ $id }}" @if(in_array($id, old('bootcamp_id', []))) checked @endif>
-                            <label class="form-check-label" for="{{ $id }}">
-                                {{ $nombre }}
-                            </label>
+                        <div>
+                            <input type="checkbox" id="bootcamp_{{ $id }}" name="bootcamp_id[]" value="{{ $nombre }}" @if(in_array($nombre, old('bootcamp_id', []))) checked @endif>
+                            <label for="bootcamp_{{ $id }}">{{ $nombre }}</label>
                         </div>
                     @endforeach
                     </select>

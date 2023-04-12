@@ -8,12 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Event extends Model
 {
     use HasFactory;
-    protected $fillable = ['nombre','fecha'];
+    protected $fillable = ['nombre','fecha','bootcamp_id'];
     protected $table = 'event';
     
-    public function bootcamps()
+    public function bootcamp()
     {
-        return $this->belongsToMany(Bootcamp::class, '')->withPivot('nombre');
-    
+        return $this->belongsToMany(Bootcamp::class);
     }
 }
