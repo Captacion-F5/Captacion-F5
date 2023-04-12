@@ -16,12 +16,12 @@ class PostuladoImport implements ToModel, WithHeadingRow
     public function model(array $row)
     {
         return new Postulado([
-            'name' => $row['nombre'],
+            'nombre' => $row['nombre'],
             'mail' => $row['mail'],
             'telefono' => $row['telefono'],
             'url-perfil' => $row['url-perfil'],
-            'genero' => $row['genero']
-
+            'genero' => $row['genero'],
+            'bootcamp_nombre' => $row['bootcamp']
         ]);
     }
 }

@@ -10,7 +10,7 @@
                         @endforeach
                     </div>
                     @endif
-                    <form action="{{route(postulado.store)}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('postulado.store')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <input type="file" name="import_file"/>
                     <button class="btn btn-primary" type="submit">Importar</button>
@@ -20,4 +20,3 @@
         </div>
     </div>
 </div>
-@endsection
