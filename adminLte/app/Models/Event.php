@@ -11,9 +11,9 @@ class Event extends Model
     protected $fillable = ['nombre','fecha'];
     protected $table = 'event';
     
-    public function bootcamp()
+    public function bootcamps()
     {
-        return $this->belongsTo(Bootcamp::class);
-    }
+        return $this->belongsToMany(Bootcamp::class, '')->withPivot('nombre');
     
+    }
 }
