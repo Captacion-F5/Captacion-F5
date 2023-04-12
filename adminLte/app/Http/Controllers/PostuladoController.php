@@ -76,14 +76,14 @@ class PostuladoController extends Controller
             $postulante->bootcamp()->syncWithoutDetaching($bootcamp->id);
         }
 
-    
+
         $file = $request->file('import_file');
-        
+
         Excel::import(new PostuladoImport, $file);
 
-        // return redirect('/dashboard')
-        return redirect()->route('postulado.index')
-        ->with('success', 'El postulante ha sido añadido exitosamente.');
+        return redirect('/dashboard');
+        // return redirect()->route('postulado.index');
+        // ->with('success', 'El postulante ha sido añadido exitosamente.');
     }
 
 

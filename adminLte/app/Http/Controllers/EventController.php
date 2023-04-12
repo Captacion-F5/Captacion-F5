@@ -17,7 +17,7 @@ class EventController extends Controller
             $eventos = Event::with('bootcamp')->get();
             return view('eventos.index', ['eventos' => $eventos]);
         }
-        
+
     }
 
     /**
