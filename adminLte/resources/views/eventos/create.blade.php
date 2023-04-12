@@ -18,10 +18,10 @@
                 </div>
                 <div class="form-group">
                     <label for="bootcamp_id">Bootcamp</label>
-                    <select name="bootcamp_id" class="form-control">
+                    <select name="bootcamp_id[]" class="form-control" multiple="true">
                         <option value="">Seleccione un Bootcamp</option>
                         @foreach($bootcamps as $id => $nombre)
-                            <option value="{{ $id }}">{{ $nombre }}</option>
+                            <option value="{{ $id }}" @if(in_array($id, old('bootcamp_id', []))) selected @endif>{{ $nombre }}</option>
                         @endforeach
                     </select>
                 </div>
