@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Postulado;
 use Illuminate\Http\Request;
 use App\Models\Bootcamp;
+use Illuminate\Support\Str;
 
 
 
@@ -33,7 +34,7 @@ class PostuladoController extends Controller
     }
 
     public function store(Request $request)
-{
+    {
     $request->validate([
         'nombre' => 'required',
         'mail' => 'required|email',
@@ -42,75 +43,40 @@ class PostuladoController extends Controller
         'bootcamp_nombre' => 'required',
     ]);
 
-    // Crea un nuevo postulante con los datos del formulario
-    $postulante = new Postulado();
-    $postulante->nombre = $request->input('nombre');
-    $postulante->mail = $request->input('mail');
-    $postulante->telefono = $request->input('telefono');
-    $postulante->url_perfil = $request->input('url_perfil');
-    $postulante->save();
+    // Busca si el postulante ya existe en la base de datos
+        $postulante = Postulado::where('nombre', Str::lower($request->input('nombre')))
+        ->orWhere('mail', $request->input('mail'))
+        ->first();
 
-    // Obtén el ID del bootcamp seleccionado
-    $bootcampNombre = $request->input('bootcamp_nombre');
-    $bootcamp = Bootcamp::where('nombre', $bootcampNombre)->first();
-    if ($bootcamp) {
-        // Registra la relación en la tabla pivot
-        $postulante->bootcamp()->attach($bootcamp->id);
-    }
+        if ($postulante) {
+        // Si el postulante ya existe, actualiza los datos en lugar de crear un nuevo registro
+        $postulante->nombre = Str::lower($request->input('nombre'));
+        $postulante->mail = Str::lower($request->input('mail'));
+        $postulante->telefono = $request->input('telefono');
+        $postulante->url_perfil = $request->input('url_perfil');
+        $postulante->save();
+        } else {
+        // Si el postulante no existe, crea un nuevo registro
+        $postulante = new Postulado();
+        $postulante->nombre = Str::lower($request->input('nombre'));
+        $postulante->mail = Str::lower($request->input('mail'));
+        $postulante->telefono = $request->input('telefono');
+        $postulante->url_perfil = $request->input('url_perfil');
+        $postulante->save();
+        }
 
-    // Redirecciona a la página de éxito o muestra un mensaje de éxito
+        // Obtén el ID del bootcamp seleccionado
+        $bootcampNombre = $request->input('bootcamp_nombre');
+        $bootcamp = Bootcamp::where('nombre', $bootcampNombre)->first();
+        if ($bootcamp) {
+            // Registra la relación en la tabla pivot sin desvincular otras relaciones existentes
+            $postulante->bootcamp()->syncWithoutDetaching($bootcamp->id);
+        }
+
     return redirect('/dashboard')
         ->with('success', 'El postulante ha sido añadido exitosamente.');
-}
+    }
 
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    // public function store(Request $request)
-    // {
-    //     $request->validate([
-    //         'nombre' => 'required',
-    //         'mail' => 'required|email',
-    //         'telefono' => 'required',
-    //         'url_perfil' => 'required|url',
-    //         'bootcamp_nombre' => 'required',
-    //     ]);
-
-    //     // Crea un nuevo postulante con los datos del formulario
-    //     $postulante = new Postulado();
-    //     $postulante->nombre = $request->input('nombre');
-    //     $postulante->mail = $request->input('mail');
-    //     $postulante->telefono = $request->input('telefono');
-    //     $postulante->url_perfil = $request->input('url_perfil');
-
-    //     $postulante->save();
-    //     $postuladoId = $postulante->id; 
-
-    //     $bootcampNombre = $request->input('bootcamp_nombre');
-    //     //registrar los id en la tabla bootcamp postulado
-    //     $bootcamp = Bootcamp::where('nombre', $bootcampNombre)->first();
-    //     if ($bootcamp) {
-    //         $bootcampId = $bootcamp->id;
-
-    //         // Crea un nuevo postulado-bootcamp en la tabla pivot
-    //         $postulante->bootcamp()->attach($bootcampId, ['postulado_id' => $postuladoId]);
-            
-    //         $postulante->bootcamp_id = $bootcampId;
-    //     }
-
-    //     $postulante->save();
-    //     // $bootcampNombre = $request->input('bootcamp_nombre');
-    //     // $bootcamp = Bootcamp::where('nombre', $bootcampNombre)->first();
-    //     // if ($bootcamp) {
-    //     //     $postulante->bootcamp_id = $bootcamp->id;
-    //     // }
-    
-        
-    //     // Redirecciona a la página de éxito o muestra un mensaje de éxito
-    //     return redirect()
-    //     ->with('success', 'El postulante ha sido añadido exitosamente.');
-    // }
 
     /**
      * Display the specified resource.
