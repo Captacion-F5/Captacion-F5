@@ -389,7 +389,7 @@ return [
         [
 
             'text' => 'Añadir Postulante',
-            'url' => '#',
+            'url' => '/components/forms/applicant-form',
             'icon_color' => 'white',
             'icon' => 'fa fa-plus',
 
@@ -503,6 +503,7 @@ return [
             ],
         ],
     ],
+    
 
     /*
     |--------------------------------------------------------------------------

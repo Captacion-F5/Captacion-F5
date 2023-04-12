@@ -65,8 +65,7 @@ class SchoolController extends Controller
     public function update(Request $request, School $school)
     {
         $request->validate([
-            'title' => 'required',
-            'description' => 'required',
+            'name' => 'required',
         ]);
     
         $school->update($request->all());
