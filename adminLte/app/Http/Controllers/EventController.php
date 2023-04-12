@@ -33,36 +33,25 @@ class EventController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        $request->validate([
-           
-            'nombre' => 'required',
-            'fecha' => 'required|date',
-            'bootcamp_id' => 'required|array|min:1',
-        ]);
+{
+    $request->validate([
+        'nombre' => 'required',
+        'fecha' => 'required|date',
+        'bootcamp_id' => 'required|array|min:1',
+    ]);
 
-        $bootcamp_nombres = $request->input('bootcamp_id', []);
-        $bootcamp_ids = Bootcamp::whereIn('nombre', $bootcamp_nombres)->pluck('id')->toArray();
+    $bootcamp_nombres = $request->input('bootcamp_id', []);
+    $bootcamp_ids = Bootcamp::whereIn('nombre', $bootcamp_nombres)->pluck('id')->toArray();
 
-        foreach ($bootcamp_nombres as $nombre) {
-            $bootcamp = Bootcamp::where('nombre', $nombre)->firstOrFail();
-            $bootcamp_ids[] = $bootcamp->id;
-    
-            $evento = new Event;
-            $evento->nombre = $request->input('nombre');
-            $evento->fecha = $request->input('fecha');
-            //$evento->bootcamp_id = $request->input('bootcamp_id');
-            $evento->save();
+    $evento = new Event;
+    $evento->nombre = $request->input('nombre');
+    $evento->fecha = $request->input('fecha');
+    $evento->save();
 
-            $bootcamp_nombres = $request->input('bootcamp_id');
-            $bootcamp_ids = [];
-        
-            $evento->bootcamps()->sync($bootcamp_ids);
-        
-            return redirect()->route('eventos.index');
-        }
-    }
+    $evento->bootcamps()->sync($bootcamp_ids);
 
+    return redirect()->route('eventos.index');
+}
     /**
      * Display the specified resource.
      */                   
@@ -79,9 +68,9 @@ class EventController extends Controller
     public function edit($id)
     {
         $evento = Event::findOrFail($id);
-        $bootcamps = Bootcamp::pluck('nombre', 'id')->toArray();
+        $bootcamp = Bootcamp::pluck('nombre', 'id')->toArray();
 
-        return view('eventos.edit', ['evento' => $evento, 'bootcamps' => $bootcamps]);
+        return view('eventos.edit', ['evento' => $evento, 'bootcamp' => $bootcamp]);
     }
 
 

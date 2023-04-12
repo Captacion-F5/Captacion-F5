@@ -12,7 +12,7 @@ return new class extends Migration
     public function up()
 
     {
-        Schema::rename('postulado-asistencia-evento', 'evento_postulado'); 
+        Schema::rename('postulado-asistencia-evento', 'event_postulado'); 
             //
     }
 
@@ -21,7 +21,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('postulado-asistencia-evento', 'evento_postulado');
+        Schema::table('postulado-asistencia-evento', 'event_postulado');
             //
     }
     
