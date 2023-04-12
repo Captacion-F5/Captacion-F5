@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class PostuladoAsistenciaEvento extends Model
 {
     use HasFactory;
-    protected $table = 'postulado-asistencia-evento'; 
+    protected $table = 'evento_postulado'; 
 
     
     public function evento()

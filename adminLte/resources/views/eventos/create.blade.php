@@ -18,11 +18,14 @@
                 </div>
                 <div class="form-group">
                     <label for="bootcamp_id">Bootcamp</label>
-                    <select name="bootcamp_id" class="form-control">
+                    
                         <option value="">Seleccione un Bootcamp</option>
                         @foreach($bootcamps as $id => $nombre)
-                            <option value="{{ $id }}">{{ $nombre }}</option>
-                        @endforeach
+                        <div>
+                            <input type="checkbox" id="bootcamp_{{ $id }}" name="bootcamp_id[]" value="{{ $nombre }}" @if(in_array($nombre, old('bootcamp_id', []))) checked @endif>
+                            <label for="bootcamp_{{ $id }}">{{ $nombre }}</label>
+                        </div>
+                    @endforeach
                     </select>
                 </div>
                 <button type="submit" action="{{ route('eventos.index') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Crear Evento</button>
