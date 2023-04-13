@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\EventPostulado;
 use Illuminate\Http\Request;
 
-
+class EventPostuladoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -38,7 +38,7 @@ use Illuminate\Http\Request;
     /**
      * Display the specified resource.
      */
-    public function show(PostuladoAsistenciaEvento $postuladoAsistenciaEvento)
+    public function show(EventPostulado $postuladoAsistenciaEvento)
     {
         //
     }

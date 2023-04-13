@@ -6,24 +6,17 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 
+
 class Event extends Model
 {
     use HasFactory;
-    protected $fillable = ['nombre','bootcamp_id[]','fecha'];
+    protected $fillable = ['nombre','fecha'];
     protected $table = 'event';
     
         
-    public function bootcamps()
+    public function bootcamp()
     {
-        return $this->belongsTo(Bootcamp::class, 'bootcamp', 'bootcamp_id');
-
-       /* return $this->belongsTo(Bootcamp::class);*/
+        return $this->belongsToMany(Bootcamp::class, 'bootcamp_event', 'event_id', 'bootcamp_id' );
     }
-
-    
-   /* public function bootcamp()
-    {
-        return $this->belongsToMany(Bootcamp::class, 'bootcamp_postulado', 'postulado_id', 'bootcamp_id');
-    }
-    */
+   
 }

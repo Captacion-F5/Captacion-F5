@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Event;
 use App\Models\Bootcamp;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class EventController extends Controller
 {
@@ -15,20 +14,9 @@ class EventController extends Controller
     public function index() {
         {
             $events = Event::with('bootcamp')->get();
-            return view('eventos.index', ['eventos' => $events]);
-
-            foreach ($events as $event) {
-                if (!$event->relationLoaded('bootcamp')) {
-                    $event->load('bootcamp');
-                }
-            }
+            return view('eventos.index')->with('events', $events);
             
         }
-
-       /* {
-            $events = Event::with('bootcamp')->get();
-            return view('events.index', compact('events'));
-        }*/
         
     }
 
@@ -38,7 +26,7 @@ class EventController extends Controller
     public function create()
 {
     $bootcamps = Bootcamp::pluck('nombre', 'id')->toArray();
-     return view('eventos.create', ['bootcamps' => $bootcamps]);
+     return view('eventos.create', compact('bootcamps'));
 }
 
     /**
@@ -59,8 +47,8 @@ class EventController extends Controller
     $evento->nombre = $request->input('nombre');
     $evento->fecha = $request->input('fecha');
     $evento->save();
-
-    $evento->bootcamps()->associate($bootcamp_ids);
+    $evento = $evento->refresh();
+    $evento->bootcamp()->sync($bootcamp_ids);
 
     return redirect()->route('eventos.index');
 }
@@ -91,6 +79,12 @@ class EventController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'nombre' => 'required',
+            'fecha' => 'required|date',
+            'bootcamp_id' => 'required',
+        ]);
+
         $evento = Event::findOrFail($id);
         $evento->nombre = $request->input('nombre');
         $evento->fecha = $request->input('fecha');

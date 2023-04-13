@@ -28,7 +28,7 @@
                     @endforeach
                     </select>
                 </div>
-                <button type="submit" action="{{ route('eventos.index') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Crear Evento</button>
+                <button type="submit"  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Crear Evento</button>
             </form>
     </div>
 </div>
