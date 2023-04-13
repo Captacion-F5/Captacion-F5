@@ -10,4 +10,8 @@ class School extends Model
     use HasFactory;
     protected $fillable = ['name'];
     protected $table = 'school';
+    public function bootcamp()
+    {
+        return $this->hasMany(Bootcamp::class);
+    }
 }
