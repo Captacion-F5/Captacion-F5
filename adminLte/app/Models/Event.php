@@ -9,13 +9,15 @@ use Illuminate\Database\Eloquent\Model;
 class Event extends Model
 {
     use HasFactory;
-    protected $fillable = ['nombre','fecha','bootcamp_id[]'];
+    protected $fillable = ['nombre','bootcamp_id[]','fecha'];
     protected $table = 'event';
     
         
-    public function bootcamp()
+    public function bootcamps()
     {
-        return $this->belongsToMany(Bootcamp::class, 'event_postulado', 'event_id','postulado_id');
+        return $this->belongsTo(Bootcamp::class, 'bootcamp', 'bootcamp_id');
+
+       /* return $this->belongsTo(Bootcamp::class);*/
     }
 
     

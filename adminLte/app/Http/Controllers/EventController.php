@@ -14,9 +14,21 @@ class EventController extends Controller
      */
     public function index() {
         {
-            $eventos = Event::with('bootcamp')->get();
-            return view('eventos.index', ['eventos' => $eventos]);
+            $events = Event::with('bootcamp')->get();
+            return view('eventos.index', ['eventos' => $events]);
+
+            foreach ($events as $event) {
+                if (!$event->relationLoaded('bootcamp')) {
+                    $event->load('bootcamp');
+                }
+            }
+            
         }
+
+       /* {
+            $events = Event::with('bootcamp')->get();
+            return view('events.index', compact('events'));
+        }*/
         
     }
 
@@ -48,7 +60,7 @@ class EventController extends Controller
     $evento->fecha = $request->input('fecha');
     $evento->save();
 
-    $evento->bootcamps()->sync($bootcamp_ids);
+    $evento->bootcamps()->associate($bootcamp_ids);
 
     return redirect()->route('eventos.index');
 }
