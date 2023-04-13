@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\EventPostulado;
 use Illuminate\Http\Request;
 
-class EventPostuladoController extends Controller
+
 {
     /**
      * Display a listing of the resource.
