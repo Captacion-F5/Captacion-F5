@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Event extends Model
 {
     use HasFactory;
-    protected $fillable = ['nombre','fecha','bootcamp_id[]'];
+    protected $fillable = ['nombre','fecha','bootcamp_id'[]];
     protected $table = 'event';
 
 
@@ -24,4 +24,20 @@ class Event extends Model
         return $this->belongsToMany(Bootcamp::class, 'bootcamp_postulado', 'postulado_id', 'bootcamp_id');
     }
     */
+
+	/**
+	 * @return mixed
+	 */
+	public function getFillable() {
+		return $this->fillable;
+	}
+
+	/**
+	 * @param mixed $fillable
+	 * @return self
+	 */
+	public function setFillable($fillable): self {
+		$this->fillable = $fillable;
+		return $this;
+	}
 }

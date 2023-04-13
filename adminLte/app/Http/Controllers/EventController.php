@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Event;
+use App\Models;
 use App\Models\Bootcamp;
+use App\Models\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -54,7 +55,7 @@ class EventController extends Controller
 }
     /**
      * Display the specified resource.
-     */                   
+     */
     public function show($id)
     {
         $evento = Event::with('bootcamp')->findOrFail($id);
