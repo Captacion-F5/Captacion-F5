@@ -12,6 +12,7 @@ use App\Imports\PostuladoImport;
 
 
 
+
 class PostuladoController extends Controller
 {
     /**
@@ -118,4 +119,26 @@ class PostuladoController extends Controller
     {
         //
     }
+
+    public function importar(Request $request){
+     
+        if($request->hasFile('import_file')){
+            $path = $request->file('import_file')->getRealPath();
+            $datos = Excel::import($path, function($reader){
+            })->get();
+
+            if(!empty($datos) && $datos->count()){
+                $datos = $datos->toArray();
+                for($i=0; $i< count($datos); $i++){
+                    $datosImportar[] = $datos[$i];
+                }
+            }
+
+            Postulado::insert($datosImportar);
+        }
+        
+        return back();
+    }
 }
+
+// Excel::import(new Postulado, request()->file('import_file'));
