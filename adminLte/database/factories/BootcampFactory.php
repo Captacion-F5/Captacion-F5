@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\School;
+use App\Models\Bootcamp;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Faker\Factory as FakerFactory;
 

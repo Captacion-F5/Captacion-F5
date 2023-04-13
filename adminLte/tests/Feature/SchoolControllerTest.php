@@ -13,16 +13,6 @@ use Tests\TestCase;
 
 class SchoolControllerTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     */
-    public function test_example(): void
-    {
-        $response = $this->get('/');
-
-        $response->assertStatus(200);
-    }
-
     public function testIndex()
 {
     // Crear algunas escuelas en la base de datos
