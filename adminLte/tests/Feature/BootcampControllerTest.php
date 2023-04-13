@@ -4,7 +4,6 @@ namespace Tests\Feature;
 
 use App\Models\Bootcamp;
 use App\Models\School;
-use Database\Factories\BootcampFactory;
 
 use Tests\TestCase;
 
