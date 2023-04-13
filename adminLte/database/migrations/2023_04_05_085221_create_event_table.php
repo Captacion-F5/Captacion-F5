@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->id();
             $table->string('nombre');
             $table->unsignedBigInteger('bootcamp_id');
-            $table->foreign('bootcamp_id')->references('id')->on('bootcamp');
+            $table->foreign('bootcamp_id')->references('id')->on('bootcamp')->onDelete('cascade');
             $table->timestamps();
         });
     }

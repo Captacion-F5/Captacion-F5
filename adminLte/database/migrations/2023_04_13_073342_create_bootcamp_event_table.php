@@ -11,15 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('event_postulado', function (Blueprint $table) {
+        Schema::create('bootcamp_event', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('postulado_id');
-            $table->foreign('postulado_id')->references('id')->on('postulado')->onDelete('cascade');
+            $table->unsignedBigInteger('bootcamp_id');
+            $table->foreign('bootcamp_id')->references('id')->on('bootcamp')->onDelete('cascade');
             $table->unsignedBigInteger('event_id');
             $table->foreign('event_id')->references('id')->on('event')->onDelete('cascade');
-            $table->boolean('asistencia')->default(false);
-            $table->boolean('inscripcion')->default(false);
-            $table->boolean('notificado')->default(false);
+
         });
     }
 
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('event_postulado');
+        Schema::dropIfExists('bootcamp_event');
     }
 };
