@@ -8,15 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class PostuladoAsistenciaEvento extends Model
 {
     use HasFactory;
-    protected $table = 'evento_postulado'; 
+    protected $table = 'bootcamp_postulado';
 
-    
-    public function evento()
+
+    public function bootcamp()
     {
-        return $this->belongsTo(Evento::class, 'event_id');
+        return $this->belongsTo(Bootcamp::class, 'bootcamp_id');
     }
 
-    
+
     public function postulado()
     {
         return $this->belongsTo(Postulado::class, 'postulado_id');

@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PostuladoAsistenciaEvento;
+use App\Models\EventPostulado;
 use Illuminate\Http\Request;
 
-class PostuladoAsistenciaEventoController extends Controller
+class EventPostuladoController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $asistencia_evento = PostuladoAsistenciaEvento::with(['postulado:id,nombre', 'evento:id,fecha'])
-            ->select('postulado_asistencia_evento.id', 'postulado.nombre as postulado', 'evento.fecha as fecha_evento', 'asistencia', 'inscripcion', 'notificado')
+        $asistencia_evento = EventPostulado::with(['postulado:id,nombre', 'evento:id,fecha'])
+            ->select('event_postulado.id', 'postulado.nombre as postulado', 'evento.fecha as fecha_evento', 'asistencia', 'inscripcion', 'notificado')
             ->get();
-            
+
         return view('eventos.index', compact('asistencia_evento'));
     }
 
@@ -38,7 +38,7 @@ class PostuladoAsistenciaEventoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(PostuladoAsistenciaEvento $postuladoAsistenciaEvento)
+    public function show(EventPostulado $eventPostulado)
     {
         //
     }
@@ -46,7 +46,7 @@ class PostuladoAsistenciaEventoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(PostuladoAsistenciaEvento $postuladoAsistenciaEvento)
+    public function edit(EventPostulado $eventPostulado)
     {
         //
     }
@@ -54,7 +54,7 @@ class PostuladoAsistenciaEventoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, PostuladoAsistenciaEvento $postuladoAsistenciaEvento)
+    public function update(Request $request, EventPostulado $eventPostulado)
     {
         //
     }
@@ -62,7 +62,7 @@ class PostuladoAsistenciaEventoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(PostuladoAsistenciaEvento $postuladoAsistenciaEvento)
+    public function destroy(EventPostulado $eventPostulado)
     {
         //
     }

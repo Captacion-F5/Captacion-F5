@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PostuladoBootcampRegistro;
+use App\Models\BootcampPostulado;
 use Illuminate\Http\Request;
 
-class PostuladoBootcampRegistroController extends Controller
+class BootcampPostuladoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class PostuladoBootcampRegistroController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(PostuladoBootcampRegistro $postuladoBootcampRegistro)
+    public function show(BootcampPostulado $postuladoBootcampRegistro)
     {
         //
     }
@@ -42,7 +42,7 @@ class PostuladoBootcampRegistroController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(PostuladoBootcampRegistro $postuladoBootcampRegistro)
+    public function edit(BootcampPostulado $bootcampPostulado)
     {
         //
     }
@@ -50,7 +50,7 @@ class PostuladoBootcampRegistroController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, PostuladoBootcampRegistro $postuladoBootcampRegistro)
+    public function update(Request $request, BootcampPostulado $bootcampPostulado)
     {
         //
     }
@@ -58,7 +58,7 @@ class PostuladoBootcampRegistroController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(PostuladoBootcampRegistro $postuladoBootcampRegistro)
+    public function destroy(BootcampPostulado $postuladoBootcampRegistro)
     {
         //
     }
