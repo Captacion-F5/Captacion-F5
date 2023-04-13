@@ -30,12 +30,13 @@
         <x-section-button class="">
             {{ __('TPB') }}
         </x-section-button>
+        <a href="{{ url('/datosPostulantes') }}">
+            <x-section-button class="">
+                {{ __('Datos Postulantes') }}
+            </x-section-button>
+        </a>
     </div>
-    <div class="mt-10">
-        <x-event-button texto="evento">
-            {{ __('Evento')}}
-        </x-event-button>
-    </div>
+    
 </div>
 
     <x-atoms.searchbar></x-atoms.searchbar>

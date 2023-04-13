@@ -29,11 +29,11 @@
             <x-section-button class="">
                 {{ __('TPB') }}
             </x-section-button>
-        </div>
-        <div class="mt-10">
-            <x-event-button>
-                {{ __('Evento')}}
-            </x-event-button>
+            <a href="{{ url('/datosPostulantes') }}">
+                <x-section-button class="">
+                    {{ __('Datos Postulantes') }}
+                </x-section-button>
+            </a>
         </div>
     </div>
     <x-atoms.searchbar></x-atoms.searchbar>
