@@ -6,9 +6,9 @@ use App\Models\Postulado;
 use Illuminate\Http\Request;
 use App\Models\Bootcamp;
 use Illuminate\Support\Str;
-// use App\Http\Controllers\Excel;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\PostuladoImport;
+
 
 
 
@@ -123,22 +123,24 @@ class PostuladoController extends Controller
     public function importar(Request $request){
      
         if($request->hasFile('import_file')){
-            $path = $request->file('import_file')->getRealPath();
-            $datos = Excel::import($path, function($reader){
-            })->get();
-
-            if(!empty($datos) && $datos->count()){
-                $datos = $datos->toArray();
-                for($i=0; $i< count($datos); $i++){
-                    $datosImportar[] = $datos[$i];
-                }
+            // $path = $request->file('import_file')->getRealPath();
+     Excel::import(new PostuladoImport(), request()->file('import_file'));
             }
 
-            Postulado::insert($datosImportar);
+            // if(!empty($datos) && $datos->count()){
+            //     $datos = $datos->toArray();
+            //     for($i=0; $i< count($datos); $i++){
+            //         $datosImportar[] = $datos[$i];
+            //     }
+            // }
+
+            // Postulado::insert($datos);
+
+            return back();
         }
         
-        return back();
+
     }
-}
+
 
 // Excel::import(new Postulado, request()->file('import_file'));
