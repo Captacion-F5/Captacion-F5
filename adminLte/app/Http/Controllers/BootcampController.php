@@ -79,22 +79,6 @@ class BootcampController extends Controller
         return view('bootcamps.edit', compact('bootcamp'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    // public function update(Request $request, Bootcamp $bootcamp)
-    // {
-    //     if ($bootcamp->exists()) {
-    //         $bootcamp->nombre = $request->input('nombre');
-    //         $bootcamp->inicio = $request->input('inicio');
-    //         $bootcamp->school_id = $request->input('school_id');
-    //         $bootcamp->save();
-
-    //         return redirect()->route('bootcamps.index');
-    //     } else {
-    //         return redirect()->back()->withErrors(['message' => 'El bootcamp que estás intentando actualizar no existe.']);
-    //     }
-    // }
     public function update(Request $request, Bootcamp $bootcamp)
     {
         $request->validate([
@@ -116,9 +100,9 @@ class BootcampController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id)
+    public function destroy(Bootcamp $bootcamp)
     {
-        $bootcamp = Bootcamp::findOrFail($id);
+        // $bootcamp = Bootcamp::findOrFail($id);
         $bootcamp->delete();
         return redirect()->route('bootcamps.index')->with('success', 'El bootcamp ha sido eliminado.');
     }

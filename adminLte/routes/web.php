@@ -84,7 +84,7 @@ Route::middleware('auth')->group(function () {
 
 });
 
-// Bootcamp
+// Bootcamp 
 
 Route::resource('bootcamps', BootcampController::class);
 
