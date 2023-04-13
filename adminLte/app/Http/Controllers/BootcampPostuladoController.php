@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PostuladoBootcampRegistro;
+// use App\Models\EventPostulado;
 use Illuminate\Http\Request;
 
-class PostuladoBootcampRegistroController extends Controller
+class BootcampPostuladoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class PostuladoBootcampRegistroController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(PostuladoBootcampRegistro $postuladoBootcampRegistro)
+    public function show(BootcampPostuladoController $bootcampPostuladoController)
     {
         //
     }
