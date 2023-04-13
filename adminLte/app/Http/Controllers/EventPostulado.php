@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PostuladoAsistenciaEvento;
+use App\Models\EventPostulado;
 use Illuminate\Http\Request;
 
-class PostuladoAsistenciaEventoController extends Controller
+class EventPostuladoController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $asistencia_evento = PostuladoAsistenciaEvento::with(['postulado:id,nombre', 'evento:id,fecha'])
-            ->select('postulado_asistencia_evento.id', 'postulado.nombre as postulado', 'evento.fecha as fecha_evento', 'asistencia', 'inscripcion', 'notificado')
+        $asistencia_evento = EventPostulado::with(['postulado:id,nombre', 'evento:id,fecha'])
+            ->select('event_postulado.id', 'postulado.nombre as postulado', 'evento.fecha as fecha_evento', 'asistencia', 'inscripcion', 'notificado')
             ->get();
             
         return view('eventos.index', compact('asistencia_evento'));
