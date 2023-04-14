@@ -1,10 +1,9 @@
 @extends('adminlte::page')
 @vite(['resources/js/app.js','resources/css/app.css'])
-@section('content_header')
-<br>
-@stop
 
 @section('content')
+<div class="container">
+  <div class= "card mx-auto">
     <div class="row">
         <div class="col-xs-12">
             <div class="box">
@@ -22,20 +21,21 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Nombre</th>
-                                <th>Bootcamp</th>
                                 <th>Fecha</th>
+                                <th>Bootcamp</th>
+                                <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($eventos as $evento)
+                            @foreach ($events as $event)
                                 <tr>
-                                    <td>{{ $evento->id }}</td>
-                                    <td>{{ $evento->nombre }}</td>
-                                    <td>{{ $evento->bootcamp_id }}</td>
-                                    <td>{{ $evento->fecha }}</td>
+                                    <td>{{ $event->id }}</td>
+                                    <td>{{ $event->nombre }}</td>
+                                    <td>{{ $event->fecha }}</td>
+                                    <td>{{ implode(', ', $event->bootcamp->pluck('nombre')->toArray()) }}</td>
                                     <td>
-                                        <a href="{{ route('eventos.edit', $evento->id) }}" class="btn btn-primary">Editar</a>
-                                        <form action="{{ route('eventos.destroy', $evento->id) }}" method="POST" style="display: inline-block;">
+                                        <a href="{{ route('eventos.edit', $event->id) }}" class="btn btn-primary">Editar</a>
+                                        <form action="{{ route('eventos.destroy', $event->id) }}" method="POST" style="display: inline-block;">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger">Eliminar</button>
@@ -49,4 +49,6 @@
             </div>
         </div>
     </div>
+  </div>
+</div>
 @stop

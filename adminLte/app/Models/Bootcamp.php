@@ -18,5 +18,10 @@ class Bootcamp extends Model
     {
         return $this->belongsToMany(Postulado::class);
     }
-    
+    public function events()
+    {
+        return $this->belongsToMany(Event::class, 'bootcamp_event', 'bootcamp_id', 'event_id');
+    }
 }
+    
+
