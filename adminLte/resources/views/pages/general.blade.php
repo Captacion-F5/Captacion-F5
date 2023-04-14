@@ -19,18 +19,13 @@
                 {{ __('Ejercicios') }}
             </x-section-button>
         </a>
-        <x-section-button class="">
-            {{ __('RIC') }}
-        </x-section-button>
-        <x-section-button class="">
-            {{ __('JPA') }}
-        </x-section-button>
-        <x-section-button class="">
-            {{ __('TF5') }}
-        </x-section-button>
-        <x-section-button class="">
-            {{ __('TPB') }}
-        </x-section-button>
+        <div>
+            @foreach ($eventos as $evento)
+                <x-section-button nombre="{{ $evento->nombre }}" />
+            @endforeach
+        </div>
+
+
         <a href="{{ url('/datosPostulantes') }}">
             <x-section-button class="">
                 {{ __('Datos Postulantes') }}
