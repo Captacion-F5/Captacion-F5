@@ -13,7 +13,7 @@ use Tests\TestCase;
 
 class SchoolControllerTest extends TestCase
 {
-    public function testIndex()
+    public function test_index()
 {
     // Crear algunas escuelas en la base de datos
     $schools = School::factory()->count(3)->create();
@@ -40,7 +40,7 @@ class SchoolControllerTest extends TestCase
     /**
      * @test
      */
-    public function testCreateSchool()
+    public function test_create_new_school()
     {
         $schoolData = [
             'name' => 'Test School'
@@ -55,7 +55,7 @@ class SchoolControllerTest extends TestCase
         $this->assertDatabaseHas('school', $schoolData);
     }
 
-    public function testStoreNewSchool()
+    public function test_store_school()
 {
     // Preparar los datos de entrada (en este caso, simplemente el nombre)
     $data = [

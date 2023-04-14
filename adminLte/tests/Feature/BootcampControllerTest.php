@@ -9,7 +9,7 @@ use Tests\TestCase;
 
 class BootcampControllerTest extends TestCase
 {
-    public function testIndex()
+    public function test_index()
     {
         // Crea un Bootcamp y agrega una escuela asociada
         $bootcamp = Bootcamp::factory()->create();
@@ -28,7 +28,7 @@ class BootcampControllerTest extends TestCase
         // Verifica que la respuesta contenga el nombre del Bootcamp
         $response->assertSee($bootcamp->nombre);
     }
-    public function test_create_bootcamp()
+    public function test_create_new_bootcamp()
     {
         $response = $this->get(route('bootcamps.create'));
 
@@ -37,7 +37,7 @@ class BootcampControllerTest extends TestCase
             ->assertViewHas('schools');
     }
 
-    public function test_store_new_bootcamp()
+    public function test_store_bootcamp()
     {
         // Define los datos para crear un nuevo bootcamp
         $data = [
