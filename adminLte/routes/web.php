@@ -66,7 +66,13 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/postulantes/importar', function () {
+    return view('pages.importExcelPage');
+})->name('importExcel');
+
+Route::resource('postulado',PostuladoController::class);
 Route::post('/postulantes', [PostuladoController::class, 'store'])->name('postulado.store');
+Route::post('/postulantes/importar', [PostuladoController::class, 'importar'])->name('postulado.importar');
 Route::get('/components/forms/applicant-form', [PostuladoController::class, 'create', 'eligeBootcamp'])->name('applicant-form.create');
 Route::get('/components/forms/applicant-form', [PostuladoController::class, 'eligeBootcamp'])->name('applicant-form.eligeBootcamp');
 // Route::get('/layouts.prueba',function() {

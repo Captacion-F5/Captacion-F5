@@ -6,6 +6,10 @@ use App\Models\Postulado;
 use Illuminate\Http\Request;
 use App\Models\Bootcamp;
 use Illuminate\Support\Str;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\PostuladoImport;
+
+
 
 
 
@@ -73,7 +77,13 @@ class PostuladoController extends Controller
             $postulante->bootcamp()->syncWithoutDetaching($bootcamp->id);
         }
 
-    return redirect('/dashboard')
+    
+        $file = $request->file('import_file');
+        
+        Excel::import(new PostuladoImport, $file);
+
+        // return redirect('/dashboard')
+        return redirect()->route('postulado.index')
         ->with('success', 'El postulante ha sido añadido exitosamente.');
     }
 
@@ -109,4 +119,17 @@ class PostuladoController extends Controller
     {
         //
     }
-}
+
+    //importar datos desde Excel
+    public function importar(Request $request){
+     
+        if($request->hasFile('import_file')){
+            
+            Excel::import(new PostuladoImport(), request()->file('import_file'));
+            }
+
+            return back();
+        }
+        
+    }
+
