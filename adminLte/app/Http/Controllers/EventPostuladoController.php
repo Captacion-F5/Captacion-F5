@@ -38,7 +38,8 @@ class EventPostuladoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(PostuladoAsistenciaEvento $postuladoAsistenciaEvento)
+    public function show(EventPostulado $postuladoAsistenciaEvento)
+
     {
         //
     }

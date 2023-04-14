@@ -13,8 +13,6 @@ return new class extends Migration {
         Schema::create('event', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->unsignedBigInteger('bootcamp_id');
-            $table->foreign('bootcamp_id')->references('id')->on('bootcamp')->onDelete('cascade');
             $table->timestamps();
         });
     }
