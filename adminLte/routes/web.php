@@ -66,16 +66,21 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/importExcel', function () {
+Route::get('/postulantes/importar', function () {
     return view('pages.importExcelPage');
 })->name('importExcel');
 
-Route::post('/postulantes', [PostuladoController::class, 'store'])->name('postulado.store');
+Route::post('/postulantes/importar', [PostuladoController::class, 'importar'])->name('postulado.importar');
+Route::post('/postulado', [PostuladoController::class, 'store'])->name('postulado.store');
 Route::get('/components/forms/applicant-form', [PostuladoController::class, 'create', 'eligeBootcamp'])->name('applicant-form.create');
 Route::get('/components/forms/applicant-form', [PostuladoController::class, 'eligeBootcamp'])->name('applicant-form.eligeBootcamp');
-// Route::get('/layouts.prueba',function() {
-//     return view('layouts.prueba');
-// });
+Route::get('/postulado',[PostuladoController::class, 'index'])->name('postulado');
+Route::delete('/postulado/{id}',[PostuladoController::class, 'destroy'])->name('postulado.destroy');
+Route::get('/postulado/{id}/edit', [PostuladoController::class, 'edit'])->name('postulado.edit');
+Route::put('/postulado/{id}', [PostuladoController::class, 'update'])->name('postulado.update');
+
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

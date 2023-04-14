@@ -27,6 +27,19 @@
 
 
         <a href="{{ url('/datosPostulantes') }}">
+        <x-section-button class="">
+            {{ __('RIC') }}
+        </x-section-button>
+        <x-section-button class="">
+            {{ __('JPA') }}
+        </x-section-button>
+        <x-section-button class="">
+            {{ __('TF5') }}
+        </x-section-button>
+        <x-section-button class="">
+            {{ __('TPB') }}
+        </x-section-button>
+        <a href="{{ url('/postulado') }}">
             <x-section-button class="">
                 {{ __('Datos Postulantes') }}
             </x-section-button>
