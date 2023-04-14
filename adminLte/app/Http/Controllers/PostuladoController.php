@@ -20,7 +20,9 @@ class PostuladoController extends Controller
      */
     public function index()
     {
-        //
+        // $postulados = Postulado::all();
+        $postulados = Postulado::with('bootcamp')->get();
+        return view('pages.postulado')->with('postulados', $postulados);
     }
 
     /**
@@ -37,7 +39,7 @@ class PostuladoController extends Controller
         return view('/components/forms/applicant-form', compact('bootcamps'));
     }
 
-    public function store(Request $request)
+    public function store(Request $request, Postulado $postulado)
     {
     $request->validate([
         'nombre' => 'required',
@@ -48,25 +50,25 @@ class PostuladoController extends Controller
     ]);
 
     // Busca si el postulante ya existe en la base de datos
-        $postulante = Postulado::where('nombre', Str::lower($request->input('nombre')))
+        $postulado = Postulado::where('nombre', Str::lower($request->input('nombre')))
         ->orWhere('mail', $request->input('mail'))
         ->first();
 
-        if ($postulante) {
+        if ($postulado) {
         // Si el postulante ya existe, actualiza los datos en lugar de crear un nuevo registro
-        $postulante->nombre = Str::lower($request->input('nombre'));
-        $postulante->mail = Str::lower($request->input('mail'));
-        $postulante->telefono = $request->input('telefono');
-        $postulante->url_perfil = $request->input('url_perfil');
-        $postulante->save();
+        $postulado->nombre = Str::lower($request->input('nombre'));
+        $postulado->mail = Str::lower($request->input('mail'));
+        $postulado->telefono = $request->input('telefono');
+        $postulado->url_perfil = $request->input('url_perfil');
+        $postulado->save();
         } else {
         // Si el postulante no existe, crea un nuevo registro
-        $postulante = new Postulado();
-        $postulante->nombre = Str::lower($request->input('nombre'));
-        $postulante->mail = Str::lower($request->input('mail'));
-        $postulante->telefono = $request->input('telefono');
-        $postulante->url_perfil = $request->input('url_perfil');
-        $postulante->save();
+        $postulado = new Postulado();
+        $postulado->nombre = Str::lower($request->input('nombre'));
+        $postulado->mail = Str::lower($request->input('mail'));
+        $postulado->telefono = $request->input('telefono');
+        $postulado->url_perfil = $request->input('url_perfil');
+        $postulado->save();
         }
 
         // Obtén el ID del bootcamp seleccionado
@@ -74,7 +76,7 @@ class PostuladoController extends Controller
         $bootcamp = Bootcamp::where('nombre', $bootcampNombre)->first();
         if ($bootcamp) {
             // Registra la relación en la tabla pivot sin desvincular otras relaciones existentes
-            $postulante->bootcamp()->syncWithoutDetaching($bootcamp->id);
+            $postulado->bootcamp()->syncWithoutDetaching($bootcamp->id);
         }
 
     
@@ -91,33 +93,50 @@ class PostuladoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Postulado $postulado)
+    public function show($id)
     {
-        //
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Postulado $postulado)
+    public function edit($id)
     {
-        //
+        $postulado = Postulado::find($id);
+        return view('postulado.edit', ['postulado' => $postulado]);
     }
+    public function update(Request $request, $id)
+{
+    $request->validate([
+        'nombre' => 'required',
+        'mail' => 'required|email',
+        'telefono' => 'required',
+        'url_perfil' => 'required|url',
+        'bootcamp_nombre' => 'required',
+    ]);
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Postulado $postulado)
-    {
-        //
-    }
+    $postulado = Postulado::find($id);
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Postulado $postulado)
+    $postulado->nombre = $request->input('nombre');
+    $postulado->mail = $request->input('mail');
+    $postulado->telefono = $request->input('telefono');
+    $postulado->url_perfil = $request->input('url_perfil');
+
+    $postulado->save();
+
+    // Obtén los nombres de los bootcamps seleccionados
+    $nombres = explode(',', $request->input('bootcamp_nombre'));
+    $nombres = array_map('trim', $nombres);
+
+    // Obtén los IDs de los bootcamps seleccionados
+    $bootcampIds = Bootcamp::whereIn('nombre', $nombres)->pluck('id');
+
+    // Sincroniza los bootcamps seleccionados en la tabla pivot
+    $postulado->bootcamp()->sync($bootcampIds);
+
+    return redirect()->route('postulado', ['id' => $postulado->id])->with('success', 'Los datos del postulante se han actualizado correctamente.');
+}
+    public function destroy($id)
     {
-        //
+        $postulado = Postulado::findOrfail($id);
+        $postulado->delete();
+        return redirect('postulado')->with('success', 'El postulante ha sido eliminado correctamente.');
     }
 
     //importar datos desde Excel
