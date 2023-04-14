@@ -38,6 +38,23 @@
                         <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
                     @enderror
                 </div>
+                <div class="mb-4">
+                    <label for="active" class="block text-gray-700 font-bold mb-2">Estado:</label>
+                    <div class="flex">
+                        <label class="inline-flex items-center mr-4">
+                            <input type="radio" name="active" value="1" class="form-radio" checked>
+                            <span class="ml-2">Activo</span>
+                        </label>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="active" value="0" class="form-radio">
+                            <span class="ml-2">Inactivo</span>
+                        </label>
+                    </div>
+                    @error('active')
+                        <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                    @enderror
+                </div>
+
                 <div class="flex justify-center">
                     <button type="submit" class="bg-naranja hover:bg-melocoton text-white font-bold py-2 px-4 rounded">
                         Crear bootcamp

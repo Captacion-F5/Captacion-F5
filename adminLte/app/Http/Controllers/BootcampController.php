@@ -39,28 +39,11 @@ class BootcampController extends Controller
         $bootcamp->nombre = $request->input('nombre');
         $bootcamp->inicio = $request->input('inicio');
         $bootcamp->school_id = $request->input('school_id');
+        $bootcamp->estado = $request->input('active');
+
         $bootcamp->save();
 
         return redirect()->route('bootcamps.index')->with('success', 'Bootcamp creado exitosamente.');
-        // $request->validate([
-        //     'school_id' => 'required',
-        //     'nombre' => 'required',
-        //     'inicio' => 'required|date',
-        // ]);
-
-        // Bootcamp::create([
-        //     'school_id' => $request->escuela_id,
-        //     'nombre' => $request->nombre,
-        //     'inicio' => $request->fecha_inicio,
-        // ]);
-
-        // $bootcamp = new Bootcamp();
-        // $bootcamp->nombre = $request->input('nombre');
-        // $bootcamp->inicio = $request->input('inicio');
-        // $bootcamp->school = $request->input('school_id');
-        // $bootcamp->save();
-
-        // return redirect()->route('bootcamps.index')->with('success', 'Bootcamp creado exitosamente.');
     }
 
     /**
@@ -84,13 +67,16 @@ class BootcampController extends Controller
         $request->validate([
             'nombre' => 'required',
             'inicio' => 'required|date',
-            'school_id' => 'required'
+            'school_id' => 'required',
+            'active' => 'required'
         ]);
 
         $bootcamp->nombre = $request->input('nombre');
         $bootcamp->inicio = $request->input('inicio');
         // $bootcamp->school_id = $request->input('school_id');
         $bootcamp->school_id = 1;
+        $bootcamp->estado = $request->input('active');
+
         $bootcamp->save();
 
         return redirect()->route('bootcamps.index')->with('success', 'Bootcamp actualizado exitosamente.');

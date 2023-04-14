@@ -4,11 +4,12 @@ namespace Tests\Feature;
 
 use App\Models\Bootcamp;
 use App\Models\School;
-
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Tests\TestCase;
 
 class BootcampControllerTest extends TestCase
 {
+    use HasFactory;
     public function test_index()
     {
         // Crea un Bootcamp y agrega una escuela asociada
