@@ -120,27 +120,16 @@ class PostuladoController extends Controller
         //
     }
 
+    //importar datos desde Excel
     public function importar(Request $request){
      
         if($request->hasFile('import_file')){
-            // $path = $request->file('import_file')->getRealPath();
-     Excel::import(new PostuladoImport(), request()->file('import_file'));
+            
+            Excel::import(new PostuladoImport(), request()->file('import_file'));
             }
-
-            // if(!empty($datos) && $datos->count()){
-            //     $datos = $datos->toArray();
-            //     for($i=0; $i< count($datos); $i++){
-            //         $datosImportar[] = $datos[$i];
-            //     }
-            // }
-
-            // Postulado::insert($datos);
 
             return back();
         }
         
-
     }
 
-
-// Excel::import(new Postulado, request()->file('import_file'));

@@ -26,15 +26,3 @@ class PostuladoImport implements ToModel, WithHeadingRow
         ]);
     }
 }
-
-
-// {
-//     return new Postulado([
-//         'nombre' => $row['nombre'],
-//         'mail' => $row['mail'],
-//         'telefono' => $row['telefono'],
-//         'url_perfil' => $row['url_perfil'],
-//         'genero' => $row['genero'],
-//         'bootcamp_nombre' => $row['bootcamp']
-//     ]);
-// }
