@@ -30,7 +30,7 @@
         <x-section-button class="">
             {{ __('TPB') }}
         </x-section-button>
-        <a href="{{ url('/datosPostulantes') }}">
+        <a href="{{ url('/postulado') }}">
             <x-section-button class="">
                 {{ __('Datos Postulantes') }}
             </x-section-button>
