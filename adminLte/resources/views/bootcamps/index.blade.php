@@ -20,7 +20,6 @@
             <div class="col-xs-12 m-auto">
                 <div class="box">
                     <div class="m-5 box-header flex justify-between">
-                        <h3 class="box-title">Todos los Bootcamps</h3>
                         <x-atoms.search-bootcamp></x-atoms.search-bootcamp>
                         <div class="box-tools">
                             <a href="{{ route('bootcamps.create') }}" class="btn btn-success">Añadir </a>
