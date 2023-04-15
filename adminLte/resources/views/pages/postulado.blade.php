@@ -45,6 +45,7 @@
     <thead class="px- py-2 text-xs text-white uppercase bg-naranja dark:text-gray-400">
         <tr>
             <th scope="col" class="">Nombre</th>
+            <th scope="col" class="">Genero</th>
             <th scope="col" class="">Correo Electrónico</th>
             <th scope="col" class="">Teléfono</th>
             <th scope="col" class="">URL de Perfil</th>
@@ -56,6 +57,7 @@
         @foreach($postulados as $postulado)
             <tr class="hover:bg-orange-200  bg-gray-200">
                 <td>{{ $postulado->nombre }}</td>
+                <td>{{ $postulado->genero }}</td>
                 <td>{{ $postulado->mail }}</td>
                 <td>{{ $postulado->telefono }}</td>
                 <td>{{ $postulado->url_perfil }}</td>
