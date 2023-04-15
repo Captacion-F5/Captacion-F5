@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('bootcamp', function (Blueprint $table) {
-            $table->dateTime('inicio');
+            $table->date('inicio');
         });
     }
 

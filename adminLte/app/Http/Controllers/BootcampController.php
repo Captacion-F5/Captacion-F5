@@ -39,7 +39,7 @@ class BootcampController extends Controller
         $bootcamp->nombre = $request->input('nombre');
         $bootcamp->inicio = $request->input('inicio');
         $bootcamp->school_id = $request->input('school_id');
-        $bootcamp->estado = $request->input('active');
+        $bootcamp->active = $request->input('active');
 
         $bootcamp->save();
 
@@ -73,9 +73,8 @@ class BootcampController extends Controller
 
         $bootcamp->nombre = $request->input('nombre');
         $bootcamp->inicio = $request->input('inicio');
-        // $bootcamp->school_id = $request->input('school_id');
-        $bootcamp->school_id = 1;
-        $bootcamp->estado = $request->input('active');
+        $bootcamp->school_id = $request->input('school_id');
+        $bootcamp->active = $request->input('active');
 
         $bootcamp->save();
 
