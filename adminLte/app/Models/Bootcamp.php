@@ -19,6 +19,13 @@ class Bootcamp extends Model
         return $this->belongsToMany(Postulado::class);
     }
 
+    public function scopeSearch($query, $search)
+    {
+        return $query->where('nombre', 'LIKE', '%' . $search . '%')
+            ->orWhereHas('school', function ($query) use ($search) {
+                $query->where('nombre', 'LIKE', '%' . $search . '%');
+            });
+    }
+
+
 }
-
-

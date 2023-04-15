@@ -8,8 +8,8 @@
     <div class="flex justify-between">
         <h1>Bootcamps</h1>
         <div>
-            <a  class="m-5 text-naranja" href="{{ route('bootcamps.index', ['active' => 1]) }}">Activos</a>
-            <a  class="m-5 text-naranja" href="{{ route('bootcamps.index', ['active' => 0]) }}">Inactivos</a>
+            <a  class="m-3 text-naranja" href="{{ route('bootcamps.index', ['active' => 1]) }}">Activos</a>
+            <a  class="m-3 text-naranja" href="{{ route('bootcamps.index', ['active' => 0]) }}">Inactivos</a>
         </div>
     </div>
 @stop
@@ -21,6 +21,7 @@
                 <div class="box">
                     <div class="m-5 box-header flex justify-between">
                         <h3 class="box-title">Todos los Bootcamps</h3>
+                        <x-atoms.search-bootcamp></x-atoms.search-bootcamp>
                         <div class="box-tools">
                             <a href="{{ route('bootcamps.create') }}" class="btn btn-success">Añadir </a>
                         </div>

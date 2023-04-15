@@ -8,12 +8,15 @@ use Illuminate\Http\Request;
 
 class BootcampController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      */
     public function index(Request $request)
     {
+        $schools = School::all();
         $active = $request->query('active');
+        $search = $request->query('search');
 
         $bootcamps = Bootcamp::with('school');
 
@@ -23,17 +26,16 @@ class BootcampController extends Controller
             $bootcamps = $bootcamps->where('active', 0);
         }
 
+        if ($search) {
+            $bootcamps = $bootcamps->search($search);
+        }
+
         $bootcamps = $bootcamps->get();
 
-        return view('bootcamps.index', compact('bootcamps'));
+        return view('bootcamps.index', compact('bootcamps', 'schools'));
     }
 
 
-    // public function index()
-    // {
-    //     $bootcamps = Bootcamp::with('school')->get();
-    //     return view('bootcamps.index', compact('bootcamps'));
-    // }
 
     /**
      * Show the form for creating a new resource.
