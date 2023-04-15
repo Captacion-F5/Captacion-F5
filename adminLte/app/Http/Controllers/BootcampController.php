@@ -11,11 +11,29 @@ class BootcampController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $bootcamps = Bootcamp::with('school')->get();
+        $active = $request->query('active');
+
+        $bootcamps = Bootcamp::with('school');
+
+        if ($active === '1') {
+            $bootcamps = $bootcamps->where('active', 1);
+        } elseif ($active === '0') {
+            $bootcamps = $bootcamps->where('active', 0);
+        }
+
+        $bootcamps = $bootcamps->get();
+
         return view('bootcamps.index', compact('bootcamps'));
     }
+
+
+    // public function index()
+    // {
+    //     $bootcamps = Bootcamp::with('school')->get();
+    //     return view('bootcamps.index', compact('bootcamps'));
+    // }
 
     /**
      * Show the form for creating a new resource.

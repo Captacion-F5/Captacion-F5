@@ -5,7 +5,13 @@
 @section('title', 'Bootcamps')
 
 @section('content_header')
-    <h1>Bootcamps</h1>
+    <div class="flex justify-between">
+        <h1>Bootcamps</h1>
+        <div>
+            <a  class="m-5 text-naranja" href="{{ route('bootcamps.index', ['active' => 1]) }}">Activos</a>
+            <a  class="m-5 text-naranja" href="{{ route('bootcamps.index', ['active' => 0]) }}">Inactivos</a>
+        </div>
+    </div>
 @stop
 
 @section('content')
@@ -38,15 +44,18 @@
                                         <td>{{ $bootcamp->nombre }}</td>
                                         <td>{{ $bootcamp->inicio }}</td>
                                         <td>{{ $bootcamp->school->name ?? '' }}</td>
-                                        <td> <span class="inline-block rounded-full text-center px-2 py-1 font-semibold {{ $bootcamp->active ? 'bg-green-500 text-white' : 'bg-red-500 text-white' }}">
-                                            {{ $bootcamp->active ? 'Activo' : 'Inactivo' }}
-                                        </span></td>
+                                        <td> <span
+                                                class="inline-block rounded-full text-center px-2 py-1 font-semibold {{ $bootcamp->active ? 'bg-green-500 text-white' : 'bg-red-500 text-white' }}">
+                                                {{ $bootcamp->active ? 'Activo' : 'Inactivo' }}
+                                            </span></td>
                                         <td>
                                             <div class="flex">
-                                                <form method="POST" action="{{ route('bootcamps.destroy', $bootcamp->id) }}">
+                                                <form method="POST"
+                                                    action="{{ route('bootcamps.destroy', $bootcamp->id) }}">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <a href="{{ route('bootcamps.edit', $bootcamp->id) }}" class="btn btn-primary">
+                                                    <a href="{{ route('bootcamps.edit', $bootcamp->id) }}"
+                                                        class="btn btn-primary">
                                                         Editar
                                                     </a>
 
