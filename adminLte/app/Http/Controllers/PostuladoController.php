@@ -13,6 +13,7 @@ use App\Imports\PostuladoImport;
 
 
 
+
 class PostuladoController extends Controller
 {
     /**
@@ -196,13 +197,7 @@ class PostuladoController extends Controller
             Excel::import(new PostuladoImport(), request()->file('import_file'));
         }
 
-        //     if ($request->hasFile('import_file')) {
-
-        //         Excel::import(new PostuladoImport(), request()->file('import_file'));
-        //     }
-
-        //     return back();
-        // }
-
+        return back();
+      
     }
 }
