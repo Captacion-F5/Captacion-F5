@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('bootcamp', function (Blueprint $table) {
-            $table->date('inicio');
+            $table->boolean('active')->default(false);
+
         });
     }
 
@@ -22,7 +23,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('bootcamp', function (Blueprint $table) {
-            //
+            $table->dropColumn('active');
         });
     }
 };

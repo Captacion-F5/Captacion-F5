@@ -18,10 +18,14 @@ class Bootcamp extends Model
     {
         return $this->belongsToMany(Postulado::class);
     }
-    public function events()
-    {
-        return $this->belongsToMany(Event::class, 'bootcamp_event', 'bootcamp_id', 'event_id');
-    }
-}
-    
 
+    public function scopeSearch($query, $search)
+    {
+        return $query->where('nombre', 'LIKE', '%' . $search . '%')
+            ->orWhereHas('school', function ($query) use ($search) {
+                $query->where('nombre', 'LIKE', '%' . $search . '%');
+            });
+    }
+
+
+}
