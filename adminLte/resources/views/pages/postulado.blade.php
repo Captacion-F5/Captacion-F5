@@ -2,8 +2,10 @@
 @extends('adminlte::page')
 @section('title', 'Captación F5')
 @section('plugins.Sweetalert2', true)
-
-
+{{-- @include('layouts.navigation')
+<aside class="col-span-5 lg:col-span-2">
+    @include('layouts.sidebarHome') 
+</aside> --}}
 @section('content')
 <h2 class="text-naranja text-lg mt-2">Bienvenida a tu panel de administradora</h2>
 

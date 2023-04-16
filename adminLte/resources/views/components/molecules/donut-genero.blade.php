@@ -10,33 +10,47 @@
 
   <!-- Required chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  
-  <!-- Chart doughnut -->
-  <script>
-    const dataDoughnut = {
-      labels: ["Mujeres", "Hombres", "No binario"],
-      datasets: [
-        {
-          label: "candidatos por genero",
-          data: [300, 50, 100],
-          backgroundColor: [
-            "rgb(255, 92, 0)",
-            "rgb(255, 165, 0)",
-            "rgb(255, 255, 0)",
+      <script>
+    fetch('/obtener_datos_bootcamp/1') 
+      .then(response => response.json())
+      .then(data => {
+        // Procesar los datos obtenidos para el gráfico
+
+        const femenino = data.generos.filter(genero => genero === 'hombre').length;
+        const masculino = data.generos.filter(genero => genero === 'mujer').length;
+        const noBinario = data.generos.filter(genero => genero === 'no binario').length;
+        const noContestar = data.generos.filter(genero => genero === 'prefiero no contestar').length;
+
+        const dataDoughnut = {
+          labels: ["hombre", "mujer", "no binario", "prefiero no contestar"],
+          datasets: [
+            {
+              label: "candidatos por genero",
+              data: [femenino, masculino, noBinario, noContestar],
+              backgroundColor: [
+                "rgb(255, 92, 0)",
+                "rgb(255, 165, 0)",
+                "rgb(255, 255, 0)",
+                "rgb(128, 128, 128)"
+              ],
+              hoverOffset: 4,
+            },
           ],
-          hoverOffset: 4,
-        },
-      ],
-    };
-  
-    const configDoughnut = {
-      type: "doughnut",
-      data: dataDoughnut,
-      options: {},
-    };
-  
-    var chartBar = new Chart(
-      document.getElementById("chartDoughnutGenero"),
-      configDoughnut
-    );
+        };
+
+        const configDoughnut = {
+          type: "doughnut",
+          data: dataDoughnut,
+          options: {},
+        };
+
+        var chartBar = new Chart(
+          document.getElementById("chartDoughnutGenero"),
+          configDoughnut
+        );
+      })
+      .catch(error => {
+        console.error('Error al obtener los datos del servidor:', error);
+      });
+
   </script>
