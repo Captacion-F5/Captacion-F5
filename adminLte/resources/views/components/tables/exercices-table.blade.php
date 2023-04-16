@@ -6,13 +6,7 @@
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                 <thead class="px-1 py-2 text-center text-xs text-white uppercase bg-naranja  dark:text-gray-400">
                     <tr>
-                        <th scope="col" class="p-4">
-                            <div class="flex items-center">
-                                <input id="checkbox-all-search" type="checkbox"
-                                    class="w-4 h-4 text-naranja bg-gray-100  rounded focus:ring-naranja dark:focus:ring-naranja ">
-                                <label for="checkbox-all-search" class="sr-only">checkbox</label>
-                            </div>
-                        </th>
+
                         <th scope="col">
                             Aplicante
                         </th>
@@ -37,13 +31,6 @@
                 </thead>
                 <tbody>
                     <tr class="hover:bg-orange-200">
-                        <td class="w-4 p-4">
-                            <div class="flex items-center">
-                                <input id="checkbox-table-search-1" type="checkbox"
-                                    class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja ">
-                                <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
-                            </div>
-                        </td>
                         <th scope="row" class="px-2 py-4 font-medium text-gray-900 whitespace-nowrap">
                             Ríos, Jéssica
                         </th>
@@ -87,13 +74,7 @@
                     </tr>
 
                     <tr class="hover:bg-orange-200">
-                        <td class="w-4 p-4">
-                            <div class="flex items-center">
-                                <input id="checkbox-table-search-1" type="checkbox"
-                                    class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja">
-                                <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
-                            </div>
-                        </td>
+
                         <th scope="row" class="px-2 py-4 font-medium text-gray-900  whitespace-nowrap">
                             Raña, Mónica
                         </th>
@@ -136,13 +117,7 @@
                         </td>
                     </tr>
                     <tr class="hover:bg-orange-200">
-                        <td class="w-4 p-4">
-                            <div class="flex items-center">
-                                <input id="checkbox-table-search-1" type="checkbox"
-                                    class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja">
-                                <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
-                            </div>
-                        </td>
+
                         <th scope="row" class="px-2 py-4 font-medium text-gray-900  whitespace-nowrap">
                             Díaz, Tania
                         </th>
@@ -185,13 +160,6 @@
                         </td>
                     </tr>
                     <tr class="hover:bg-orange-200">
-                        <td class="w-4 p-4">
-                            <div class="flex items-center">
-                                <input id="checkbox-table-search-1" type="checkbox"
-                                    class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja">
-                                <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
-                            </div>
-                        </td>
                         <th scope="row" class="px-2 py-4 font-medium text-gray-900  whitespace-nowrap">
                             García, Ana
                         </th>
