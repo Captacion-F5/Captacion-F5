@@ -302,64 +302,36 @@ return [
             'topnav_right' => true,
         ],
         [
-            'type'         => 'fullscreen-widget',
+            'type' => 'fullscreen-widget',
             'topnav_right' => true,
         ],
 
         // Sidebar items:
 
         ['header' => 'Navegar'],
-        [   'text' => 'Escuelas',
-            'submenu' => [
-                [
-                'text' => 'Asturias',
-                'submenu' => [
-                    // [
-                    //     'text' => 'Bootcamp',
-                    //     'url' => 'bootcamp.create',
-                    //     'icon_color' => 'white',
-                    //     'icon' => 'fa fa-plus',
-
-                    // ],
-                    [
-                        'text' => 'Promos Activas',
-                        'icon_color' => 'green',
-                        'url' => '#',
-                        'submenu' => [
-                            [
-                                'text' => 'FemCoders',
-                                'url' => '/general',
-                            ],
-                            [
-                                'text' => 'RuralCamp',
-                                'url' => '#',
-                            ],
-
-                        ],
-
-                    ],
-                    [
-                        'text' => 'Promos Inactivas',
-                        'icon_color' => 'red',
-                        'url' => '#',
-                        'submenu' => [
-                            [
-                                'text' => 'FemCoders',
-                                'url' => '#',
-                            ],
-                            [
-                                'text' => 'RuralCamp',
-                                'url' => '#',
-                            ],
-
-                        ],
-
-                    ],
-                ],
-
-            ],
+        [
+            'text' => 'Escuelas',
+            'url' => 'school',
+            'icon_color' => 'white',
+            'icon' => 'fa fa-school'
         ],
-
+        [
+            'text' => 'Bootcamps',
+            'url' => 'bootcamps',
+            'icon_color' => 'white',
+            'icon' => 'fa fa-screen'
+        ],
+        [
+            'text' => 'Eventos',
+            'url' => 'eventos',
+            'icon_color' => 'white',
+            'icon' => 'fa fa-screen'
+        ],
+        [
+            'text' => 'Postulantes',
+            'url' => 'postulado',
+            'icon_color' => 'white',
+            'icon' => 'fa fa-screen'
         ],
 
 

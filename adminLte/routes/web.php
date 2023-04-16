@@ -110,6 +110,7 @@ Route::resource('bootcamps', BootcampController::class);
 require __DIR__.'/auth.php';
 
 Route::resource('school',SchoolController::class);
+Route::post('/school/index', [SchoolController::class, 'index'])->name('school.index');
 Route::post('/school/create', [SchoolController::class, 'create'])->name('school.create');
 Route::post('/school/store', [SchoolController::class, 'store'])->name('school.store');
 
