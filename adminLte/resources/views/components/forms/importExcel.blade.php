@@ -1,8 +1,13 @@
+<br>
+<br>
+<br>
+<br>
+<br>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Importar Postulantes</div>
+                <div class="card-header"><b>Importar Postulantes</b></div>
                 <div class="card-body">
                     @if (isset($errors) && $errors->any())
                         <div class="alert alert-danger" role="alert">
