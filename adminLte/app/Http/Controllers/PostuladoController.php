@@ -18,12 +18,19 @@ class PostuladoController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        // $postulados = Postulado::all();
-        $postulados = Postulado::with('bootcamp')->get();
+        // // $postulados = Postulado::all();
+        // $postulados = Postulado::with('bootcamp')->get();
+        // return view('pages.postulado')->with('postulados', $postulados);
+
+
+        $searchPost = $request->input('search');
+        $postulados = Postulado::with('bootcamp')->searchPost($searchPost)->get();
         return view('pages.postulado')->with('postulados', $postulados);
     }
+
+
 
     /**
      * Show the form for creating a new resource.
