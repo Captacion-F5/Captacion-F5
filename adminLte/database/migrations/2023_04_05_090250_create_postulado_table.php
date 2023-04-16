@@ -15,10 +15,10 @@ return new class extends Migration
         Schema::create('postulado', function (Blueprint $table) {
             $table->id();
             $table->string('nombre')->nullable(false);
-            $table->enum('genero', ['hombre', 'mujer', 'no binario', 'prefiero no contestar'])->nullable(false);
+            $table->enum('genero', ['hombre', 'mujer', 'no binario', 'prefiero no contestar']);
             $table->string('mail')->nullable(false);
             $table->date('fecha_nacimiento')->nullable();
-            $table->string('telefono')->nullable(false);
+            $table->string('telefono')->nullable();
             $table->string('direccion')->nullable();
             $table->longText('motivacion')->nullable();
             $table->string('ingles')->nullable();
@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string('otra_formacion')->nullable();
             $table->string('como_conocido')->nullable();
             $table->string('situacion_profesional')->nullable();
-            $table->longText('url_perfil')->nullable(false);
+            $table->longText('url_perfil')->nullable();
             $table->string('terminos')->nullable();
             $table->timestamps();
         });
