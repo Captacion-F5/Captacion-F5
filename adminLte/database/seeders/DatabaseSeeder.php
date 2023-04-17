@@ -15,9 +15,9 @@ class DatabaseSeeder extends Seeder
        $this->call([
         SchoolTableSeeder::class,
         BootcampTableSeeder::class,
-        PostuladoTableSeeder::class,
-        EventTableSeeder::class
-
+        EventTableSeeder::class,
+        PostuladoTableSeeder::class
+        
         // php artisan migrate:fresh --seed
         
        ]);
