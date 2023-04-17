@@ -1,7 +1,7 @@
 @vite(['resources/js/app.js', 'resources/css/app.css'])
 
 
-<div class="p-3">
+{{-- <div class="p-3">
     <label for="table-search" class="sr-only">Search</label>
     <div class="relative mt-1">
         <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
@@ -17,4 +17,19 @@
             placeholder="Buscar aplicante">
 
     </div>
-</div>
+</div> --}}
+@vite(['resources/js/app.js', 'resources/css/app.css'])
+
+<form action="{{ route('postulado') }}" method="GET">
+    <div class="flex items-center ">
+      <div class="relative">
+        <input type="text" name="search" placeholder="Buscar por nombre o email" value="{{ request('search') }}" class="border rounded-md py-2 px-3 w-120 sm:w-auto">
+      </div>
+      <div>
+        <button type="submit" class="bg-naranja hover:bg-melocoton text-white font-bold py-2 px-4 rounded">
+          Buscar
+        </button>
+      </div>
+    </div>
+  </form>
+

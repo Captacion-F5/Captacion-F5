@@ -9,15 +9,20 @@
                 @method('PUT')
                 @csrf
                 <input type="text" name="nombre" value="{{ $postulado->nombre }}" required class="w-full px-4 py-2 mb-4 rounded">
+                <select name="genero" required class="w-full px-4 py-2 mb-4 rounded">
+                    <option value="hombre" @if($postulado->genero === 'hombre') selected @endif>Hombre</option>
+                    <option value="mujer" @if($postulado->genero === 'mujer') selected @endif>Mujer</option>
+                    <option value="no binario" @if($postulado->genero === 'no binario') selected @endif>No binario</option>
+                    <option value="prefiero no contestar" @if($postulado->genero === 'prefiero no contestar') selected @endif>Prefiero no contestar</option>
+                  </select>
                 <input type="email" name="mail" value="{{ $postulado->mail }}" required class="w-full px-4 py-2 mb-4 rounded">
                 <input type="tel" name="telefono" value="{{ $postulado->telefono }}" required class="w-full px-4 py-2 mb-4 rounded">
                 <input type="url" name="url_perfil" value="{{ $postulado->url_perfil }}" required class="w-full px-4 py-2 mb-4 rounded">
+                <label for="bootcamp_nombre" class="block mb-2 font-bold">Nombre del bootcamp:</label>
                 <input type="text" name="bootcamp_nombre" value="{{ implode(', ', $postulado->bootcamp->pluck('nombre')->toArray()) }}" required class="w-full px-4 py-2 mb-4 rounded">
-
-                
                 <!-- ... -->
                 <div class="flex justify-end pt-2">
-                    <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+                    <button type="submit" class="bg-naranja hover:bg-melocoton text-white font-bold py-2 px-4 rounded">
                         Actualizar
                     </button>
                 </div>

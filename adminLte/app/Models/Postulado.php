@@ -16,6 +16,13 @@ class Postulado extends Model
     {
         return $this->belongsToMany(Bootcamp::class, 'bootcamp_postulado', 'postulado_id', 'bootcamp_id');
     }
+    public function scopeSearchPost($queryPost, $searchPost)
+    {
+        return $queryPost->where(function ($queryPost) use ($searchPost) {
+            $queryPost->where('nombre', 'LIKE', '%' . $searchPost . '%')
+                ->orWhere('mail', 'LIKE', '%' . $searchPost . '%');
+        });
+    }
 
 }
 

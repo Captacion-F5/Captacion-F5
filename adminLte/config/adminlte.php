@@ -310,28 +310,28 @@ return [
 
         ['header' => 'Navegar'],
         [
-            'text' => 'Escuelas',
+            'text' => '- Escuelas',
             'url' => 'school',
             'icon_color' => 'white',
             'icon' => 'fa fa-school'
         ],
         [
-            'text' => 'Bootcamps',
+            'text' => '- Bootcamps',
             'url' => 'bootcamps',
             'icon_color' => 'white',
-            'icon' => 'fa fa-screen'
+            'icon' => 'fa fa-flag'
         ],
         [
-            'text' => 'Eventos',
+            'text' => '- Eventos',
             'url' => 'eventos',
             'icon_color' => 'white',
-            'icon' => 'fa fa-screen'
+            'icon' => 'fa fa-calendar'
         ],
         [
-            'text' => 'Postulantes',
+            'text' => '- Postulantes',
             'url' => 'postulado',
             'icon_color' => 'white',
-            'icon' => 'fa fa-screen'
+            'icon' => 'fa fa-users'
         ],
 
 
