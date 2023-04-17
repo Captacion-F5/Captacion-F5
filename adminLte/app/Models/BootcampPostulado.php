@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PostuladoAsistenciaEvento extends Model
+class BootcampPostulado extends Model
 {
     use HasFactory;
     protected $table = 'bootcamp_postulado';
