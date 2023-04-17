@@ -40,10 +40,8 @@
 </div>
 
 <x-atoms.searchbar></x-atoms.searchbar>
-
     <x-tables.process-table class="">
     </x-tables.process-table>
-
 @stop
 
 

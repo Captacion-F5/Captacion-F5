@@ -16,7 +16,7 @@ class SchoolController extends Controller
     public function index()
     {
         $schools = School::latest('id', 'name')->get();
-        
+
         return view('school.index',compact('schools'));
     }
 
@@ -36,9 +36,9 @@ class SchoolController extends Controller
         $request->validate([
             'name' => 'required',
         ]);
-    
+
         School::create($request->all());
-     
+
         return redirect()->route('school.index')
                         ->with('success','Se ha añadido una nueva escuela.');
     }
@@ -67,9 +67,9 @@ class SchoolController extends Controller
         $request->validate([
             'name' => 'required',
         ]);
-    
+
         $school->update($request->all());
-    
+
         return redirect()->route('school.index')
                         ->with('success','La escuela se ha actualizado correctamente');
     }
@@ -80,7 +80,7 @@ class SchoolController extends Controller
     public function destroy(School $school)
     {
         $school->delete();
-    
+
         return redirect()->route('school.index')
                         ->with('success','La escuela se ha eliminado.');
     }

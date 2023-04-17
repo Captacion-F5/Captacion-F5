@@ -41,21 +41,22 @@ class PostuladoController extends Controller
 
     public function store(Request $request, Postulado $postulado)
     {
-    $request->validate([
-        'nombre' => 'required',
-        'genero' => 'required',
-        'mail' => 'required|email',
-        'telefono' => 'required',
-        'url_perfil' => 'required|url',
-        'bootcamp_nombre' => 'required',
-    ]);
+        $request->validate([
+            'nombre' => 'required',
+            'genero' => 'required',
+            'mail' => 'required|email',
+            'telefono' => 'required',
+            'url_perfil' => 'required|url',
+            'bootcamp_nombre' => 'required',
+        ]);
 
-    // Busca si el postulante ya existe en la base de datos
+        // Busca si el postulante ya existe en la base de datos
         $postulado = Postulado::where('nombre', Str::lower($request->input('nombre')))
-        ->orWhere('mail', $request->input('mail'))
-        ->first();
+            ->orWhere('mail', $request->input('mail'))
+            ->first();
 
         if ($postulado) {
+
         // Si el postulante ya existe, actualiza los datos en lugar de crear un nuevo registro
         $postulado->nombre = Str::lower($request->input('nombre'));
         $postulado->genero = $request->input('genero');
@@ -63,15 +64,16 @@ class PostuladoController extends Controller
         $postulado->telefono = $request->input('telefono');
         $postulado->url_perfil = $request->input('url_perfil');
         $postulado->save();
+
         } else {
-        // Si el postulante no existe, crea un nuevo registro
-        $postulado = new Postulado();
-        $postulado->nombre = Str::lower($request->input('nombre'));
-        $postulado->genero = Str::lower($request->input('genero'));
-        $postulado->mail = Str::lower($request->input('mail'));
-        $postulado->telefono = $request->input('telefono');
-        $postulado->url_perfil = $request->input('url_perfil');
-        $postulado->save();
+            // Si el postulante no existe, crea un nuevo registro
+            $postulado = new Postulado();
+            $postulado->nombre = Str::lower($request->input('nombre'));
+            $postulado->genero = Str::lower($request->input('genero'));
+            $postulado->mail = Str::lower($request->input('mail'));
+            $postulado->telefono = $request->input('telefono');
+            $postulado->url_perfil = $request->input('url_perfil');
+            $postulado->save();
         }
 
         // Obtén el ID del bootcamp seleccionado
@@ -81,9 +83,9 @@ class PostuladoController extends Controller
             // Registra la relación en la tabla pivot sin desvincular otras relaciones existentes
             $postulado->bootcamp()->syncWithoutDetaching($bootcamp->id);
         }
-    
+
         return redirect('/dashboard')->with('success', 'El postulante ha sido añadido exitosamente.');
-       
+
     }
 
 
@@ -100,36 +102,36 @@ class PostuladoController extends Controller
         return view('postulado.edit', ['postulado' => $postulado, 'bootcamps' => $bootcamps]);
     }
     public function update(Request $request, $id)
-{
-    $request->validate([
-        'nombre' => 'required',
-        'mail' => 'required|email',
-        'telefono' => 'required',
-        'url_perfil' => 'required|url',
-        'bootcamp_nombre' => 'required',
-    ]);
+    {
+        $request->validate([
+            'nombre' => 'required',
+            'mail' => 'required|email',
+            'telefono' => 'required',
+            'url_perfil' => 'required|url',
+            'bootcamp_nombre' => 'required',
+        ]);
 
-    $postulado = Postulado::find($id);
+        $postulado = Postulado::find($id);
 
-    $postulado->nombre = $request->input('nombre');
-    $postulado->mail = $request->input('mail');
-    $postulado->telefono = $request->input('telefono');
-    $postulado->url_perfil = $request->input('url_perfil');
+        $postulado->nombre = $request->input('nombre');
+        $postulado->mail = $request->input('mail');
+        $postulado->telefono = $request->input('telefono');
+        $postulado->url_perfil = $request->input('url_perfil');
 
-    $postulado->save();
+        $postulado->save();
 
-    // Obtén los nombres de los bootcamps seleccionados
-    $nombres = explode(',', $request->input('bootcamp_nombre'));
-    $nombres = array_map('trim', $nombres);
+        // Obtén los nombres de los bootcamps seleccionados
+        $nombres = explode(',', $request->input('bootcamp_nombre'));
+        $nombres = array_map('trim', $nombres);
 
-    // Obtén los IDs de los bootcamps seleccionados
-    $bootcampIds = Bootcamp::whereIn('nombre', $nombres)->pluck('id');
+        // Obtén los IDs de los bootcamps seleccionados
+        $bootcampIds = Bootcamp::whereIn('nombre', $nombres)->pluck('id');
 
-    // Sincroniza los bootcamps seleccionados en la tabla pivot
-    $postulado->bootcamp()->sync($bootcampIds);
+        // Sincroniza los bootcamps seleccionados en la tabla pivot
+        $postulado->bootcamp()->sync($bootcampIds);
 
-    return redirect()->route('postulado', ['id' => $postulado->id])->with('success', 'Los datos del postulante se han actualizado correctamente.');
-}
+        return redirect()->route('postulado', ['id' => $postulado->id])->with('success', 'Los datos del postulante se han actualizado correctamente.');
+    }
     public function destroy($id)
     {
         $postulado = Postulado::findOrfail($id);
@@ -139,27 +141,28 @@ class PostuladoController extends Controller
 
     public function postulado_excel(Request $request, Postulado $postulado)
     {
-    $request->validate([
-        'nombre' => 'required',
-        'mail' => 'required|email',
-        'telefono' => 'required',
-        'url_perfil' => 'required|url',
-        'bootcamp_nombre' => 'required',
-    ]);
+        $request->validate([
+            'nombre' => 'required',
+            'mail' => 'required|email',
+            'telefono' => 'required',
+            'url_perfil' => 'required|url',
+            'bootcamp_nombre' => 'required',
+        ]);
 
-    // Busca si el postulante ya existe en la base de datos
+        // Busca si el postulante ya existe en la base de datos
         $postulado = Postulado::where('nombre', Str::lower($request->input('nombre')))
-        ->orWhere('mail', $request->input('mail'))
-        ->first();
+            ->orWhere('mail', $request->input('mail'))
+            ->first();
 
         if ($postulado) {
-        // Si el postulante ya existe, actualiza los datos en lugar de crear un nuevo registro
-        $postulado->nombre = Str::lower($request->input('nombre'));
-        $postulado->mail = Str::lower($request->input('mail'));
-        $postulado->telefono = $request->input('telefono');
-        $postulado->url_perfil = $request->input('url_perfil');
-        $postulado->save();
+            // Si el postulante ya existe, actualiza los datos en lugar de crear un nuevo registro
+            $postulado->nombre = Str::lower($request->input('nombre'));
+            $postulado->mail = Str::lower($request->input('mail'));
+            $postulado->telefono = $request->input('telefono');
+            $postulado->url_perfil = $request->input('url_perfil');
+            $postulado->save();
         } else {
+
         // Si el postulante no existe, crea un nuevo registro
         $postulado = new Postulado();
         $postulado->nombre = Str::lower($request->input('nombre'));
@@ -168,6 +171,7 @@ class PostuladoController extends Controller
         $postulado->telefono = $request->input('telefono');
         $postulado->url_perfil = $request->input('url_perfil');
         $postulado->save();
+
         }
 
         // Obtén el ID del bootcamp seleccionado
@@ -178,29 +182,31 @@ class PostuladoController extends Controller
             $postulado->bootcamp()->syncWithoutDetaching($bootcamp->id);
         }
 
-    
+
         $file = $request->file('import_file');
-        
+
         Excel::import(new PostuladoImport, $file);
 
         // return redirect('/dashboard')
         return redirect()->route('postulado.index')
-        ->with('success', 'El postulante ha sido añadido exitosamente.');
+            ->with('success', 'El postulante ha sido añadido exitosamente.');
     }
 
 
     //importar datos desde Excel
-    public function importar(Request $request){
-     
-        if($request->hasFile('import_file')){
-            
-            Excel::import(new PostuladoImport(), request()->file('import_file'));
-            }
+    public function importar(Request $request)
+    {
 
-            return back();
+        if ($request->hasFile('import_file')) {
+
+            Excel::import(new PostuladoImport(), request()->file('import_file'));
         }
+    return back();
+
+        
+    }
     
-    public function obtener_datos_bootcamp($bootcampId)
+        public function obtener_datos_bootcamp($bootcampId)
     {
         $bootcamp = Bootcamp::findOrFail($bootcampId);
         $postulados = $bootcamp->postulado;
@@ -220,8 +226,5 @@ class PostuladoController extends Controller
     //     // Retorna los datos de los candidatos en formato JSON
     //     return response()->json($data);
     // }
-
-            
-        
+    
 }
-

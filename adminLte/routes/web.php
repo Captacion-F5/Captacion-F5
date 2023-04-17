@@ -103,7 +103,7 @@ Route::resource('bootcamps', BootcampController::class);
 // Route::get('/bootcamps/create', [BootcampController::class, 'create'])->name('bootcamps.create');
 // Route::get('/bootcamps/index', [BootcampController::class, 'index'])->name('bootcamps.index');
 // Route::get('/bootcamps/{bootcamp}/edit', [BootcampController::class, 'edit'])->name('bootcamps.edit');
-// Route::get('/bootcamps/show/{id}', [BootcampController::class, 'show'])->name('bootcamps.show');
+// Route::get('/bootcamps/{bootcamp}', [BootcampController::class, 'show'])->name('bootcamps.show');
 // Route::post('/bootcamps/store', [BootcampController::class, 'store'])->name('bootcamps.store');
 // Route::put('/bootcamps/{bootcamp}', [BootcampController::class, 'update'])->name('bootcamps.update');
 // Route::delete('/bootcamps/destroy/{id}', [BootcampController::class, 'destroy'])->name('bootcamps.destroy');
@@ -112,6 +112,7 @@ Route::resource('bootcamps', BootcampController::class);
 require __DIR__.'/auth.php';
 
 Route::resource('school',SchoolController::class);
+Route::post('/school/index', [SchoolController::class, 'index'])->name('school.index');
 Route::post('/school/create', [SchoolController::class, 'create'])->name('school.create');
 Route::post('/school/store', [SchoolController::class, 'store'])->name('school.store');
 // Route::get('/sidebar_home', [SchoolController::class, 'sidebar_home'])->name('sidebar_home');

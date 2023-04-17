@@ -15,7 +15,7 @@ class EventPostuladoController extends Controller
         $asistencia_evento = EventPostulado::with(['postulado:id,nombre', 'evento:id,fecha'])
             ->select('event_postulado.id', 'postulado.nombre as postulado', 'evento.fecha as fecha_evento', 'asistencia', 'inscripcion', 'notificado')
             ->get();
-            
+
         return view('eventos.index', compact('asistencia_evento'));
     }
 
@@ -38,8 +38,7 @@ class EventPostuladoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(EventPostulado $postuladoAsistenciaEvento)
-
+    public function show(EventPostulado $eventPostulado)
     {
         //
     }
@@ -47,7 +46,7 @@ class EventPostuladoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(PostuladoAsistenciaEvento $postuladoAsistenciaEvento)
+    public function edit(EventPostulado $eventPostulado)
     {
         //
     }
@@ -55,7 +54,7 @@ class EventPostuladoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, PostuladoAsistenciaEvento $postuladoAsistenciaEvento)
+    public function update(Request $request, EventPostulado $eventPostulado)
     {
         //
     }
@@ -63,7 +62,7 @@ class EventPostuladoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(PostuladoAsistenciaEvento $postuladoAsistenciaEvento)
+    public function destroy(EventPostulado $eventPostulado)
     {
         //
     }
