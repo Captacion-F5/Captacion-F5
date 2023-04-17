@@ -8,8 +8,6 @@
 @section('content')
     <h2 class="text-naranja text-lg mt-2">Vista general de los procesos de selección.</h2>
     <br>
-    <x-tables.event-table></x-tables.event-table>
-    <br>
     <x-tables.general-table></x-tables.general-table>
     <br>
     <x-atoms.panel class="ml-3"></x-atoms.panel>
