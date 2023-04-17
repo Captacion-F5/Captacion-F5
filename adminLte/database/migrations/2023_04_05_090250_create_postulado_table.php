@@ -27,7 +27,9 @@ return new class extends Migration
             $table->string('como_conocido')->nullable();
             $table->string('situacion_profesional')->nullable();
             $table->longText('url_perfil')->nullable(false);
+            $table->boolean('ejercicios')->nullable();
             $table->string('terminos')->nullable();
+            $table->enum('estado', ['seleccionado', 'descartado', 'en proceso'])->nullable(false);
             $table->timestamps();
         });
         DB::statement("ALTER TABLE postulado MODIFY COLUMN genero ENUM('hombre', 'mujer', 'no binario', 'prefiero no contestar')");
