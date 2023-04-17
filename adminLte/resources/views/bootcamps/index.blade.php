@@ -19,7 +19,7 @@
         <div class="row">
             <div class="col-xs-12 m-auto">
                 <div class="box">
-                    <div class="m-5 box-header flex justify-between">
+                    <div class="m-3 box-header flex justify-around">
                         <x-atoms.search-bootcamp></x-atoms.search-bootcamp>
                         <div class="box-tools">
                             <a href="{{ route('bootcamps.create') }}" class="btn btn-success">Añadir </a>
