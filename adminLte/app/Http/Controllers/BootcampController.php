@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\School;
 use App\Models\Bootcamp;
 use Illuminate\Http\Request;
+use App\Models\Postulado;
+use App\Models\Event;
+
 
 class BootcampController extends Controller
 {
@@ -112,4 +115,13 @@ class BootcampController extends Controller
         return redirect()->route('bootcamps.index')->with('success', 'El bootcamp ha sido eliminado.');
     }
 
+    public function general($id)
+    {
+        // Obtén el bootcamp seleccionado por su ID, junto con sus postulados relacionados
+        $bootcamp = Bootcamp::with('postulado')->find($id);
+        // Retorna los datos del bootcamp y sus postulados a la vista "general"
+        return view('pages.general', compact('bootcamp'));
+    }
+
+    
 }

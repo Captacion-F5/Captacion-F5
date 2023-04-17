@@ -39,7 +39,8 @@
                             <tbody>
                                 @foreach ($bootcamps as $bootcamp)
                                     <tr>
-                                        <td>{{ $bootcamp->nombre }}</td>
+                                        <td>{{ $bootcamp->id }}</td>
+                                        <td><a href="{{ route('general', $bootcamp->id) }}">{{ $bootcamp->nombre }}</a></td>
                                         <td>{{ $bootcamp->inicio }}</td>
                                         <td>{{ $bootcamp->school->name ?? '' }}</td>
                                         <td> <span
