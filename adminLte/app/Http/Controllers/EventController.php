@@ -78,6 +78,22 @@ class EventController extends Controller
     /**
      * Update the specified resource in storage.
      */
+    // public function update(Request $request, $id)
+    // {
+    //     $request->validate([
+    //         'nombre' => 'required',
+    //         'fecha' => 'required|date',
+    //         'bootcamp_id' => 'required',
+    //     ]);
+
+    //     $evento = Event::findOrFail($id);
+    //     $evento->nombre = $request->input('nombre');
+    //     $evento->fecha = $request->input('fecha');
+    //     $evento->bootcamp_id = $request->input('bootcamp_id');
+    //     $evento->save();
+
+    //     return redirect()->route('eventos.index');
+    // }
     public function update(Request $request, $id)
     {
         $request->validate([
@@ -86,14 +102,20 @@ class EventController extends Controller
             'bootcamp_id' => 'required',
         ]);
 
+        $bootcamp_nombres = $request->input('bootcamp_id', []);
+        $bootcamp_ids = Bootcamp::whereIn('nombre', $bootcamp_nombres)->pluck('id')->toArray();
+
         $evento = Event::findOrFail($id);
         $evento->nombre = $request->input('nombre');
         $evento->fecha = $request->input('fecha');
         $evento->bootcamp_id = $request->input('bootcamp_id');
+        $evento->bootcamp()->sync($bootcamp_ids);
         $evento->save();
 
         return redirect()->route('eventos.index');
     }
+
+
     /**
      * Remove the specified resource from storage.
      */

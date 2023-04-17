@@ -29,13 +29,25 @@
                         <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
-                <div class="mb-3">
+                {{-- <div class="mb-3">
                     <label for="bootcamp_id" class="form-label">Bootcamp</label>
                     <input type="text" class="form-control @error('bootcamp_id') is-invalid @enderror" id="bootcamp_id" name="bootcamp_id" value="{{ $evento->bootcamp_id }}">
                     @error('bootcamp_id')
                         <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
+                </div> --}}
+                <div class="mb-3">
+                    <label for="bootcamp_id" class="form-label">Bootcamp</label>
+                    <select class="form-control @error('bootcamp_id') is-invalid @enderror" id="bootcamp_id" name="bootcamp_id">
+                        @foreach($bootcamp as $id => $nombre)
+                            <option value="{{ $id }}" {{ $evento->bootcamp_id == $id ? 'selected' : '' }}>{{ $nombre }}</option>
+                        @endforeach
+                    </select>
+                    @error('bootcamp_id')
+                        <span class="invalid-feedback">{{ $message }}</span>
+                    @enderror
                 </div>
+
                 <div class="flex justify-center">
                     <button type="submit" class="bg-naranja hover:bg-melocoton text-white font-bold py-2 px-4 rounded">
                         Actualizar evento
