@@ -27,6 +27,7 @@ class PostuladoImport implements ToModel, WithHeadingRow
         ]);
         $postulado->save();
     
+        
         $postuladoAsistenciaEvento = new BootcampPostulado;
         $postuladoAsistenciaEvento->postulado_id = $postulado->id;
     
