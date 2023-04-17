@@ -1,28 +1,34 @@
+@vite(['resources/js/app.js', 'resources/css/app.css'])
+
 @extends('adminlte::page')
-@vite(['resources/js/app.js','resources/css/app.css'])
+
+@section('title', 'Bootcamps')
+
 @section('content_header')
-<br>
+    <div class="flex">
+        <h1>Escuelas</h1>
+        <div class="box-tools ml-5">
+            <a href="{{ route('bootcamps.create') }}" class="btn btn-success">Añadir </a>
+        </div>
+    </div>
 @stop
 
 @section('content')
-    <div class="row m-auto">
-        <div class="col-xs-12">
-            <div class="box">
-                <div class="box-header m-auto">
-                    <h3 class="box-title">Todas las Escuelas</h3>
-                    <div class="box-tools">
-                        <a href="{{ route('school.create') }}" class="btn btn-success">Añadir Escuela</a>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 m-auto">
+                <div class="box">
+                    <div class="m-5 box-header flex justify-between">
+
                     </div>
-                </div>
-                <br>
-                <div class="box-body m-auto">
-                    <table class="table table-bordered ">
-                        <thead class=" bg-naranja text-white ">
-                            <tr>
-                                <th>Nombre</th>
-                                <th></th>
-                            </tr>
-                        </thead>
+                    <div class="box-body m-auto">
+                        <table class="table table-bordered rounded-full">
+                            <thead class=" bg-naranja text-white ">
+                                <tr class="first-letter:">
+                                    <th>Nombre</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
                         <tbody>
                             @foreach ($schools as $school)
                                 <tr>

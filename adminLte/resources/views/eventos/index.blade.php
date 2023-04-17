@@ -16,7 +16,7 @@
                     <br>
                     <div class="box-body m-auto">
                         <table class="table table-bordered">
-                            <thead>
+                            <thead class="bg-naranja text-white">
                                 <tr>
                                     <th>Nombre</th>
                                     <th>Fecha</th>
