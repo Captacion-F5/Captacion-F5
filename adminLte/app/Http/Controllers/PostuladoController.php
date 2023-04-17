@@ -20,10 +20,9 @@ class PostuladoController extends Controller
      */
     public function index(Request $request)
     {
-        // // $postulados = Postulado::all();
+        // $postulados = Postulado::all();
         // $postulados = Postulado::with('bootcamp')->get();
         // return view('pages.postulado')->with('postulados', $postulados);
-
 
         $searchPost = $request->input('search');
         $postulados = Postulado::with('bootcamp')->searchPost($searchPost)->get();
