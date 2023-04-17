@@ -9,6 +9,7 @@ class BootcampPostulado extends Model
 {
     use HasFactory;
     protected $table = 'bootcamp_postulado';
+    public $timestamps = false;
 
 
     public function bootcamp()
