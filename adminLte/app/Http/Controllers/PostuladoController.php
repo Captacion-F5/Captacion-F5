@@ -62,13 +62,15 @@ class PostuladoController extends Controller
             ->first();
 
         if ($postulado) {
-            // Si el postulante ya existe, actualiza los datos en lugar de crear un nuevo registro
-            $postulado->nombre = Str::lower($request->input('nombre'));
-            $postulado->genero = Str::lower($request->input('genero'));
-            $postulado->mail = Str::lower($request->input('mail'));
-            $postulado->telefono = $request->input('telefono');
-            $postulado->url_perfil = $request->input('url_perfil');
-            $postulado->save();
+
+        // Si el postulante ya existe, actualiza los datos en lugar de crear un nuevo registro
+        $postulado->nombre = Str::lower($request->input('nombre'));
+        $postulado->genero = $request->input('genero');
+        $postulado->mail = Str::lower($request->input('mail'));
+        $postulado->telefono = $request->input('telefono');
+        $postulado->url_perfil = $request->input('url_perfil');
+        $postulado->save();
+
         } else {
             // Si el postulante no existe, crea un nuevo registro
             $postulado = new Postulado();
@@ -102,7 +104,8 @@ class PostuladoController extends Controller
     public function edit($id)
     {
         $postulado = Postulado::find($id);
-        return view('postulado.edit', ['postulado' => $postulado]);
+        $bootcamps = Bootcamp::all();
+        return view('postulado.edit', ['postulado' => $postulado, 'bootcamps' => $bootcamps]);
     }
     public function update(Request $request, $id)
     {
@@ -165,13 +168,16 @@ class PostuladoController extends Controller
             $postulado->url_perfil = $request->input('url_perfil');
             $postulado->save();
         } else {
-            // Si el postulante no existe, crea un nuevo registro
-            $postulado = new Postulado();
-            $postulado->nombre = Str::lower($request->input('nombre'));
-            $postulado->mail = Str::lower($request->input('mail'));
-            $postulado->telefono = $request->input('telefono');
-            $postulado->url_perfil = $request->input('url_perfil');
-            $postulado->save();
+
+        // Si el postulante no existe, crea un nuevo registro
+        $postulado = new Postulado();
+        $postulado->nombre = Str::lower($request->input('nombre'));
+        $postulado->genero = ($request->input('genero'));
+        $postulado->mail = Str::lower($request->input('mail'));
+        $postulado->telefono = $request->input('telefono');
+        $postulado->url_perfil = $request->input('url_perfil');
+        $postulado->save();
+
         }
 
         // Obtén el ID del bootcamp seleccionado
@@ -201,14 +207,30 @@ class PostuladoController extends Controller
 
             Excel::import(new PostuladoImport(), request()->file('import_file'));
         }
+    return back();
 
-        //     if ($request->hasFile('import_file')) {
-
-        //         Excel::import(new PostuladoImport(), request()->file('import_file'));
-        //     }
-
-        //     return back();
-        // }
-
+        
     }
+    
+        public function obtener_datos_bootcamp($bootcampId)
+    {
+        $bootcamp = Bootcamp::findOrFail($bootcampId);
+        $postulados = $bootcamp->postulado;
+        $generos = $postulados->pluck('genero');
+        // Retorna los datos de los candidatos en formato JSON
+        return response()->json(['postulados' => $postulados, 'generos' => $generos]);
+    }
+    // public function obtener_datos_bootcamp()
+    // {
+    //     $bootcamps = Bootcamp::all();
+    //     $data = [];
+    //     foreach ($bootcamps as $bootcamp) {
+    //         $postulados = $bootcamp->postulado;
+    //         $generos = $postulados->pluck('genero')->toArray();
+    //         $data[$bootcamp->id] = $generos;
+    //     }
+    //     // Retorna los datos de los candidatos en formato JSON
+    //     return response()->json($data);
+    // }
+    
 }

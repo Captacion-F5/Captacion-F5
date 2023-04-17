@@ -367,6 +367,14 @@ return [
             'icon' => 'fa fa-plus',
 
         ],
+        [
+
+            'text' => 'Importar Postulantes',
+            'url' => '/postulantes/importar',
+            'icon_color' => 'white',
+            'icon' => 'fa fa-plus',
+
+        ],
     ],
 
 

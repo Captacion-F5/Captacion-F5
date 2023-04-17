@@ -21,6 +21,7 @@ use App\Http\Controllers\EventController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/obtener_datos_bootcamp/{bootcampId}', [PostuladoController::class, 'obtener_datos_bootcamp']);
 
 Route::get('/', function () {
     return view('auth.login');
@@ -78,6 +79,7 @@ Route::get('/postulado',[PostuladoController::class, 'index'])->name('postulado'
 Route::delete('/postulado/{id}',[PostuladoController::class, 'destroy'])->name('postulado.destroy');
 Route::get('/postulado/{id}/edit', [PostuladoController::class, 'edit'])->name('postulado.edit');
 Route::put('/postulado/{id}', [PostuladoController::class, 'update'])->name('postulado.update');
+
 // Route::resource('postulado',PostuladoController::class);
 
 
@@ -113,6 +115,12 @@ Route::resource('school',SchoolController::class);
 Route::post('/school/index', [SchoolController::class, 'index'])->name('school.index');
 Route::post('/school/create', [SchoolController::class, 'create'])->name('school.create');
 Route::post('/school/store', [SchoolController::class, 'store'])->name('school.store');
+// Route::get('/sidebar_home', [SchoolController::class, 'sidebar_home'])->name('sidebar_home');
+// Route::post('/school/index', [SchoolController::class, 'index'])->name('school.index');
+// Route::get('/sidebar', [SchoolController::class, 'sidebar'])->name('sidebar');
+
+// routes/web.php
+
 
 
 //Eventos
