@@ -8,8 +8,8 @@
     <div class="flex justify-between">
         <h1>Bootcamps</h1>
         <div>
-            <a  class="m-3 text-naranja" href="{{ route('bootcamps.index', ['active' => 1]) }}">Activos</a>
-            <a  class="m-3 text-naranja" href="{{ route('bootcamps.index', ['active' => 0]) }}">Inactivos</a>
+            <a class="m-3 text-naranja" href="{{ route('bootcamps.index', ['active' => 1]) }}">Activos</a>
+            <a class="m-3 text-naranja" href="{{ route('bootcamps.index', ['active' => 0]) }}">Inactivos</a>
         </div>
     </div>
 @stop
@@ -26,8 +26,8 @@
                         </div>
                     </div>
                     <div class="box-body m-auto">
-                        <table class="table table-bordered">
-                            <thead>
+                        <table class="table table-bordered rounded-full">
+                            <thead class=" bg-naranja text-white ">
                                 <tr class="first-letter:">
                                     <th>Nombre</th>
                                     <th>Fecha de inicio</th>

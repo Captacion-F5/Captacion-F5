@@ -5,22 +5,20 @@
 @stop
 
 @section('content')
-    <div class="row">
+    <div class="row m-auto">
         <div class="col-xs-12">
             <div class="box">
-                <div class="box-header">
+                <div class="box-header m-auto">
                     <h3 class="box-title">Todas las Escuelas</h3>
-                    <br>
                     <div class="box-tools">
                         <a href="{{ route('school.create') }}" class="btn btn-success">Añadir Escuela</a>
                     </div>
                 </div>
                 <br>
-                <div class="box-body">
-                    <table class="table table-bordered">
-                        <thead>
+                <div class="box-body m-auto">
+                    <table class="table table-bordered ">
+                        <thead class=" bg-naranja text-white ">
                             <tr>
-                                <th>ID</th>
                                 <th>Nombre</th>
                                 <th></th>
                             </tr>
@@ -28,7 +26,6 @@
                         <tbody>
                             @foreach ($schools as $school)
                                 <tr>
-                                    <td>{{ $school->id }}</td>
                                     <td>{{ $school->name }}</td>
                                     <td>
                                         <a href="{{ route('school.edit', $school->id) }}" class="btn btn-primary">Editar</a>
