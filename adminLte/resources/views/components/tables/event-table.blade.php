@@ -3,14 +3,13 @@
 
 
 
-@section('content_header')
-<div class="m-auto pt-5 pb-5">
+@section('content')
+<div class=" pb-5">
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
         <div class="search filter d-flex">
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                 <thead class="px-1 py-2 text-center text-xs text-white uppercase bg-naranja">
                     <tr>
-
                         <th scope="col">
                             Aplicante
                         </th>
@@ -28,6 +27,9 @@
                         </th>
                         <th scope="col">
                             Asistencia
+                        </th>
+                        <th scope="col">
+                            Notificación
                         </th>
                         <th scope="col">
                         </th>
@@ -51,11 +53,7 @@
                         <td class="">
                             12-04-2023
                         </td>
-                        {{-- <td class="px-3 py-4">
-                            <input id="checkbox-all-search" type="checkbox"
-                                class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                            <label for="checkbox-all-search" class="sr-only">checkbox</label>
-                        </td> --}}
+
                         <td class="text-center">
                             <select id="activo" name="activo">
                                 <option value="1">No</option>

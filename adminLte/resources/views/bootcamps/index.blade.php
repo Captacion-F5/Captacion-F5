@@ -29,7 +29,6 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr class="first-letter:">
-                                    <th>ID</th>
                                     <th>Nombre</th>
                                     <th>Fecha de inicio</th>
                                     <th>Escuela</th>
@@ -40,7 +39,6 @@
                             <tbody>
                                 @foreach ($bootcamps as $bootcamp)
                                     <tr>
-                                        <td>{{ $bootcamp->id }}</td>
                                         <td>{{ $bootcamp->nombre }}</td>
                                         <td>{{ $bootcamp->inicio }}</td>
                                         <td>{{ $bootcamp->school->name ?? '' }}</td>

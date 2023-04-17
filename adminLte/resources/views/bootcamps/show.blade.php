@@ -26,7 +26,7 @@
             <div class="form-group row">
                 <label for="start_date" class="col-sm-2 col-form-label">Fecha de inicio</label>
                 <div class="col-sm-10">
-                    <input type="text" readonly class="form-control-plaintext" id="start_date" value="{{ $bootcamp->start_date }}">
+                    <input type="text" readonly class="form-control-plaintext" id="inicio" value="{{ $bootcamp->inicio }}">
                 </div>
             </div>
             <div class="form-group row">
