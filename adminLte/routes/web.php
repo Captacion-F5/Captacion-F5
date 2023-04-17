@@ -46,11 +46,6 @@ Route::middleware(['web'])->group(function () {
 });
 
 
-
-Route::get('/general', function () {
-    return view('pages.general');
-})->name('general');
-
 Route::get('/exercises', function () {
     return view('pages.exercises');
 })->name('exercises');
@@ -94,7 +89,7 @@ Route::middleware('auth')->group(function () {
 // Bootcamp
 
 Route::resource('bootcamps', BootcampController::class);
-
+Route::get('/general/{id}', [BootcampController::class, 'general'])->name('general');
 // Route::get('/bootcamp', function () {
 //     return view('bootcamp.index');
 // })->name('bootcamp.index');
