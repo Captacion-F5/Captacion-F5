@@ -11,7 +11,7 @@
                 <thead class="px-1 py-2 text-center text-xs text-white uppercase bg-naranja">
                     <tr>
 
-                        <th scope="col">
+                        <th scope="col" class= "text-center">
                             Aplicante
                         </th>
                         <th scope="col">
@@ -30,25 +30,19 @@
                             Asistencia
                         </th>
                         <th scope="col">
+                            Acciones
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr class="hover:bg-orange-200">
-                        <td class="w-4 p-4">
-                            <div class="flex items-center">
-                                <input id="checkbox-table-search-1" type="checkbox"
-                                    class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
-                            </div>
-                        </td>
-                        <th scope="row" class="px-2 py-4 font-medium text-gray-900  whitespace-nowrap">
+                        <th scope="row" class=" font-medium text-gray-900 whitespace-nowrap text-center">
                             Ríos, Jéssica
                         </th>
-                        <td class="px-5 py-4">
-                            <x-mail-button></x-mail-button>
+                        <td class="px-5 py-4 text-center">
+                            <input type="checkbox" name="correo-electronico" value="jessica.rios@example.com">
                         </td>
-                        <td class="">
+                        <td class="text-center">
                             12-04-2023
                         </td>
                         {{-- <td class="px-3 py-4">
@@ -62,8 +56,8 @@
                                 <option value="0">Sí</option>
                             </select>
                         </td>
-                        <td class="">
-                            <x-mail-button></x-mail-button>
+                        <td class="px-5 py-4 text-center">
+                            <input type="checkbox" name="correo-electronico" value="jessica.rios@example.com">
                         </td>
                         <td class="px-3 py-4 text-center">
                             <select id="activo" name="activo">
@@ -72,8 +66,8 @@
                             </select>
                         </td>
                         <td class="">
-                            <div class="flex">
-                                <div class="w-4 mr-2 transform hover:text-naranja hover:scale-150">
+                            <div class="flex justify-center">
+                                <div class="w-4 mr-2 transform hover:text-naranja hover:scale-150 ">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
                                     </svg>
@@ -88,20 +82,13 @@
                     </tr>
 
                     <tr class="hover:bg-orange-200">
-                        <td class="w-4 p-4">
-                            <div class="flex items-center">
-                                <input id="checkbox-table-search-1" type="checkbox"
-                                    class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
-                            </div>
-                        </td>
-                        <th scope="row" class="px-2 py-4 font-medium text-gray-900  whitespace-nowrap">
+                        <th scope="row" class="px-2 py-4 font-medium text-gray-900  whitespace-nowrap text-center">
                             Raña, Mónica
                         </th>
-                        <td class="px-5 py-4">
-                            <x-mail-button></x-mail-button>
+                        <td class="px-5 py-4 text-center">
+                            <input type="checkbox" name="correo-electronico" value="jessica.rios@example.com">
                         </td>
-                        <td class="">
+                        <td class="text-center">
                             12-04-2023
                         </td>
                         {{-- <td class="px-3 py-4">
@@ -115,8 +102,8 @@
                                 <option value="0">Sí</option>
                             </select>
                         </td>
-                        <td class="">
-                            <x-mail-button></x-mail-button>
+                        <td class="px-5 py-4 text-center">
+                            <input type="checkbox" name="correo-electronico" value="">
                         </td>
                         <td class="px-3 py-4 text-center">
                             <select id="activo" name="activo">
@@ -125,7 +112,7 @@
                             </select>
                         </td>
                         <td class="">
-                            <div class="flex">
+                            <div class="flex justify-center">
                                 <div class="w-4 mr-2 transform hover:text-naranja hover:scale-150">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
@@ -140,20 +127,13 @@
                         </td>
                     </tr>
                     <tr class="hover:bg-orange-200">
-                        <td class="w-4 p-4">
-                            <div class="flex items-center">
-                                <input id="checkbox-table-search-1" type="checkbox"
-                                    class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
-                            </div>
-                        </td>
-                        <th scope="row" class="px-2 py-4 font-medium text-gray-900  whitespace-nowrap">
+                        <th scope="row" class="px-2 py-4 font-medium text-gray-900  whitespace-nowrap text-center">
                             Díaz, Tania
                         </th>
-                        <td class="px-5 py-4">
-                            <x-mail-button></x-mail-button>
+                        <td class="px-5 py-4 text-center">
+                            <input type="checkbox" name="correo-electronico" value="jessica.rios@example.com">
                         </td>
-                        <td class="">
+                        <td class="text-center">
                             12-04-2023
                         </td>
                         {{-- <td class="px-3 py-4">
@@ -167,8 +147,8 @@
                                 <option value="0">Sí</option>
                             </select>
                         </td>
-                        <td class="">
-                            <x-mail-button></x-mail-button>
+                        <td class="px-5 py-4 text-center">
+                            <input type="checkbox" name="correo-electronico" value="">
                         </td>
                         <td class="px-3 py-4 text-center">
                             <select id="activo" name="activo">
@@ -177,7 +157,7 @@
                             </select>
                         </td>
                         <td class="">
-                            <div class="flex">
+                            <div class="flex justify-center">
                                 <div class="w-4 mr-2 transform hover:text-naranja hover:scale-150">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
@@ -192,20 +172,14 @@
                         </td>
                     </tr>
                     <tr class="hover:bg-orange-200">
-                        <td class="w-4 p-4">
-                            <div class="flex items-center">
-                                <input id="checkbox-table-search-1" type="checkbox"
-                                    class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                                <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
-                            </div>
-                        </td>
-                        <th scope="row" class="px-2 py-4 font-medium text-gray-900  whitespace-nowrap">
+                   
+                        <th scope="row" class="px-2 py-4 font-medium text-gray-900  whitespace-nowrap text-center">
                             García, Ana
                         </th>
-                        <td class="px-5 py-4">
-                            <x-mail-button></x-mail-button>
+                        <td class="px-5 py-4 text-center">
+                            <input type="checkbox" name="correo-electronico" value="">
                         </td>
-                        <td class="">
+                        <td class="text-center">
                             12-04-2023
                         </td>
                         {{-- <td class="px-3 py-4">
@@ -219,8 +193,8 @@
                                 <option value="0">Sí</option>
                             </select>
                         </td>
-                        <td class="">
-                            <x-mail-button></x-mail-button>
+                        <td class="px-5 py-4 text-center">
+                            <input type="checkbox" name="correo-electronico" value="">
                         </td>
                         <td class="px-3 py-4 text-center">
                             <select id="activo" name="activo">
@@ -230,7 +204,7 @@
 
                         </td>
                         <td class="">
-                            <div class="flex">
+                            <div class="flex justify-center">
                                 <div class="w-4 mr-2 transform hover:text-naranja hover:scale-150">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
