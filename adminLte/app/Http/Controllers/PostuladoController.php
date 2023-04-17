@@ -10,10 +10,6 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\PostuladoImport;
 
 
-
-
-
-
 class PostuladoController extends Controller
 {
     /**
@@ -209,10 +205,9 @@ class PostuladoController extends Controller
 
             Excel::import(new PostuladoImport(), request()->file('import_file'));
         }
+        
+    return back();
 
-
-        return back();
-      
     }
     
         public function obtener_datos_bootcamp($bootcampId)

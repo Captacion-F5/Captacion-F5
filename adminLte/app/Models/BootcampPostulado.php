@@ -23,7 +23,5 @@ class BootcampPostulado extends Model
         return $this->belongsTo(Postulado::class, 'postulado_id');
     }
 
-    public $timestamps = false;
-
 }
 
