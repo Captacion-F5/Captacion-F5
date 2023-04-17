@@ -17,8 +17,6 @@ class DatabaseSeeder extends Seeder
         BootcampTableSeeder::class,
         EventTableSeeder::class,
         PostuladoTableSeeder::class
-
-
         // php artisan migrate:fresh --seed
 
        ]);

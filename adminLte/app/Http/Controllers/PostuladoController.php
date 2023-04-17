@@ -10,9 +10,6 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\PostuladoImport;
 
 
-
-
-
 class PostuladoController extends Controller
 {
     /**
@@ -181,21 +178,22 @@ class PostuladoController extends Controller
         }
 
         // Obtén el ID del bootcamp seleccionado
-        $bootcampNombre = $request->input('bootcamp_nombre');
-        $bootcamp = Bootcamp::where('nombre', $bootcampNombre)->first();
-        if ($bootcamp) {
-            // Registra la relación en la tabla pivot sin desvincular otras relaciones existentes
-            $postulado->bootcamp()->syncWithoutDetaching($bootcamp->id);
-        }
+
+    //     $bootcampNombre = $request->input('bootcamp_nombre');
+    //     $bootcamp = Bootcamp::where('nombre', $bootcampNombre)->first();
+    //     if ($bootcamp) {
+    //         // Registra la relación en la tabla pivot sin desvincular otras relaciones existentes
+    //         $postulado->bootcamp()->syncWithoutDetaching($bootcamp->id);
+    //     }
 
 
-        $file = $request->file('import_file');
+    //     $file = $request->file('import_file');
 
-        Excel::import(new PostuladoImport, $file);
+    //     Excel::import(new PostuladoImport, $file);
 
-        // return redirect('/dashboard')
-        return redirect()->route('postulado.index')
-            ->with('success', 'El postulante ha sido añadido exitosamente.');
+    //     // return redirect('/dashboard')
+    //     return redirect()->route('postulado.index')
+    //         ->with('success', 'El postulante ha sido añadido exitosamente.');
     }
 
 
@@ -207,9 +205,9 @@ class PostuladoController extends Controller
 
             Excel::import(new PostuladoImport(), request()->file('import_file'));
         }
+        
     return back();
 
-        
     }
     
         public function obtener_datos_bootcamp($bootcampId)

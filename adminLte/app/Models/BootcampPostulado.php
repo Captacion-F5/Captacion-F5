@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PostuladoAsistenciaEvento extends Model
+class BootcampPostulado extends Model
 {
     use HasFactory;
     protected $table = 'bootcamp_postulado';
+    public $timestamps = false;
 
 
     public function bootcamp()
@@ -21,4 +22,6 @@ class PostuladoAsistenciaEvento extends Model
     {
         return $this->belongsTo(Postulado::class, 'postulado_id');
     }
+
 }
+
