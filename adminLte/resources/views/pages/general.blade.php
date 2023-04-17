@@ -31,7 +31,7 @@
         <x-section-button class="">
             {{ __('TPB') }}
         </x-section-button>
-        <a href="{{ url('/datosPostulantes') }}">
+        <a href="{{ url('/postulado') }}">
             <x-section-button class="">
                 {{ __('Datos Postulantes') }}
             </x-section-button>
@@ -40,10 +40,8 @@
 </div>
 
 <x-atoms.searchbar></x-atoms.searchbar>
-
     <x-tables.process-table class="">
     </x-tables.process-table>
-
 @stop
 
 

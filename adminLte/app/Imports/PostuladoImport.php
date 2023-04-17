@@ -4,8 +4,9 @@ namespace App\Imports;
 
 use App\Models\Postulado;
 use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
-class PostuladoImport implements ToModel
+class PostuladoImport implements ToModel, WithHeadingRow
 {
     /**
     * @param array $row
@@ -15,7 +16,13 @@ class PostuladoImport implements ToModel
     public function model(array $row)
     {
         return new Postulado([
-            //
+            'nombre' => $row['nombre'],
+            'genero' => $row['genero'],
+            'mail' => $row['mail'],
+            'telefono' => $row['telefono'],
+            'url_perfil' => $row['url_perfil'],
+            
+            // 'bootcamp_nombre' => $row['bootcamp']
         ]);
     }
 }

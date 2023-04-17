@@ -5,46 +5,39 @@
     <thead class="px- py-2 text-xs text-white uppercase bg-naranja dark:text-gray-400">
         <tr>
             <th scope="col" class="p-4">
-                <div class="flex items-center">
-                    <input id="checkbox-all-search" type="checkbox"
-                        class="w-4 h-4 text-naranja bg-gray-100  focus:ring-naranja dark:focus:ring-naranja  focus:ring-2  dark:border-gray-600">
-                    <label for="checkbox-all-search" class="sr-only">checkbox</label>
-                </div>
-            </th>
-            <th scope="col" class="">
                 Escuela
             </th>
-            <th scope="col" class="">
+            <th scope="col" class="p-4">
                 Bootcamp
             </th>
-            <th scope="col" class="">
-                Promoción
+            <th scope="col" class="p-4">
+                Promo
             </th>
-            <th scope="col" class="">
+            <th scope="col" class="p-4">
                 Inscritos
             </th>
-            <th scope="col" class="">
+            <th scope="col" class="p-4">
                 > 50%
             </th>
-            <th scope="col" class="">
+            <th scope="col" class="p-4">
                 RIC
             </th>
-            <th scope="col" class="">
+            <th scope="col" class="p-4">
                 JPA
             </th>
-            <th scope="col" class="">
+            <th scope="col" class="p-4">
                 TPB
             </th>
-            <th scope="col" class="">
+            <th scope="col" class="p-4">
                 TF5
             </th>
-            <th scope="col" class="">
+            <th scope="col" class="p-4">
                 Estatus
             </th>
-            <th scope="col" class="">
+            <th scope="col" class="p-4">
                 Gráfica
             </th>
-            <th scope="col" class="">
+            <th scope="col" class="p-4">
                 Datos Proceso
             </th>
             <th></th>
@@ -52,13 +45,7 @@
     </thead>
     <tbody>
         <tr class="hover:bg-orange-200">
-            <td class="w-4 p-4">
-                <div class="flex items-center">
-                    <input id="checkbox-table-search-1" type="checkbox"
-                        class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja  ">
-                    <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
-                </div>
-            </td>
+
             <th scope="row" class="px-2 py-4 font-medium text-gray-900  whitespace-nowrap">
                 Asturias
             </th>
@@ -114,13 +101,7 @@
             </td>
         </tr>
         <tr class="hover:bg-orange-200">
-            <td class="w-4 p-4">
-                <div class="flex items-center">
-                    <input id="checkbox-table-search-1" type="checkbox"
-                        class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja">
-                    <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
-                </div>
-            </td>
+
             <th scope="row" class="px-2 py-4 font-medium text-gray-900  whitespace-nowrap">
                 Asturias
             </th>
@@ -181,13 +162,7 @@
             </td>
         </tr>
         <tr class="hover:bg-orange-200">
-            <td class="w-4 p-4">
-                <div class="flex items-center">
-                    <input id="checkbox-table-search-1" type="checkbox"
-                        class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja ">
-                    <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
-                </div>
-            </td>
+
             <th scope="row" class="px-2 py-4 font-medium text-gray-900  whitespace-nowrap">
                 Asturias
             </th>
@@ -248,13 +223,6 @@
             </td>
         </tr>
         <tr class="hover:bg-orange-200">
-            <td class="w-4 p-4">
-                <div class="flex items-center">
-                    <input id="checkbox-table-search-1" type="checkbox"
-                        class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja">
-                    <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
-                </div>
-            </td>
             <th scope="row" class="px-2 py-4 font-medium text-gray-900  whitespace-nowrap">
                 Asturias
             </th>

@@ -18,7 +18,7 @@
                 </div>
                 <div class="form-group">
                     <label for="bootcamp_id">Bootcamp</label>
-                    
+
                         <option value="">Seleccione un Bootcamp</option>
                         @foreach($bootcamps as $id => $nombre)
                         <div>

@@ -14,20 +14,22 @@ return new class extends Migration
     {
         Schema::create('postulado', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
+            $table->string('nombre')->nullable(false);
             $table->enum('genero', ['hombre', 'mujer', 'no binario', 'prefiero no contestar']);
-            $table->string('mail');
-            $table->date('fecha_nacimiento');
-            $table->string('telefono');
-            $table->string('direccion');
-            $table->longText('motivacion');
-            $table->string('ingles');
-            $table->string('estudios');
-            $table->string('otra_formacion');
-            $table->string('como_conocido');
-            $table->string('situacion_profesional');
-            $table->longText('url_perfil');
-            $table->string('terminos');
+            $table->string('mail')->nullable(false);
+            $table->date('fecha_nacimiento')->nullable();
+            $table->string('telefono')->nullable();
+            $table->string('direccion')->nullable();
+            $table->longText('motivacion')->nullable();
+            $table->string('ingles')->nullable();
+            $table->string('estudios')->nullable();
+            $table->string('otra_formacion')->nullable();
+            $table->string('como_conocido')->nullable();
+            $table->string('situacion_profesional')->nullable();
+            $table->longText('url_perfil')->nullable(false);
+            $table->boolean('ejercicios')->nullable();
+            $table->string('terminos')->nullable();
+            $table->enum('estado', ['seleccionado', 'descartado', 'en proceso'])->nullable(false);
             $table->timestamps();
         });
         DB::statement("ALTER TABLE postulado MODIFY COLUMN genero ENUM('hombre', 'mujer', 'no binario', 'prefiero no contestar')");
@@ -39,6 +41,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('postulado');
- 
+
     }
     };
+
