@@ -97,24 +97,23 @@ class EventController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nombre' => 'required',
-            'fecha' => 'required|date',
-            'bootcamp_id' => 'required',
+            'nombre' => 'sometimes',
+            'fecha' => 'sometimes|date',
+            'bootcamp_id' => 'sometimes|array',
         ]);
-
+       // dd($request->all());
+    
         $bootcamp_nombres = $request->input('bootcamp_id', []);
         $bootcamp_ids = Bootcamp::whereIn('nombre', $bootcamp_nombres)->pluck('id')->toArray();
-
+    
         $evento = Event::findOrFail($id);
         $evento->nombre = $request->input('nombre');
         $evento->fecha = $request->input('fecha');
-        $evento->bootcamp_id = $request->input('bootcamp_id');
         $evento->bootcamp()->sync($bootcamp_ids);
         $evento->save();
-
+    
         return redirect()->route('eventos.index');
     }
-
 
     /**
      * Remove the specified resource from storage.

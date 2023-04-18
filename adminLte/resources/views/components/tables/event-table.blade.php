@@ -1,4 +1,4 @@
-@extends('adminlte::page')
+{{--@extends('adminlte::page')
 @vite(['resources/js/app.js', 'resources/css/app.css'])
 
 
@@ -14,7 +14,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach ($events as $event)
+        @foreach ( $asistencia_evento as $event)
         <tr class="hover:bg-orange-200">
             <td>{{ $event->nombre }}</td>
             <td class="px-5 py-4 text-center">
@@ -45,4 +45,4 @@
         </tr>
         @endforeach
     </tbody>
-</table>
+</table>--}}
