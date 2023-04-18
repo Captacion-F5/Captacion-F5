@@ -75,6 +75,7 @@ Route::delete('/postulado/{id}',[PostuladoController::class, 'destroy'])->name('
 Route::get('/postulado/{id}/edit', [PostuladoController::class, 'edit'])->name('postulado.edit');
 Route::put('/postulado/{id}', [PostuladoController::class, 'update'])->name('postulado.update');
 Route::put('/postulado/{id}/update_status', [PostuladoController::class,'update_status'])->name('postulado.update_status');
+Route::get('/obtener_datos_bootcamp/{bootcampId}', [PostuladoController::class,'obtener_datos_bootcamp'])->name('obtener_datos_bootcamp');
 
 // Route::resource('postulado',PostuladoController::class);
 
