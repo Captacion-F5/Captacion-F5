@@ -39,7 +39,7 @@ class SchoolController extends Controller
 
         School::create($request->all());
 
-        return redirect()->route('school.index')
+        return redirect('school')
                         ->with('success','Se ha añadido una nueva escuela.');
     }
 
@@ -70,7 +70,7 @@ class SchoolController extends Controller
 
         $school->update($request->all());
 
-        return redirect()->route('school.index')
+        return redirect('school')
                         ->with('success','La escuela se ha actualizado correctamente');
     }
 
@@ -81,7 +81,7 @@ class SchoolController extends Controller
     {
         $school->delete();
 
-        return redirect()->route('school.index')
+        return redirect('school')
                         ->with('success','La escuela se ha eliminado.');
     }
 }

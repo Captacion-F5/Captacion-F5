@@ -74,6 +74,7 @@ Route::get('/postulado',[PostuladoController::class, 'index'])->name('postulado'
 Route::delete('/postulado/{id}',[PostuladoController::class, 'destroy'])->name('postulado.destroy');
 Route::get('/postulado/{id}/edit', [PostuladoController::class, 'edit'])->name('postulado.edit');
 Route::put('/postulado/{id}', [PostuladoController::class, 'update'])->name('postulado.update');
+Route::put('/postulado/{id}/update_status', [PostuladoController::class,'update_status'])->name('postulado.update_status');
 
 // Route::resource('postulado',PostuladoController::class);
 

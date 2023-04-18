@@ -8,7 +8,7 @@
     <div class="flex">
         <h1>Escuelas</h1>
         <div class="box-tools ml-5">
-            <a href="{{ route('bootcamps.create') }}" class="btn btn-success">Añadir </a>
+            <a href="{{ route('school.create') }}" class="btn btn-success">Añadir </a>
         </div>
     </div>
 @stop
