@@ -111,6 +111,7 @@ class PostuladoController extends Controller
     {
         $request->validate([
             'nombre' => 'required',
+            'genero' => 'required',
             'mail' => 'required|email',
             'telefono' => 'required',
             'url_perfil' => 'required|url',
@@ -120,6 +121,7 @@ class PostuladoController extends Controller
         $postulado = Postulado::find($id);
 
         $postulado->nombre = $request->input('nombre');
+        $postulado->genero = $request->input('genero');
         $postulado->mail = $request->input('mail');
         $postulado->telefono = $request->input('telefono');
         $postulado->url_perfil = $request->input('url_perfil');
