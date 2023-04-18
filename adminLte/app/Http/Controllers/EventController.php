@@ -101,7 +101,7 @@ class EventController extends Controller
             'fecha' => 'sometimes|date',
             'bootcamp_id' => 'sometimes|array',
         ]);
-       // dd($request->all());
+       dd($request->all());
     
         $bootcamp_nombres = $request->input('bootcamp_id', []);
         $bootcamp_ids = Bootcamp::whereIn('nombre', $bootcamp_nombres)->pluck('id')->toArray();
