@@ -164,6 +164,14 @@ class PostuladoController extends Controller
         // Retorna los datos de los candidatos en formato JSON
         return response()->json(['postulados' => $postulados, 'generos' => $generos]);
     }
+    public function obtener_datos_ejercicios($bootcampId)
+    {
+        $bootcamp = Bootcamp::findOrFail($bootcampId);
+        $postulados = $bootcamp->postulado;
+        $ejercicio = $postulados->pluck('ejercicios');
+        // Retorna los datos de los candidatos en formato JSON
+        return response()->json(['postulados' => $postulados, 'ejercicios' => $ejercicio]);
+    }
 
     public function update_status(Request $request, $id)
     {

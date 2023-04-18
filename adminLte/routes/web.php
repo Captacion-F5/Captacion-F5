@@ -21,7 +21,6 @@ use App\Http\Controllers\EventController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/obtener_datos_bootcamp/{bootcampId}', [PostuladoController::class, 'obtener_datos_bootcamp']);
 
 Route::get('/', function () {
     return view('auth.login');
@@ -75,9 +74,9 @@ Route::delete('/postulado/{id}',[PostuladoController::class, 'destroy'])->name('
 Route::get('/postulado/{id}/edit', [PostuladoController::class, 'edit'])->name('postulado.edit');
 Route::put('/postulado/{id}', [PostuladoController::class, 'update'])->name('postulado.update');
 Route::put('/postulado/{id}/update_status', [PostuladoController::class,'update_status'])->name('postulado.update_status');
-Route::get('/obtener_datos_bootcamp/{bootcampId}', [PostuladoController::class,'obtener_datos_bootcamp'])->name('obtener_datos_bootcamp');
+Route::get('/obtener_datos_bootcamp/{bootcampId}', [PostuladoController::class, 'obtener_datos_bootcamp']);
+Route::get('/obtener_datos_ejercicios/{bootcampId}', [PostuladoController::class, 'obtener_datos_ejercicios']);
 
-// Route::resource('postulado',PostuladoController::class);
 
 
 
