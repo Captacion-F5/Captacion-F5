@@ -14,8 +14,8 @@
                 @csrf
                 <div class="mb-4">
                     <label for="nombre" class="block text-gray-700 font-bold mb-2">Nombre:</label>
-                    <input type="text" id="nombre" name="nombre" class="form-input w-full @error('name') border-red-500 @enderror" value="{{ old('name') }}" required>
-                    @error('name')
+                    <input type="text" id="nombre" name="nombre" class="form-input w-full @error('nombre') border-red-500 @enderror" value="{{ old('name') }}" required>
+                    @error('nombre')
                         <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
                     @enderror
                 </div>
@@ -43,14 +43,6 @@
                     <div class="flex">
                         <label for="active">Activo:</label>
                         <input type="checkbox" id="active" name="active" value="1" @if(old('active')) checked @endif>
-                        {{-- <label class="inline-flex items-center mr-4">
-                            <input type="radio" name="active" value="1" class="form-radio" checked>
-                            <span class="ml-2">Activo</span>
-                        </label>
-                        <label class="inline-flex items-center">
-                            <input type="radio" name="active" value="0" class="form-radio">
-                            <span class="ml-2">Inactivo</span>
-                        </label> --}}
                     </div>
                     @error('active')
                         <p class="text-red-500 text-xs mt-2">{{ $message }}</p>

@@ -38,7 +38,7 @@
     </div>
     <x-atoms.searchbar></x-atoms.searchbar>
 
-    <x-tables.exercices-table class="">
+    <x-tables.exercices-table>
     </x-tables.exercices-table>
 
 

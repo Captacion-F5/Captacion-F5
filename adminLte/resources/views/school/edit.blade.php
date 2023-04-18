@@ -20,8 +20,8 @@
                     @enderror
                 </div>
 
-               
-                           
+
+
                 <div class="flex justify-center">
                     <button type="submit" class="bg-naranja hover:bg-melocoton text-white font-bold py-2 px-4 rounded">
                         Actualizar Escuela

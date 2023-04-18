@@ -8,8 +8,8 @@
     <div class="flex justify-between">
         <h1>Bootcamps</h1>
         <div>
-            <a  class="m-3 text-naranja" href="{{ route('bootcamps.index', ['active' => 1]) }}">Activos</a>
-            <a  class="m-3 text-naranja" href="{{ route('bootcamps.index', ['active' => 0]) }}">Inactivos</a>
+            <a class="m-3 text-naranja" href="{{ route('bootcamps.index', ['active' => 1]) }}">Activos</a>
+            <a class="m-3 text-naranja" href="{{ route('bootcamps.index', ['active' => 0]) }}">Inactivos</a>
         </div>
     </div>
 @stop
@@ -19,17 +19,16 @@
         <div class="row">
             <div class="col-xs-12 m-auto">
                 <div class="box">
-                    <div class="m-5 box-header flex justify-between">
+                    <div class="m-3 box-header flex justify-around">
                         <x-atoms.search-bootcamp></x-atoms.search-bootcamp>
                         <div class="box-tools">
                             <a href="{{ route('bootcamps.create') }}" class="btn btn-success">Añadir </a>
                         </div>
                     </div>
                     <div class="box-body m-auto">
-                        <table class="table table-bordered">
-                            <thead>
+                        <table class="table table-bordered rounded-full">
+                            <thead class=" bg-naranja text-white ">
                                 <tr class="first-letter:">
-                                    <th>ID</th>
                                     <th>Nombre</th>
                                     <th>Fecha de inicio</th>
                                     <th>Escuela</th>
@@ -40,7 +39,7 @@
                             <tbody>
                                 @foreach ($bootcamps as $bootcamp)
                                     <tr>
-                                        <td>{{ $bootcamp->id }}</td>
+
                                         <td><a href="{{ route('general', $bootcamp->id) }}">{{ $bootcamp->nombre }}</a></td>
                                         <td>{{ $bootcamp->inicio }}</td>
                                         <td>{{ $bootcamp->school->name ?? '' }}</td>

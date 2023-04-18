@@ -122,3 +122,4 @@ Route::post('/school/store', [SchoolController::class, 'store'])->name('school.s
 //Eventos
 
 Route::resource('eventos',EventController::class);
+Route::get('/eventos/{id}', 'App\Http\Controllers\EventController@show')->name('eventos.show');

@@ -18,6 +18,8 @@
         <x-molecules.donut-genero-fem-norte></x-molecules.donut-genero-fem-norte>
         <x-molecules.stick-chart></x-molecules.stick-chart>
     </div>
+
+    
 @stop
 
 
