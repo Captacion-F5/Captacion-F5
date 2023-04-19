@@ -29,6 +29,7 @@
         <td>{{ $bootcamp->asistencia_jpa_count }}</td>
         <td>{{ $bootcamp->asistencia_tpb_count }}</td>
         <td>{{ $bootcamp->asistencia_tf5_count }}</td>
+        <td>{{ $bootcamp->active ? 'Sí' : 'No' }}</td>
     </tr>
     @endforeach
     </tbody>

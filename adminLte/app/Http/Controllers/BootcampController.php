@@ -133,33 +133,34 @@ class BootcampController extends Controller
         }])
         //obtiene del modelo EventPostulado los datos de los eventos
         ->addSelect([
+            //RIC
             'asistencia_ric_count' => EventPostulado::selectRaw('count(*)')
                 ->join('postulado', 'event_postulado.postulado_id', '=', 'postulado.id')
                 ->join('bootcamp_postulado', 'postulado.id', '=', 'bootcamp_postulado.postulado_id')
                 ->whereColumn('bootcamp_postulado.bootcamp_id', 'bootcamp.id')
                 ->where('event_postulado.event_id', 1)
                 ->where('event_postulado.asistencia', true),
-
+            //JPA
             'asistencia_jpa_count' => EventPostulado::selectRaw('count(*)')
                 ->join('postulado', 'event_postulado.postulado_id', '=', 'postulado.id')
                 ->join('bootcamp_postulado', 'postulado.id', '=', 'bootcamp_postulado.postulado_id')
                 ->whereColumn('bootcamp_postulado.bootcamp_id', 'bootcamp.id')
                 ->where('event_postulado.event_id', 2)
                 ->where('event_postulado.asistencia', true),
-
+            //TPB
             'asistencia_tpb_count' => EventPostulado::selectRaw('count(*)')
                 ->join('postulado', 'event_postulado.postulado_id', '=', 'postulado.id')
                 ->join('bootcamp_postulado', 'postulado.id', '=', 'bootcamp_postulado.postulado_id')
                 ->whereColumn('bootcamp_postulado.bootcamp_id', 'bootcamp.id')
                 ->where('event_postulado.event_id', 3)
                 ->where('event_postulado.asistencia', true),
-
+            //TF5
             'asistencia_tf5_count' => EventPostulado::selectRaw('count(*)')
-            ->join('postulado', 'event_postulado.postulado_id', '=', 'postulado.id')
-            ->join('bootcamp_postulado', 'postulado.id', '=', 'bootcamp_postulado.postulado_id')
-            ->whereColumn('bootcamp_postulado.bootcamp_id', 'bootcamp.id')
-            ->where('event_postulado.event_id', 4)
-            ->where('event_postulado.asistencia', true),
+                ->join('postulado', 'event_postulado.postulado_id', '=', 'postulado.id')
+                ->join('bootcamp_postulado', 'postulado.id', '=', 'bootcamp_postulado.postulado_id')
+                ->whereColumn('bootcamp_postulado.bootcamp_id', 'bootcamp.id')
+                ->where('event_postulado.event_id', 4)
+                ->where('event_postulado.asistencia', true),
         ])
         ->get();
     
