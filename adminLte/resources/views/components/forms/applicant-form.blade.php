@@ -20,6 +20,20 @@
                 <x-text-input id="nombre" class="block mt-1 w-full" type="text" name="nombre" :value="old('nombre')" required autofocus autocomplete="nombre" />
                 <x-input-error :messages="$errors->get('nombre')" class="mt-2" />
             </div>
+            <br>
+
+            <!-- Email -->
+            <div>
+                <x-input-label for="genero" :value="__('Género')" />
+                <select id="genero" class="block mt-1 w-full" name="genero" required>
+                    <option value="hombre" @if(old('genero') === 'hombre') selected @endif>Hombre</option>
+                    <option value="mujer" @if(old('genero') === 'mujer') selected @endif>Mujer</option>
+                    <option value="no binario" @if(old('genero') === 'no binario') selected @endif>No binario</option>
+                    <option value="prefiero no contestar" @if(old('genero') === 'prefiero no contestar') selected @endif>Prefiero no contestar</option>
+                </select>
+                <x-input-error :messages="$errors->get('genero')" class="mt-2" />
+                <br>
+            </div>
 
             <!-- Email Address -->
             <div class="mt-4">

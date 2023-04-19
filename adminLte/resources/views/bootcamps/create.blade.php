@@ -14,8 +14,8 @@
                 @csrf
                 <div class="mb-4">
                     <label for="nombre" class="block text-gray-700 font-bold mb-2">Nombre:</label>
-                    <input type="text" id="nombre" name="nombre" class="form-input w-full @error('name') border-red-500 @enderror" value="{{ old('name') }}" required>
-                    @error('name')
+                    <input type="text" id="nombre" name="nombre" class="form-input w-full @error('nombre') border-red-500 @enderror" value="{{ old('name') }}" required>
+                    @error('nombre')
                         <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
                     @enderror
                 </div>
@@ -38,6 +38,17 @@
                         <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
                     @enderror
                 </div>
+                <div class="mb-4">
+                    <label for="active" class="block text-gray-700 font-bold mb-2">Estado:</label>
+                    <div class="flex">
+                        <label for="active">Activo:</label>
+                        <input type="checkbox" id="active" name="active" value="1" @if(old('active')) checked @endif>
+                    </div>
+                    @error('active')
+                        <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                    @enderror
+                </div>
+
                 <div class="flex justify-center">
                     <button type="submit" class="bg-naranja hover:bg-melocoton text-white font-bold py-2 px-4 rounded">
                         Crear bootcamp

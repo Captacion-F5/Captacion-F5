@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('bootcamp', function (Blueprint $table) {
-            $table->date('inicio');
+        Schema::table('event_postulado', function (Blueprint $table) {
+            $table->boolean('invitation')->default(false);
         });
     }
 
@@ -21,8 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('bootcamp', function (Blueprint $table) {
-            //
+        Schema::table('event_postulado', function (Blueprint $table) {
+            $table->dropColumn('invitation');
         });
     }
 };

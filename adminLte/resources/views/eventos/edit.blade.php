@@ -10,7 +10,7 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            <form action="{{ route('eventos.update', $evento) }}" method="POST">
+            <form action="{{ route('eventos.update', $evento->id) }}" method="POST">
                 @csrf
                 @method('PATCH')
 
@@ -24,18 +24,31 @@
 
                 <div class="mb-3">
                     <label for="fecha" class="form-label">Fecha del evento</label>
-                    <input type="date" class="form-control @error('fecha') is-invalid @enderror" id="fecha" name="fecha" value="{{ $evento->inicio }}">
+                    <input type="date" class="form-control @error('fecha') is-invalid @enderror" id="fecha" name="fecha" value="{{ $evento->fecha }}">
                     @error('fecha')
                         <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
-                <div class="mb-3">
+                {{-- <div class="mb-3">
                     <label for="bootcamp_id" class="form-label">Bootcamp</label>
                     <input type="text" class="form-control @error('bootcamp_id') is-invalid @enderror" id="bootcamp_id" name="bootcamp_id" value="{{ $evento->bootcamp_id }}">
                     @error('bootcamp_id')
                         <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
+                </div> --}}
+                <div class="mb-3">
+                    <label for="bootcamp_id" class="form-label">Bootcamp</label>
+                    @foreach($bootcamp as $id => $nombre)
+                        <div>
+                            <input type="checkbox" id="bootcamp_{{ $id }}" name="bootcamp_id[]" value="{{ $nombre }}" @if(in_array($nombre, old('bootcamp_id', []))) checked @endif>
+                            <label for="bootcamp_{{ $id }}">{{ $nombre }}</label>
+                        </div>
+                    @endforeach
+                    @error('bootcamp_id')
+                        <span class="invalid-feedback">{{ $message }}</span>
+                    @enderror
                 </div>
+
                 <div class="flex justify-center">
                     <button type="submit" class="bg-naranja hover:bg-melocoton text-white font-bold py-2 px-4 rounded">
                         Actualizar evento
