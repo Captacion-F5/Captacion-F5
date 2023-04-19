@@ -10,7 +10,7 @@
 @section('content')
     <div class="card">
         <div class="card-body">
-            <form action="{{ route('eventos.update', $evento) }}" method="POST">
+            <form action="{{ route('eventos.update', $evento->id) }}" method="POST">
                 @csrf
                 @method('PATCH')
 
@@ -24,7 +24,7 @@
 
                 <div class="mb-3">
                     <label for="fecha" class="form-label">Fecha del evento</label>
-                    <input type="date" class="form-control @error('fecha') is-invalid @enderror" id="fecha" name="fecha" value="{{ $evento->inicio }}">
+                    <input type="date" class="form-control @error('fecha') is-invalid @enderror" id="fecha" name="fecha" value="{{ $evento->fecha }}">
                     @error('fecha')
                         <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
@@ -38,11 +38,12 @@
                 </div> --}}
                 <div class="mb-3">
                     <label for="bootcamp_id" class="form-label">Bootcamp</label>
-                    <select class="form-control @error('bootcamp_id') is-invalid @enderror" id="bootcamp_id" name="bootcamp_id">
-                        @foreach($bootcamp as $id => $nombre)
-                            <option value="{{ $id }}" {{ $evento->bootcamp_id == $id ? 'selected' : '' }}>{{ $nombre }}</option>
-                        @endforeach
-                    </select>
+                    @foreach($bootcamp as $id => $nombre)
+                        <div>
+                            <input type="checkbox" id="bootcamp_{{ $id }}" name="bootcamp_id[]" value="{{ $nombre }}" @if(in_array($nombre, old('bootcamp_id', []))) checked @endif>
+                            <label for="bootcamp_{{ $id }}">{{ $nombre }}</label>
+                        </div>
+                    @endforeach
                     @error('bootcamp_id')
                         <span class="invalid-feedback">{{ $message }}</span>
                     @enderror

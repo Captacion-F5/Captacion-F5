@@ -74,6 +74,7 @@ Route::get('/postulado',[PostuladoController::class, 'index'])->name('postulado'
 Route::delete('/postulado/{id}',[PostuladoController::class, 'destroy'])->name('postulado.destroy');
 Route::get('/postulado/{id}/edit', [PostuladoController::class, 'edit'])->name('postulado.edit');
 Route::put('/postulado/{id}', [PostuladoController::class, 'update'])->name('postulado.update');
+Route::put('/postulado/{id}/update_status', [PostuladoController::class,'update_status'])->name('postulado.update_status');
 
 // Route::resource('postulado',PostuladoController::class);
 
@@ -121,5 +122,7 @@ Route::post('/school/store', [SchoolController::class, 'store'])->name('school.s
 //Eventos
 
 Route::resource('eventos',EventController::class);
-Route::get('/eventos/{id}', 'App\Http\Controllers\EventController@show')->name('eventos.show');
+//Route::get('/eventos/{id}', 'App\Http\Controllers\EventController@show')->name('eventos.show');
 
+
+//Route::get('/eventos', [EventPostuladoController::class, 'index'])->name('eventos.index');
