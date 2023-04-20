@@ -173,6 +173,7 @@ class PostuladoController extends Controller
         // Retorna los datos de los candidatos en formato JSON
         return response()->json(['postulados' => $postulados, 'ejercicios' => $ejercicio]);
     }
+   
     
 
         public function obtener_datos_event($bootcampId)

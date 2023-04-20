@@ -11,25 +11,17 @@
             <th scope="col" class="px-6 py-4">
                 Ejercicios > 50%
             </th>
+            @foreach ($bootcamp->event as $evento)
             <th scope="col" class="px-6 py-4">
-                RIC
+                {{ $evento->nombre }}
             </th>
-            <th scope="col" class="px-6 py-4">
-                JPA
-            </th>
-            <th scope="col" class="px-6 py-4">
-                TPB
-            </th>
-            <th scope="col" class="px-6 py-4">
-                TF5
-            </th>
+                @endforeach
             <th scope="col" class="px-6 py-4">
                 Estatus
             </th>
         </tr>
     </thead>
     <tbody>
-        {{-- @foreach ($bootcamp->postulado->sortbyDesc('ejercicios') as $postulado) --}}
         @foreach ($bootcamp->postulado as $postulado)
         <tr class="hover:bg-orange-200 ">
             <td  class="px-4 py-2 font-medium text-gray-900  whitespace-nowrap">
@@ -45,27 +37,16 @@
                     {{ $postulado->ejercicios ? 'Si' : 'No' }}
                 </span>
             </td>
-            <td class="px-3 py-4">
-                <input id="checkbox-all-search" type="checkbox"
-                    class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja  dark:border-gray-600">
-                <label for="checkbox-all-search" class="sr-only">checkbox</label>
+            @foreach ($bootcamp->event as $evento)
+            <td class="px-5 py-6">
+                @if ($postulado->asistencia)
+                    Asiste
+                @else
+                    No Asiste
+                @endif 
             </td>
-            <td class="px-3 py-4">
-                <input id="checkbox-all-search" type="checkbox"
-                    class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja  dark:border-gray-600">
-                <label for="checkbox-all-search" class="sr-only">checkbox</label>
-            </td>
-            <td class="px-3 py-4">
-                <input id="checkbox-all-search" type="checkbox"
-                    class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja  dark:border-gray-600">
-                <label for="checkbox-all-search" class="sr-only">checkbox</label>
-            </td>
-            <td class="px-3 py-4">
-                <input id="checkbox-all-search" type="checkbox"
-                    class="w-4 h-4 text-naranja bg-gray-100 border-gray-500 rounded focus:ring-naranja dark:focus:ring-naranja  dark:border-gray-600">
-                <label for="checkbox-all-search" class="sr-only">checkbox</label>
-            </td>
-            <td class="py-4">
+            @endforeach
+          <td class="py-4">
                 <form action="{{ route('postulado.update_status', $postulado->id) }}" method="post">
                     @csrf
                     @method('put')
