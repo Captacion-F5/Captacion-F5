@@ -8,6 +8,7 @@ use App\Models\Bootcamp;
 use Illuminate\Support\Str;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\PostuladoImport;
+use App\Models\Event;
 
 
 
@@ -111,6 +112,7 @@ class PostuladoController extends Controller
     {
         $request->validate([
             'nombre' => 'required',
+            'genero' => 'required',
             'mail' => 'required|email',
             'telefono' => 'required',
             'url_perfil' => 'required|url',
@@ -120,6 +122,7 @@ class PostuladoController extends Controller
         $postulado = Postulado::find($id);
 
         $postulado->nombre = $request->input('nombre');
+        $postulado->genero = $request->input('genero');
         $postulado->mail = $request->input('mail');
         $postulado->telefono = $request->input('telefono');
         $postulado->url_perfil = $request->input('url_perfil');
@@ -162,7 +165,65 @@ class PostuladoController extends Controller
         // Retorna los datos de los candidatos en formato JSON
         return response()->json(['postulados' => $postulados, 'generos' => $generos]);
     }
+    public function obtener_datos_ejercicios($bootcampId)
+    {
+        $bootcamp = Bootcamp::findOrFail($bootcampId);
+        $postulados = $bootcamp->postulado;
+        $ejercicio = $postulados->pluck('ejercicios');
+        // Retorna los datos de los candidatos en formato JSON
+        return response()->json(['postulados' => $postulados, 'ejercicios' => $ejercicio]);
+    }
+    
 
+        public function obtener_datos_event($bootcampId)
+    {
+        $eventos = Event::whereHas('bootcamp', function ($query) use ($bootcampId) {
+                $query->where('bootcamp_id', $bootcampId);
+            })
+            ->get(['id', 'nombre']);
+
+        $postuladosPorEvento = $eventos->mapWithKeys(function ($evento) {
+            $postulados = $evento->postulados()
+                ->select('asistencia', 'inscripcion')
+                ->get();
+
+            $asistencia = $postulados->filter(function ($postulado) {
+                return $postulado->pivot->asistencia === 0;
+            })->count();
+
+            $inscripcion = $postulados->filter(function ($postulado) {
+                return $postulado->pivot->inscripcion === 0;
+            })->count();
+
+            return [
+                $evento->nombre => [
+                    'asistencia' => $asistencia,
+                    'inscripcion' => $inscripcion,
+                    'total' => $asistencia + $inscripcion
+                ]
+            ];
+        });
+        $asistenciaTotal = $postuladosPorEvento->sum(function ($evento) {
+            return $evento['asistencia'];
+        });
+        
+        $inscripcionTotal = $postuladosPorEvento->sum(function ($evento) {
+            return $evento['inscripcion'];
+        });
+        
+        $datos = [
+            'eventos' => $eventos->pluck('nombre'),
+            'postuladosPorEvento' => $postuladosPorEvento,
+            'asistencia' => $postuladosPorEvento->pluck('asistencia'),
+            'inscripcion' => $postuladosPorEvento->pluck('inscripcion'),
+            'asistenciaTotal' => $asistenciaTotal,
+            'inscripcionTotal' => $inscripcionTotal
+        ];
+
+
+        return response()->json($datos);
+    }
+ 
     public function update_status(Request $request, $id)
     {
         $postulado = Postulado::findOrFail($id);
@@ -172,18 +233,5 @@ class PostuladoController extends Controller
         return back()->with('success', 'El estado del postulante ha sido actualizado correctamente.');
     
     }
-
-    // public function obtener_datos_bootcamp()
-    // {
-    //     $bootcamps = Bootcamp::all();
-    //     $data = [];
-    //     foreach ($bootcamps as $bootcamp) {
-    //         $postulados = $bootcamp->postulado;
-    //         $generos = $postulados->pluck('genero')->toArray();
-    //         $data[$bootcamp->id] = $generos;
-    //     }
-    //     // Retorna los datos de los candidatos en formato JSON
-    //     return response()->json($data);
-    // }
     
 }

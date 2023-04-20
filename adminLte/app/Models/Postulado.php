@@ -14,8 +14,13 @@ class Postulado extends Model
 
     public function bootcamp()
     {
-        return $this->belongsToMany(Bootcamp::class, 'bootcamp_postulado', 'postulado_id', 'bootcamp_id');
+        return $this->belongsToMany(Bootcamp::class, 'bootcamp_postulado',  'bootcamp_id');
     }
+    public function eventos()
+    {
+        return $this->belongsToMany(Event::class)->withPivot('asistencia', 'inscripcion');
+    }
+
     public function scopeSearchPost($queryPost, $searchPost)
     {
         return $queryPost->where(function ($queryPost) use ($searchPost) {

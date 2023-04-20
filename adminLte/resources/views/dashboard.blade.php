@@ -12,13 +12,6 @@
     <br>
     <x-atoms.panel class="ml-3"></x-atoms.panel>
     <br>
-
-    <div class="flex flex-row">
-        <x-molecules.donut></x-molecules.donut>
-        <x-molecules.donut-genero-fem-norte></x-molecules.donut-genero-fem-norte>
-        <x-molecules.stick-chart></x-molecules.stick-chart>
-    </div>
-
     
 @stop
 
