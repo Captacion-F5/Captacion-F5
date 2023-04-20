@@ -3,6 +3,7 @@
 use App\Http\Controllers\BootcampController;
 use App\Http\Controllers\SchoolController;
 use App\Http\Controllers\ProfileController;
+use App\Mail\PruebaMail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisteredUserController;
 
@@ -118,12 +119,13 @@ Route::post('/school/store', [SchoolController::class, 'store'])->name('school.s
 
 // routes/web.php
 
-
-
 //Eventos
 
 Route::resource('eventos',EventController::class);
 //Route::get('/eventos/{id}', 'App\Http\Controllers\EventController@show')->name('eventos.show');
-
-
 //Route::get('/eventos', [EventPostuladoController::class, 'index'])->name('eventos.index');
+
+Route::get('/mail', function(){
+    Mail::to('a20monicarr@gmail.com')
+    ->send(new PruebaMail());
+});
