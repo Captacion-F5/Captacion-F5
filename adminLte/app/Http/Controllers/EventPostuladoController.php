@@ -15,9 +15,10 @@ class EventPostuladoController extends Controller
         $asistencia_evento = EventPostulado::with(['postulado:id,nombre', 'evento:id,fecha'])
             ->select('event_postulado.id', 'postulado.nombre as postulado', 'evento.fecha as fecha_evento', 'asistencia', 'inscripcion', 'notificado')
             ->get();
-
-        return view('eventos.index', compact('asistencia_evento'));
+    
+        return view('tables.event-table', compact('asistencia_evento'));
     }
+
 
     /**
      * Show the form for creating a new resource.

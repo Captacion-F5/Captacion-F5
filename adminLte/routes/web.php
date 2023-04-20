@@ -57,9 +57,9 @@ Route::get('/pruebas', function () {
     return view('pruebas');
 })->name('pruebas');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [BootcampController::class, 'obtener_datos_tabla_principal'])
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
 
 Route::get('/postulantes/importar', function () {
     return view('pages.importExcelPage');
@@ -123,4 +123,7 @@ Route::post('/school/store', [SchoolController::class, 'store'])->name('school.s
 //Eventos
 
 Route::resource('eventos',EventController::class);
-Route::get('/eventos/{id}', 'App\Http\Controllers\EventController@show')->name('eventos.show');
+//Route::get('/eventos/{id}', 'App\Http\Controllers\EventController@show')->name('eventos.show');
+
+
+//Route::get('/eventos', [EventPostuladoController::class, 'index'])->name('eventos.index');
