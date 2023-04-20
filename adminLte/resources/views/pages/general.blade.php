@@ -9,8 +9,8 @@
     <br>
     <x-atoms.panel class="ml-3"></x-atoms.panel>
     <br>
-    {{-- grafica por genero --}}
     <div class="flex flex-row">
+        {{-- grafica genero --}}
         <div class="shadow-lg rounded-lg overflow-hidden w-full md:w-80 mx-2 md:mx-4 mt-4 md:my-2">
             <div class="w-full h-80 md:h-full relative p-0 m-0">
               <div class="py-3 px-5 bg-gray-50 w-auto h-auto relative top-0 left-0">{{$bootcamp->nombre}}</div>
@@ -22,9 +22,8 @@
                 <script>
               fetch('/obtener_datos_bootcamp/{{ $bootcamp->id }}') 
                 .then(response => response.json())
-                .then(data => {
-                  // Procesar los datos obtenidos para el gráfico
-          
+                .then(data => { 
+
                   const femenino = data.generos.filter(genero => genero === 'hombre').length;
                   const masculino = data.generos.filter(genero => genero === 'mujer').length;
                   const noBinario = data.generos.filter(genero => genero === 'no binario').length;
@@ -62,18 +61,19 @@
                   console.error('Error al obtener los datos del servidor:', error);
                 });
             </script>
+             <!-- grafica ejercicios -->
             <div class="shadow-lg rounded-lg overflow-hidden w-full md:w-80 mx-2 md:mx-4 mt-4 md:my-2">
                 <div class="w-full h-80 md:h-full relative p-0 m-0">
                   <div class="py-3 px-5 bg-gray-50 w-auto h-auto relative top-0 left-0">{{$bootcamp->nombre}}</div>
                   <canvas class="p-10 w-full h-full absolute top-0 left-0" id="chartDoughnutEjercicios"></canvas>
                 </div>
             </div>
-                <!-- Required chart.js -->
-            <!-- Código JavaScript de la segunda gráfica -->
+           
             <script>
                 fetch('/obtener_datos_ejercicios/{{ $bootcamp->id }}') 
                     .then(response => response.json())
                     .then(data => {
+                        
                         // Obtener los datos del JSON
                         const postulados = data.postulados;
                         const ejercicios = data.ejercicios;
@@ -114,39 +114,110 @@
                     });
             </script>
 
-        {{-- <x-molecules.donut></x-molecules.donut> --}}
-        <x-molecules.stick-chart></x-molecules.stick-chart>
+            {{-- grafica eventos --}}
+            <div class="shadow-lg rounded-lg overflow-hidden  w-auto md:w-80 mx-2 md:mx-4 mt-4 md:my-2">
+                <div class="w-full h-80 relative p-0 m-0">
+                    <div class="py-3 px-5 bg-gray-50 w-auto h-auto relative top-0 left-0">{{$bootcamp->nombre}}</div>
+                    <canvas class="w-full h-full relative top-0 left-0" id="myChartF5"></canvas>
+                </div>
+            </div> 
+                 {{-- @php
+                    $totalPostulados = App\Models\Postulado::count();
+                @endphp --}}
+             <script>
+               
+                fetch('/obtener_datos_event/{{$bootcamp->id}}')
+                .then(response => response.json())
+                .then(data => {
+                    if (!data.eventos) {
+                        throw new Error('Los datos de eventos no están disponibles');
+                    }
+                    const eventos = data.eventos;
+                    const postuladosPorEvento = data.postuladosPorEvento;
+                    const nombresEventos = Object.keys(postuladosPorEvento);
+                    const asistencia = data.asistencia; // Ejemplo de nuevos datos de asistencia
+                    const inscripcion = data.inscripcion; // Ejemplo de nuevos datos de inscripción
+
+                    const postulados = nombresEventos.map(evento => postuladosPorEvento[evento].asistencia + postuladosPorEvento[evento].inscripcion);
+                    const totalPostulados = postulados.reduce((total, count) => total + count, 0);
+
+
+                    const dataEvent = {
+                        labels: nombresEventos,
+                        datasets: [{
+                            label: 'Totales',
+                            data: postulados,
+                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                            borderColor: 'rgb(255, 99, 132)',
+                            borderWidth: 1
+                        }, {
+                            label: 'Asistentes',
+                            data: asistencia,
+                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                            borderColor: 'rgb(54, 162, 235)',
+                            borderWidth: 1
+                        }, {
+                            label: 'Inscritos',
+                            data: inscripcion,
+                            backgroundColor: 'rgba(255, 206, 86, 0.2)',
+                            borderColor: 'rgb(255, 206, 86)',
+                            borderWidth: 1
+                        }]
+                    };
+                    const config = {
+                            type: 'bar',
+                            data: dataEvent,
+                            options: {
+                                scales: {
+                                    y: {
+                                        beginAtZero: true,
+                                        max: 100,
+                                        ticks: {
+                                            stepSize: 10
+                                        }
+                                    }
+                                }
+                            }
+                        };
+
+                    var myChartF5 = new Chart(
+                        document.getElementById("myChartF5"),
+                        config
+                    );
+                    myChartF5.update();
+                });
+            </script>
     </div>
-<div class="flex justify-between">
-    <div class="m-10">
-        <a href="{{ url('/general') }}">
-            <x-section-button class="m-auto">
-                {{ __('General') }}
-            </x-section-button>
-        </a>
-        <a href="{{ url('/exercises') }}">
+    <div class="flex justify-between">
+        <div class="m-10">
+            <a href="{{ url('/general') }}">
+                <x-section-button class="m-auto">
+                    {{ __('General') }}
+                </x-section-button>
+            </a>
+            <a href="{{ url('/exercises') }}">
+                <x-section-button class="">
+                    {{ __('Ejercicios') }}
+                </x-section-button>
+            </a>
             <x-section-button class="">
-                {{ __('Ejercicios') }}
+                {{ __('RIC') }}
             </x-section-button>
-        </a>
-        <x-section-button class="">
-            {{ __('RIC') }}
-        </x-section-button>
-        <x-section-button class="">
-            {{ __('JPA') }}
-        </x-section-button>
-        <x-section-button class="">
-            {{ __('TF5') }}
-        </x-section-button>
-        <x-section-button class="">
-            {{ __('TPB') }}
-        </x-section-button>
-        <a href="{{ url('/postulado') }}">
             <x-section-button class="">
-                {{ __('Datos Postulantes') }}
+                {{ __('JPA') }}
             </x-section-button>
-        </a>
-    </div>
+            <x-section-button class="">
+                {{ __('TF5') }}
+            </x-section-button>
+            <x-section-button class="">
+                {{ __('TPB') }}
+            </x-section-button>
+            <a href="{{ url('/postulado') }}">
+                <x-section-button class="">
+                    {{ __('Datos Postulantes') }}
+                </x-section-button>
+            </a>
+        </div>
 </div>
 
 

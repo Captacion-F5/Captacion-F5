@@ -76,6 +76,7 @@ Route::put('/postulado/{id}', [PostuladoController::class, 'update'])->name('pos
 Route::put('/postulado/{id}/update_status', [PostuladoController::class,'update_status'])->name('postulado.update_status');
 Route::get('/obtener_datos_bootcamp/{bootcampId}', [PostuladoController::class, 'obtener_datos_bootcamp']);
 Route::get('/obtener_datos_ejercicios/{bootcampId}', [PostuladoController::class, 'obtener_datos_ejercicios']);
+Route::get('/obtener_datos_event/{bootcampId}', [PostuladoController::class, 'obtener_datos_event']);
 
 
 
