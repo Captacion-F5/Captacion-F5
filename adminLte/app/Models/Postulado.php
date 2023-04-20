@@ -14,7 +14,7 @@ class Postulado extends Model
 
     public function bootcamp()
     {
-        return $this->belongsToMany(Bootcamp::class, 'bootcamp_postulado',  'bootcamp_id');
+        return $this->belongsToMany(Bootcamp::class, 'bootcamp_postulado', 'postulado_id', 'bootcamp_id', );
     }
     public function eventos()
     {
