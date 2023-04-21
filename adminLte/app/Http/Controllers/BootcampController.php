@@ -186,7 +186,7 @@ class BootcampController extends Controller
     {
         $bootcamp = Bootcamp::find($id);
         $exercises = $bootcamp->exercises;
-        return view('bootcamp.exercises', ['exercises' => $exercises]);
+        return view('pages.exercises', ['exercises' => $exercises]);
     }
 
 }
