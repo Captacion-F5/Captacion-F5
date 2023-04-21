@@ -1,7 +1,6 @@
 <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
     <thead class="px- py-2 text-xs text-white uppercase bg-naranja dark:bg-naranja-700 dark:text-gray-400">
         <tr class="">
-
             <th scope="col" class="px-6 py-4">
                 Aplicante
             </th>
@@ -27,26 +26,27 @@
             <td  class="px-4 py-2 font-medium text-gray-900  whitespace-nowrap">
                 {{$postulado->nombre}}
             </td>
-
             <td class="px-2 py-4 font-medium text-gray-900  whitespace-nowrap">
                 {{ $postulado->telefono }}
             </td>
             <td class="px-5 py-4">
                 <span
                     class="inline-block rounded-full text-center px-2 py-1 font-semibold {{ $postulado->ejercicios ? 'bg-green-500 text-white' : 'bg-red-500 text-white' }}">
-                    {{ $postulado->ejercicios ? 'Si' : 'No' }}
+                    {{ $postulado->ejercicios ? 'No' : 'Si' }}
                 </span>
             </td>
-            @foreach ($bootcamp->event as $evento)
+            @foreach ($asistance as $evento)
             <td class="px-5 py-6">
-                @if ($postulado->asistencia)
-                    Asiste
+                @if ($postulado->event->where('id', $evento->id)->count() > 0)
+                    {{ $postulado->event->where('id', $evento->id)->first()->asistencia ? 'No asiste' : 'Asiste' }}
+                @elseif ($postulado->event ?? null)
+                    Pendiente
                 @else
-                    No Asiste
-                @endif 
+                    Sin eventos
+                @endif
             </td>
             @endforeach
-          <td class="py-4">
+            <td class="py-4">
                 <form action="{{ route('postulado.update_status', $postulado->id) }}" method="post">
                     @csrf
                     @method('put')
@@ -63,3 +63,4 @@
         </tr>
     </tbody>
 </table>
+

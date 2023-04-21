@@ -13,9 +13,6 @@ use App\Models\EventPostulado;
 class BootcampController extends Controller
 {
 
-    /**
-     * Display a listing of the resource.
-     */
     public function index(Request $request)
     {
         $schools = School::all();
@@ -40,23 +37,11 @@ class BootcampController extends Controller
     }
 
 
-
-    /**
-     * Show the form for creating a new resource.
-     */
-
     public function create()
     {
         $schools = School::all();
         return view('bootcamps.create', compact('schools'));
-
     }
-
-
-
-    /**
-     * Store a newly created resource in storage.
-     */
 
     public function store(Request $request)
     {
@@ -71,23 +56,15 @@ class BootcampController extends Controller
         return redirect()->route('bootcamps.index')->with('success', 'Bootcamp creado exitosamente.');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Bootcamp $bootcamp)
     {
         return view('bootcamp.show', compact('bootcamp'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Bootcamp $bootcamp)
     {
-        $schools = School::all();
-        return view('bootcamps.edit', compact('bootcamp', 'schools'));
+        return view('bootcamps.edit', compact('bootcamp'));
     }
-
 
     public function update(Request $request, Bootcamp $bootcamp)
     {
@@ -109,59 +86,57 @@ class BootcampController extends Controller
     }
 
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Bootcamp $bootcamp)
     {
-        // $bootcamp = Bootcamp::findOrFail($id);
         $bootcamp->delete();
         return redirect()->route('bootcamps.index')->with('success', 'El bootcamp ha sido eliminado.');
     }
 
-    // public function general($id)
-    // {
-    //     // Obtén el bootcamp seleccionado por su ID, junto con sus postulados relacionados
-    //     $bootcamp = Bootcamp::with('postulado')->find($id);
-    //     // Retorna los datos del bootcamp y sus postulados a la vista "general"
-    //     return view('pages.general', compact('bootcamp'));
-    // }
-    public function general($id)
+   
+    public function general($bootcampId)
     {
-        // Obtener el bootcamp seleccionado por su ID, junto con sus postulados relacionados
-        $bootcamp = Bootcamp::with('postulado')->find($id);
+        $bootcamp = Bootcamp::findOrFail($bootcampId);
+        $postulados = $bootcamp->postulado;
+        
 
-        // Obtener todos los eventos asociados al bootcamp
-        $eventos = Event::whereHas('bootcamp', function ($query) use ($id) {
-            $query->where('bootcamp_id', $id);
-        })->get(['id', 'nombre']);
+        $postulados = $bootcamp->postulado()
+            ->with(['event' => function($query) use ($bootcampId) {
+                $query->where('postulado_id', $bootcampId);
+            }])
+            ->get();
 
-        // Obtener todos los postulados relacionados con los eventos obtenidos
-        $postulados = collect();
-        foreach ($eventos as $evento) {
-            $postulados = $postulados->merge($evento->postulado);
-        }
+        $asistance = $bootcamp->event()
+        ->with(['postulados' => function ($query) {
+        $query->where('asistencia', 1);
+        }]) ->get();    
+            
+        
 
-        $nombreEvento = $eventos->first()->nombre;
+        $event = $bootcamp->event()->withCount(['postulados as asistencias_count' => function($query) {
+            $query->where('asistencia', 1);
+        }])->get();   
+            $countSi = $postulados->where('ejercicios', 1)->count();
+            $countNo = $postulados->where('ejercicios', 0)->count();
+            $totalPostulantes = $bootcamp->postulado()->count();
+            $eventos = $bootcamp->event()->pluck('nombre');
 
-        // Obtener una colección de datos de asistencia, inscripción y notificación para cada postulado
-        $datosPostulados = collect();
-        foreach ($postulados as $postulado) {
-            $datosPostulados->push([
-                'asistencia' => $postulado->asistencia,
-                'inscripcion' => $postulado->inscripcion,
-                'notificado' => $postulado->notificado
-            ]);
-        }
-
-        return view('pages.general', [
+        $data = [
             'bootcamp' => $bootcamp,
+            'postulado' => $postulados,
+            'countSi' => $countSi,
+            'countNo' => $countNo,
+            'totalPostulantes' => $totalPostulantes,
             'eventos' => $eventos,
-            'postulados' => $datosPostulados,
-            'nombreEvento' => $nombreEvento
-        ]);
+            'event' => $event,
+            'asistance' => $asistance,
+        ];
+
+        return view('pages.general', $data);
     }
 
+
+
+    
 
 
     public function obtener_datos_tabla_principal()
@@ -203,7 +178,7 @@ class BootcampController extends Controller
                 ->where('event_postulado.asistencia', true),
         ])
         ->get();
-
+    
         return view('dashboard', ['bootcamps' => $bootcamps]);
     }
 }

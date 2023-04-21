@@ -16,15 +16,8 @@ use App\Models\Event;
 
 class PostuladoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index(Request $request)
     {
-        // $postulados = Postulado::all();
-        // $postulados = Postulado::with('bootcamp')->get();
-        // return view('pages.postulado')->with('postulados', $postulados);
-
         $searchPost = $request->input('search');
         $postulados = Postulado::with('bootcamp')->searchPost($searchPost)->get();
         return view('pages.postulado')->with('postulados', $postulados);
@@ -32,9 +25,6 @@ class PostuladoController extends Controller
 
 
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         $postulado = Postulado::all();
@@ -57,14 +47,12 @@ class PostuladoController extends Controller
             'bootcamp_nombre' => 'required',
         ]);
 
-        // Busca si el postulante ya existe en la base de datos
         $postulado = Postulado::where('nombre', Str::lower($request->input('nombre')))
             ->orWhere('mail', $request->input('mail'))
             ->first();
 
         if ($postulado) {
 
-        // Si el postulante ya existe, actualiza los datos en lugar de crear un nuevo registro
         $postulado->nombre = Str::lower($request->input('nombre'));
         $postulado->genero = $request->input('genero');
         $postulado->mail = Str::lower($request->input('mail'));
@@ -73,7 +61,6 @@ class PostuladoController extends Controller
         $postulado->save();
 
         } else {
-            // Si el postulante no existe, crea un nuevo registro
             $postulado = new Postulado();
             $postulado->nombre = Str::lower($request->input('nombre'));
             $postulado->genero = $request->input('genero');
@@ -83,25 +70,16 @@ class PostuladoController extends Controller
             $postulado->save();
         }
 
-        // Obtén el ID del bootcamp seleccionado
         $bootcampNombre = $request->input('bootcamp_nombre');
         $bootcamp = Bootcamp::where('nombre', $bootcampNombre)->first();
         if ($bootcamp) {
-            // Registra la relación en la tabla pivot sin desvincular otras relaciones existentes
             $postulado->bootcamp()->syncWithoutDetaching($bootcamp->id);
         }
 
         return redirect('/dashboard')->with('success', 'El postulante ha sido añadido exitosamente.');
 
     }
-
-
-    /**
-     * Display the specified resource.
-     */
-    public function show($id)
-    {
-    }
+   
     public function edit($id)
     {
         $postulado = Postulado::find($id);
@@ -128,19 +106,14 @@ class PostuladoController extends Controller
         $postulado->url_perfil = $request->input('url_perfil');
 
         $postulado->save();
-
-        // Obtén los nombres de los bootcamps seleccionados
         $nombres = explode(',', $request->input('bootcamp_nombre'));
         $nombres = array_map('trim', $nombres);
-
-        // Obtén los IDs de los bootcamps seleccionados
         $bootcampIds = Bootcamp::whereIn('nombre', $nombres)->pluck('id');
-
-        // Sincroniza los bootcamps seleccionados en la tabla pivot
         $postulado->bootcamp()->sync($bootcampIds);
 
         return redirect()->route('postulado', ['id' => $postulado->id])->with('success', 'Los datos del postulante se han actualizado correctamente.');
     }
+
     public function destroy($id)
     {
         $postulado = Postulado::findOrfail($id);
@@ -155,9 +128,15 @@ class PostuladoController extends Controller
         }
         return redirect('postulado')->with('success', 'El archivo ha sido añadido correctamente.');
     }
+<<<<<<< HEAD
 
 
         public function obtener_datos_bootcamp($bootcampId)
+=======
+   
+    
+    public function obtener_datos_bootcamp($bootcampId)
+>>>>>>> 506d6b5391d8737693d21260c731f7246e31c55d
     {
         $bootcamp = Bootcamp::findOrFail($bootcampId);
         $postulados = $bootcamp->postulado;
@@ -165,6 +144,7 @@ class PostuladoController extends Controller
         // Retorna los datos de los candidatos en formato JSON
         return response()->json(['postulados' => $postulados, 'generos' => $generos]);
     }
+
     public function obtener_datos_ejercicios($bootcampId)
     {
         $bootcamp = Bootcamp::findOrFail($bootcampId);
@@ -176,7 +156,7 @@ class PostuladoController extends Controller
 
 
 
-        public function obtener_datos_event($bootcampId)
+    public function obtener_datos_event($bootcampId)
     {
         $eventos = Event::whereHas('bootcamp', function ($query) use ($bootcampId) {
                 $query->where('bootcamp_id', $bootcampId);
@@ -188,13 +168,13 @@ class PostuladoController extends Controller
                 ->select('asistencia', 'inscripcion')
                 ->get();
 
-            $asistencia = $postulados->filter(function ($postulado) {
-                return $postulado->pivot->asistencia === 0;
-            })->count();
+        $asistencia = $postulados->filter(function ($postulado) {
+            return $postulado->pivot->asistencia === 0;
+        })->count();
 
-            $inscripcion = $postulados->filter(function ($postulado) {
-                return $postulado->pivot->inscripcion === 0;
-            })->count();
+        $inscripcion = $postulados->filter(function ($postulado) {
+            return $postulado->pivot->inscripcion === 0;
+        })->count();
 
             return [
                 $evento->nombre => [
@@ -221,7 +201,6 @@ class PostuladoController extends Controller
             'inscripcionTotal' => $inscripcionTotal
         ];
 
-
         return response()->json($datos);
     }
 
@@ -229,11 +208,26 @@ class PostuladoController extends Controller
     {
         $postulado = Postulado::findOrFail($id);
         $postulado->estado = $request->estado;
+
+        // Obtener la lista de eventos en los que hay al menos un postulante con asistencia
+        $asistance = $postulado->bootcamp->event()
+            ->with(['postulados' => function ($query) {
+                $query->where('asistencia', 1);
+            }])
+            ->get();
+
         $postulado->save();
 
         return back()->with('success', 'El estado del postulante ha sido actualizado correctamente.');
+<<<<<<< HEAD
 
     }
 
 
+=======
+    }
+
+  
+    
+>>>>>>> 506d6b5391d8737693d21260c731f7246e31c55d
 }

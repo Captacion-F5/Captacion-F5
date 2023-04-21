@@ -14,14 +14,25 @@ class Bootcamp extends Model
     {
         return $this->belongsTo(School::class);
     }
-    public function postulado()
-    {
-        return $this->belongsToMany(Postulado::class);
-    }
+    // public function postulado()
+    // {
+    //     return $this->belongsToMany(Postulado::class);
+    // }
+    // public function event()
+    // {
+    //     return $this->belongsToMany(Event::class);
+    // }
     public function event()
     {
-        return $this->belongsToMany(Event::class);
+        return $this->belongsToMany(Event::class, 'bootcamp_event')
+        ->withPivot(  'bootcamp_id', 'event_id');
     }
+    public function postulado()
+    {
+        return $this->belongsToMany(Postulado::class, 'bootcamp_postulado')
+        ->withPivot( 'postulado_id', 'bootcamp_id');
+    }
+    
 
     public function scopeSearch($query, $search)
     {
