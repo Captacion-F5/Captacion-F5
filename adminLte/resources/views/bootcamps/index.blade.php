@@ -42,10 +42,11 @@
 
                                         <td><a href="{{ route('general', $bootcamp->id) }}">{{ $bootcamp->nombre }}</a></td>
                                         <td>{{ $bootcamp->inicio }}</td>
-                                        <td>{{ $bootcamp->school->name ?? '' }}</td>
-                                        <td> <span
+                                        <td>{{ $bootcamp->school ? $bootcamp->school->name : '' }}</td>
+
+                                        <td class="text-center"> <span
                                                 class="inline-block rounded-full text-center px-2 py-1 font-semibold {{ $bootcamp->active ? 'bg-green-500 text-white' : 'bg-red-500 text-white' }}">
-                                                {{ $bootcamp->active ? 'Activo' : 'Inactivo' }}
+                                                {{ $bootcamp->active ? 'Si' : 'No' }}
                                             </span></td>
                                         <td>
                                             <div class="flex">

@@ -116,13 +116,7 @@ class BootcampController extends Controller
         return redirect()->route('bootcamps.index')->with('success', 'El bootcamp ha sido eliminado.');
     }
 
-    // public function general($id)
-    // {
-    //     // Obtén el bootcamp seleccionado por su ID, junto con sus postulados relacionados
-    //     $bootcamp = Bootcamp::with('postulado')->find($id);
-    //     // Retorna los datos del bootcamp y sus postulados a la vista "general"
-    //     return view('pages.general', compact('bootcamp'));
-        // }
+   
         public function general($bootcampId)
     {
         $bootcamp = Bootcamp::findOrFail($bootcampId);
@@ -144,41 +138,6 @@ class BootcampController extends Controller
     }
 
 
-    // public function general($id)
-    // {
-    //     // Obtener el bootcamp seleccionado por su ID, junto con sus postulados relacionados
-    //     $bootcamp = Bootcamp::with('postulado')->find($id);
-    
-    //     // Obtener todos los eventos asociados al bootcamp
-    //     $eventos = Event::whereHas('bootcamp', function ($query) use ($id) {
-    //         $query->where('bootcamp_id', $id);
-    //     })->get(['id', 'nombre']);
-    
-    //     // Obtener todos los postulados relacionados con los eventos obtenidos
-    //     $postulados = collect();
-    //     foreach ($eventos as $evento) {
-    //         $postulados = $postulados->merge($evento->postulado);
-    //     }
-    
-    //     $nombreEvento = $eventos->first()->nombre;
-    
-    //     // Obtener una colección de datos de asistencia, inscripción y notificación para cada postulado
-    //     $datosPostulados = collect();
-    //     foreach ($postulados as $postulado) {
-    //         $datosPostulados->push([
-    //             'asistencia' => $postulado->asistencia,
-    //             'inscripcion' => $postulado->inscripcion,
-    //             'notificado' => $postulado->notificado
-    //         ]);
-    //     }
-    
-    //     return view('pages.general', [
-    //         'bootcamp' => $bootcamp, 
-    //         'eventos' => $eventos, 
-    //         'postulados' => $datosPostulados, 
-    //         'nombreEvento' => $nombreEvento
-    //     ]);
-    // }
     
 
 
