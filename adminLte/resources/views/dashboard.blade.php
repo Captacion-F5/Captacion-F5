@@ -10,7 +10,7 @@
     <br>
     <x-tables.general-table :bootcamps="$bootcamps"></x-tables.general-table>
     <br>
-    <x-atoms.panel class="ml-3"></x-atoms.panel>
+    {{-- <x-atoms.panel class="ml-3"></x-atoms.panel> --}}
     <br>
     
 @stop

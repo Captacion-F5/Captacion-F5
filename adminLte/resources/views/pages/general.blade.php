@@ -7,7 +7,11 @@
 @section('content')
 <h2 class="text-naranja text-lg mt-2">Bienvenida a tu panel de administradora</h2>
     <br>
-    <x-atoms.panel class="ml-3"></x-atoms.panel>
+    <div class="ml-3">
+        @include('/components/atoms/panel')
+    </div>
+
+    {{-- <x-atoms.panel></x-atoms.panel> --}}
     <br>
     <div class="flex flex-row">
         @include('/components/grafics/genre')

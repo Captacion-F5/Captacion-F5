@@ -13,9 +13,6 @@ use App\Models\EventPostulado;
 class BootcampController extends Controller
 {
 
-    /**
-     * Display a listing of the resource.
-     */
     public function index(Request $request)
     {
         $schools = School::all();
@@ -40,22 +37,11 @@ class BootcampController extends Controller
     }
 
 
-
-    /**
-     * Show the form for creating a new resource.
-     */
-
     public function create()
     {
         $schools = School::all();
         return view('bootcamps.create', compact('schools'));
     }
-
-
-
-    /**
-     * Store a newly created resource in storage.
-     */
 
     public function store(Request $request)
     {
@@ -70,17 +56,11 @@ class BootcampController extends Controller
         return redirect()->route('bootcamps.index')->with('success', 'Bootcamp creado exitosamente.');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Bootcamp $bootcamp)
     {
         return view('bootcamp.show', compact('bootcamp'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Bootcamp $bootcamp)
     {
         return view('bootcamps.edit', compact('bootcamp'));
@@ -106,36 +86,54 @@ class BootcampController extends Controller
     }
 
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Bootcamp $bootcamp)
     {
-        // $bootcamp = Bootcamp::findOrFail($id);
         $bootcamp->delete();
         return redirect()->route('bootcamps.index')->with('success', 'El bootcamp ha sido eliminado.');
     }
 
    
-        public function general($bootcampId)
+    public function general($bootcampId)
     {
         $bootcamp = Bootcamp::findOrFail($bootcampId);
+        $postulados = $bootcamp->postulado;
+        
+
+        $postulados = $bootcamp->postulado()
+            ->with(['event' => function($query) use ($bootcampId) {
+                $query->where('postulado_id', $bootcampId);
+            }])
+            ->get();
+
+        $asistance = $bootcamp->event()
+        ->with(['postulados' => function ($query) {
+        $query->where('asistencia', 1);
+        }]) ->get();    
+            
+        
+
+        $event = $bootcamp->event()->withCount(['postulados as asistencias_count' => function($query) {
+            $query->where('asistencia', 1);
+        }])->get();   
+            $countSi = $postulados->where('ejercicios', 1)->count();
+            $countNo = $postulados->where('ejercicios', 0)->count();
+            $totalPostulantes = $bootcamp->postulado()->count();
+            $eventos = $bootcamp->event()->pluck('nombre');
 
         $data = [
             'bootcamp' => $bootcamp,
-            'postulado' => $bootcamp->postulado()
-                ->with(['event' => function($query) use ($bootcampId) {
-                    $query->where('postulado_id', $bootcampId);
-                }])
-                ->whereHas('event', function($query) {
-                    $query->whereIn('asistencia', [0, 1]);
-                })
-                ->get(),
+            'postulado' => $postulados,
+            'countSi' => $countSi,
+            'countNo' => $countNo,
+            'totalPostulantes' => $totalPostulantes,
+            'eventos' => $eventos,
+            'event' => $event,
+            'asistance' => $asistance,
         ];
-        
 
         return view('pages.general', $data);
     }
+
 
 
     
