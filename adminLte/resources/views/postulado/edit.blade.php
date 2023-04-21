@@ -37,7 +37,7 @@
                         class="w-full px-4 py-2 mb-4 rounded">
                         <div class="flex justify-around">
                             <a class="text-lg" href="{{ route('postulado') }}">
-                               <i class="fa fa-arrow-alt-circle-left text-naranja m-2 "></i>Ver postulados
+                               <i class="fa fa-users text-naranja m-2 "></i>Ver postulados
                            </a>
                            <button type="submit" class="bg-green-600 hover:bg-green-400 text-white font-bold py-2 px-4 rounded">
                                Actualizar postulado

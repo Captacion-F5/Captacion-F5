@@ -63,7 +63,8 @@ class BootcampController extends Controller
 
     public function edit(Bootcamp $bootcamp)
     {
-        return view('bootcamps.edit', compact('bootcamp'));
+        $schools = School::all();
+        return view('bootcamps.edit', compact('bootcamp','schools'));
     }
 
     public function update(Request $request, Bootcamp $bootcamp)
