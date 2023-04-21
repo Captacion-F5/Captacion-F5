@@ -18,10 +18,15 @@ class Event extends Model
     {
         return $this->belongsToMany(Bootcamp::class, 'bootcamp_event', 'event_id', 'bootcamp_id' );
     }
+    // public function postulados()
+    // {
+    //     return $this->belongsToMany(Postulado::class, 'event_postulado')
+    //                 ->withPivot('asistencia', 'inscripcion');
+    // }
     public function postulados()
     {
-        return $this->belongsToMany(Postulado::class, 'event_postulado')
-                    ->withPivot('asistencia', 'inscripcion');
+        return $this->belongsToMany(Postulado::class, 'event_postulado', 'postulado_id', 'event_id')
+        ->withPivot('asistencia', 'inscripcion', 'notificado', 'invitation');
     }
 
 }

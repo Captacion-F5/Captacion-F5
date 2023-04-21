@@ -34,18 +34,22 @@
             <td class="px-5 py-4">
                 <span
                     class="inline-block rounded-full text-center px-2 py-1 font-semibold {{ $postulado->ejercicios ? 'bg-green-500 text-white' : 'bg-red-500 text-white' }}">
-                    {{ $postulado->ejercicios ? 'Si' : 'No' }}
+                    {{ $postulado->ejercicios ? 'No' : 'Si' }}
                 </span>
             </td>
+         
             @foreach ($bootcamp->event as $evento)
             <td class="px-5 py-6">
-                @if ($postulado->asistencia)
-                    Asiste
+                @if ($postulado->event->where('id', $evento->id)->count() > 0)
+                    {{ $postulado->event->where('id', $evento->id)->first()->asistencia ? 'No asiste' : 'Asiste' }}
                 @else
-                    No Asiste
-                @endif 
+                    Pendiente
+                @endif
             </td>
             @endforeach
+
+
+
           <td class="py-4">
                 <form action="{{ route('postulado.update_status', $postulado->id) }}" method="post">
                     @csrf
@@ -63,3 +67,4 @@
         </tr>
     </tbody>
 </table>
+

@@ -53,9 +53,9 @@
                                 scales: {
                                     y: {
                                         beginAtZero: true,
-                                        max: 100,
+                                        max: 20,
                                         ticks: {
-                                            stepSize: 10
+                                            stepSize: 0
                                         }
                                     }
                                 }
