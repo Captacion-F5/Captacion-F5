@@ -16,7 +16,8 @@
 
                 <div class="mb-3">
                     <label for="nombre" class="form-label">Nombre</label>
-                    <input type="text" class="form-control @error('name') is-invalid @enderror" id="nombre" name="nombre" value="{{ $bootcamp->nombre }}">
+                    <input type="text" class="form-control @error('name') is-invalid @enderror" id="nombre"
+                        name="nombre" value="{{ $bootcamp->nombre }}">
                     @error('nombre')
                         <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
@@ -24,51 +25,51 @@
 
                 <div class="mb-3">
                     <label for="inicio" class="form-label">Fecha de inicio</label>
-                    <input type="date" class="form-control @error('inicio') is-invalid @enderror" id="inicio" name="inicio" value="{{ $bootcamp->inicio }}">
+                    <input type="date" class="form-control @error('inicio') is-invalid @enderror" id="inicio"
+                        name="inicio" value="{{ $bootcamp->inicio }}">
                     @error('inicio')
                         <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
                 <div class="mb-3">
                     <label for="school_id" class="form-label">Escuela</label>
-                    <select name="school_id" id="school_id" class="form-control @error('school_id') is-invalid @enderror">
+                    <select name="school_id" id="school_id" class="form-control w-1/3 @error('school_id') is-invalid @enderror">
                         @foreach ($schools as $school)
-                            <option value="{{ $school->id }}" @if ($school->id == $bootcamp->school_id) selected @endif>{{ $school->name }}</option>
+                            <option value="{{ $school->id }}" @if ($school->id == $bootcamp->school_id) selected @endif>
+                                {{ $school->name }}</option>
                         @endforeach
                     </select>
                     @error('school_id')
                         <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
-
                 <div class="mb-4">
                     <label for="active" class="block text-gray-700 font-bold mb-2">Activo:</label>
                     <div class="flex">
-                      <select id="active" name="active" class="block appearance-none w-1/3 bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
-                        <option value="1" @if ($bootcamp->active == 1) selected @endif>Si</option>
-                        <option value="0" @if ($bootcamp->active == 0) selected @endif>No</option>
-                      </select>
+                        <select id="active" name="active"
+                            class="block appearance-none w-1/3 bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+                            <option value="1" @if ($bootcamp->active == 1) selected @endif>Si</option>
+                            <option value="0" @if ($bootcamp->active == 0) selected @endif>No</option>
+                        </select>
                     </div>
                     @error('active')
-                      <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                        <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
                     @enderror
-                  </div>
+                </div>
 
-                <div class="flex justify-center">
+                <div class="flex justify-around">
+                    <div>
+                        <x-atoms.arrow-bootcamps>
+                            </x-arrow-bootcamps>
+                    </div>
                     <button type="submit" class="bg-naranja hover:bg-melocoton text-white font-bold py-2 px-4 rounded">
                         Actualizar bootcamp
                     </button>
-                </div>
-            </form>
-            <a href="{{ route('bootcamps.index') }}" class="flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white bg-naranja rounded-full mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                  </svg>
 
-                Ver bootcamps
-            </a>
+                </div>
+
+            </form>
+
         </div>
     </div>
 @stop
-
-
