@@ -116,12 +116,25 @@ class BootcampController extends Controller
         return redirect()->route('bootcamps.index')->with('success', 'El bootcamp ha sido eliminado.');
     }
 
-    public function general($id)
+   
+        public function general($bootcampId)
     {
-        // Obtén el bootcamp seleccionado por su ID, junto con sus postulados relacionados
-        $bootcamp = Bootcamp::with('postulado')->find($id);
-        // Retorna los datos del bootcamp y sus postulados a la vista "general"
-        return view('pages.general', compact('bootcamp'));
+        $bootcamp = Bootcamp::findOrFail($bootcampId);
+
+        $data = [
+            'bootcamp' => $bootcamp,
+            'postulado' => $bootcamp->postulado()
+                ->with(['event' => function($query) use ($bootcampId) {
+                    $query->where('postulado_id', $bootcampId);
+                }])
+                ->whereHas('event', function($query) {
+                    $query->whereIn('asistencia', [0, 1]);
+                })
+                ->get(),
+        ];
+        
+
+        return view('pages.general', $data);
     }
 
   

@@ -64,10 +64,10 @@ return [
     |
     */
 
-    'logo' => '',
-    'logo_img' => 'assets/blanco-factorizado.png',
-    'logo_img_class' => 'factoLogo ',
-    'logo_img_xl' => null,
+    'logo' => 'assets/pequeno.png',
+    'logo_img' =>  'assets/pequeno.png',
+    'logo_img_class' =>null,
+    'logo_img_xl' => 'assets/blanco-factorizado.png',
     'logo_img_xl_class' => 'brand-image-xs',
     'logo_img_alt' => 'Admin Logo',
 

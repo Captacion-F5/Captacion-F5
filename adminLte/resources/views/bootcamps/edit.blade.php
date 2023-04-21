@@ -31,15 +31,29 @@
                 </div>
                 <div class="mb-3">
                     <label for="school_id" class="form-label">Escuela</label>
-                    <input type="text" class="form-control @error('school_id') is-invalid @enderror" id="school_id" name="school_id" value="{{ $bootcamp->school_id }}">
+                    <select name="school_id" id="school_id" class="form-control @error('school_id') is-invalid @enderror">
+                        @foreach ($schools as $school)
+                            <option value="{{ $school->id }}" @if ($school->id == $bootcamp->school_id) selected @endif>{{ $school->name }}</option>
+                        @endforeach
+                    </select>
                     @error('school_id')
                         <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
-                <div class="form-group">
-                    <label for="active">Activo:</label>
-                    <input type="checkbox" name="active" id="active" value="1" {{ $bootcamp->active ? 'checked' : '' }}>
-                </div>
+
+                <div class="mb-4">
+                    <label for="active" class="block text-gray-700 font-bold mb-2">Activo:</label>
+                    <div class="flex">
+                      <select id="active" name="active" class="block appearance-none w-1/3 bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+                        <option value="1" @if ($bootcamp->active == 1) selected @endif>Si</option>
+                        <option value="0" @if ($bootcamp->active == 0) selected @endif>No</option>
+                      </select>
+                    </div>
+                    @error('active')
+                      <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                    @enderror
+                  </div>
+
                 <div class="flex justify-center">
                     <button type="submit" class="bg-naranja hover:bg-melocoton text-white font-bold py-2 px-4 rounded">
                         Actualizar bootcamp
