@@ -92,12 +92,12 @@ class BootcampController extends Controller
         return redirect()->route('bootcamps.index')->with('success', 'El bootcamp ha sido eliminado.');
     }
 
-   
+
     public function general($bootcampId)
     {
         $bootcamp = Bootcamp::findOrFail($bootcampId);
         $postulados = $bootcamp->postulado;
-        
+
 
         $postulados = $bootcamp->postulado()
             ->with(['event' => function($query) use ($bootcampId) {
@@ -108,13 +108,13 @@ class BootcampController extends Controller
         $asistance = $bootcamp->event()
         ->with(['postulados' => function ($query) {
         $query->where('asistencia', 1);
-        }]) ->get();    
-            
-        
+        }]) ->get();
+
+
 
         $event = $bootcamp->event()->withCount(['postulados as asistencias_count' => function($query) {
             $query->where('asistencia', 1);
-        }])->get();   
+        }])->get();
             $countSi = $postulados->where('ejercicios', 1)->count();
             $countNo = $postulados->where('ejercicios', 0)->count();
             $totalPostulantes = $bootcamp->postulado()->count();
@@ -136,7 +136,7 @@ class BootcampController extends Controller
 
 
 
-    
+
 
 
     public function obtener_datos_tabla_principal()
@@ -178,7 +178,7 @@ class BootcampController extends Controller
                 ->where('event_postulado.asistencia', true),
         ])
         ->get();
-    
+
         return view('dashboard', ['bootcamps' => $bootcamps]);
     }
 }
