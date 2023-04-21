@@ -127,3 +127,5 @@ Route::resource('eventos',EventController::class);
 
 
 //Route::get('/eventos', [EventPostuladoController::class, 'index'])->name('eventos.index');
+
+Route::get('/exercises/{id}', [BootcampController::class, 'exercises'])->name('exercises');

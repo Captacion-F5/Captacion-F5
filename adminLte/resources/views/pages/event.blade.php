@@ -5,7 +5,7 @@
 
 <div class="flex justify-between">
         <div class="m-10">
-            <a href="{{ url('/general') }}">
+        <a href="{{ route('general', $bootcamp->id) }}"></a>
                 <x-section-button class="m-auto">
                     {{ __('General') }}
                 </x-section-button>

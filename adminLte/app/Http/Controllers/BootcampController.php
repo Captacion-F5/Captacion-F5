@@ -124,6 +124,8 @@ class BootcampController extends Controller
         return view('pages.general', compact('bootcamp'));
     }
 
+  
+
     public function obtener_datos_tabla_principal()
     {
         //obtiene datos desde el modelo Bootcamp, de bootcamp, escuela y postulado
@@ -166,4 +168,13 @@ class BootcampController extends Controller
     
         return view('dashboard', ['bootcamps' => $bootcamps]);
     }
+
+        public function exercises($id)
+    {
+        $bootcamp = Bootcamp::find($id);
+        $exercises = $bootcamp->exercises;
+        return view('bootcamp.exercises', ['exercises' => $exercises]);
+    }
+
 }
+

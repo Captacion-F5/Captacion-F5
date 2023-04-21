@@ -2,6 +2,7 @@
 @extends('adminlte::page')
 @section('title', 'Captación F5')
 @section('plugins.Sweetalert2', true)
+use App\Http\Controllers\BootcampController;
 
 
 @section('content')
@@ -16,12 +17,12 @@
     </div>
     <div class="flex justify-between">
         <div class="m-10">
-            <a href="{{ url('/general') }}">
+        <a href="{{ route('general', $bootcamp->id) }}"></a>
                 <x-section-button class="m-auto">
                     {{ __('General') }}
                 </x-section-button>
             </a>
-            <a href="{{ url('/exercises') }}">
+            <a href="{{ route('exercises', $bootcamp->id) }}">
                 <x-section-button class="">
                     {{ __('Ejercicios') }}
                 </x-section-button>

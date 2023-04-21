@@ -12,7 +12,7 @@
                     {{ __('General') }}
                 </x-section-button>
             </a>
-            <a href="{{ url('/exercises') }}">
+            <a href="{{ url('/exercises/') }}">
                 <x-section-button class="">
                     {{ __('Ejercicios') }}
                 </x-section-button>
