@@ -19,9 +19,9 @@
         <div class="row">
             <div class="col-xs-12 m-auto">
                 <div class="box">
-                    <div class="m-3 box-header flex justify-around">
+                    <div class="box-header flex justify-end">
                         <x-atoms.search-bootcamp></x-atoms.search-bootcamp>
-                        <div class="box-tools">
+                        <div class="box-tools ml-5">
                             <a href="{{ route('bootcamps.create') }}" class="inline-block bg-green-600 hover:bg-green-500 text-lg border-2 border-green-700 text-white py-1 px-3 rounded">Añadir </a>
                         </div>
                     </div>

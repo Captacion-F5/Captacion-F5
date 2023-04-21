@@ -20,10 +20,14 @@
                         <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                     @enderror
                 </div>
-                <button type="submit" action="{{ route('school.index') }}"
-                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                    Añadir
-                </button>
+                <div class="flex justify-around">
+                    <a class="text-lg" href="{{ route('school.index') }}">
+                        <i class="fa fa-arrow-alt-circle-left text-naranja m-2 "></i>Todas las escuelas
+                    </a>
+                    <button type="submit" class="bg-green-600 hover:bg-green-400 text-white font-bold py-2 px-4 rounded">
+                        Crear escuela
+                    </button>
+                </div>
             </form>
         </div>
     </div>

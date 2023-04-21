@@ -19,22 +19,15 @@
                         <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
-
-
-
-                <div class="flex justify-center">
-                    <button type="submit" class="bg-naranja hover:bg-melocoton text-white font-bold py-2 px-4 rounded">
-                        Actualizar Escuela
-                    </button>
-                </div>
             </form>
-            <a href="{{ route('school.index') }}" class="flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white bg-naranja rounded-full mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                  </svg>
-
-                Ver Escuelas
-            </a>
+            <div class="flex justify-around mt-5">
+                <a class="text-lg" href="{{ route('school.index') }}">
+                    <i class="fa fa-arrow-alt-circle-left text-naranja m-2 "></i>Todas las escuelas
+                </a>
+                <button type="submit" class="bg-green-600 hover:bg-green-400 text-white font-bold py-2 px-4 rounded">
+                    Actualizar escuela
+                </button>
+            </div>
         </div>
     </div>
 @stop
