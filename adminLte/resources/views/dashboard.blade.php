@@ -1,18 +1,12 @@
 
 @vite(['resources/js/app.js','resources/css/app.css'])
 @extends('adminlte::page')
-@section('title', 'Captación F5')
-@section('plugins.Sweetalert2', true)
-
-
+@section('title', 'CodeBusters')
+@section('content_header')
+    <h1 class="m-3">Bienvenida al proceso de selección: </h1>
+@stop
 @section('content')
-    <h2 class="text-naranja text-lg mt-2">Vista general de los procesos de selección.</h2>
-    <br>
     <x-tables.general-table :bootcamps="$bootcamps"></x-tables.general-table>
-    <br>
-    <x-atoms.panel class="ml-3"></x-atoms.panel>
-    <br>
-    
 @stop
 
 
