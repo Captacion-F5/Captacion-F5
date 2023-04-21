@@ -79,7 +79,7 @@ class PostuladoController extends Controller
         return redirect('/dashboard')->with('success', 'El postulante ha sido añadido exitosamente.');
 
     }
-   
+
     public function edit($id)
     {
         $postulado = Postulado::find($id);
@@ -128,15 +128,9 @@ class PostuladoController extends Controller
         }
         return redirect('postulado')->with('success', 'El archivo ha sido añadido correctamente.');
     }
-<<<<<<< HEAD
 
 
-        public function obtener_datos_bootcamp($bootcampId)
-=======
-   
-    
     public function obtener_datos_bootcamp($bootcampId)
->>>>>>> 506d6b5391d8737693d21260c731f7246e31c55d
     {
         $bootcamp = Bootcamp::findOrFail($bootcampId);
         $postulados = $bootcamp->postulado;
@@ -219,15 +213,8 @@ class PostuladoController extends Controller
         $postulado->save();
 
         return back()->with('success', 'El estado del postulante ha sido actualizado correctamente.');
-<<<<<<< HEAD
-
     }
 
 
-=======
-    }
 
-  
-    
->>>>>>> 506d6b5391d8737693d21260c731f7246e31c55d
 }
