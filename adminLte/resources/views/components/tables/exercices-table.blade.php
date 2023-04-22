@@ -6,7 +6,6 @@
             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                 <thead class="px-1 py-2 text-center text-xs text-white uppercase bg-naranja  dark:text-gray-400">
                     <tr>
-
                         <th scope="col">
                             Aplicante
                         </th>
