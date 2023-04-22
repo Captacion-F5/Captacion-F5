@@ -1,9 +1,11 @@
 <?php
 
-// use App\Models\;
-// use App\Models\;
+use App\Models\Bootcamp;
 
-// function nombre()
-// {
-    
-// }
+
+function bootcamp_event_find($bootcampId)
+{
+    $bootcamp = Bootcamp::find($bootcampId);
+    $events = $bootcamp->event;
+    return view('pages.general', compact('bootcamp', 'events'));
+}

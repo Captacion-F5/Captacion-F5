@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisteredUserController;
 
 use App\Http\Controllers\PostuladoController;
-
+use App\Http\Controllers\BootcampEvent;
 use App\Http\Controllers\EventController;
 
 
@@ -129,3 +129,5 @@ Route::get('/mail', function(){
     Mail::to('a20monicarr@gmail.com')
     ->send(new PruebaMail());
 });
+Route::get('/exercises/{id}', [BootcampController::class, 'exercises'])->name('exercises');
+
