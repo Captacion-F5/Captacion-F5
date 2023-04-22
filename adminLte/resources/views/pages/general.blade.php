@@ -8,14 +8,16 @@ use App\Http\Controllers\BootcampController;
 
 @section('content')
 <h2 class="text-naranja text-lg mt-2">Bienvenida a tu panel de administradora</h2>
-    <br>
-    <div class="ml-3">
-        @include('/components/atoms/panel')
-    </div>
-
-    {{-- <x-atoms.panel></x-atoms.panel> --}}
-    <br>
+<div class="flex m-6">
     <x-general-header-buttons :bootcamp="$bootcamp"></x-general-header-buttons>
+    @foreach ($event as $evento)
+    <a href="{{ route('eventos.show', $evento->id) }}">
+    <x-section-button class="">
+        {{ $evento->nombre }}
+    </x-section-button>
+    @endforeach
+    </a>
+</div>
     <div class="flex flex-row">
         @include('/components/grafics/genre')
         @include('/components/grafics/exer')
