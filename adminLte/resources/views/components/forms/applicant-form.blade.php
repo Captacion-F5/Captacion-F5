@@ -6,9 +6,13 @@
     <h1>Crear nuevo postulado</h1>
 @stop
 @section('content')
-
     <body class="p-auto font-sans text-gray-900 antialiased">
         <div class="w-full p-4 shadow-md overflow-hidden sm:rounded-lg text-black">
+            @if (session('success'))
+            <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 m-5" role="alert">
+                <p>{{ session('success') }}</p>
+            </div>
+        @endif
             <form method="POST" action="{{ route('postulado.store') }}">
                 @csrf
                 <div class="mt-4">

@@ -5,10 +5,7 @@
 @section('title', 'Escuelas')
 
 @section('content_header')
-
     <h1>Escuelas</h1>
-
-
 @stop
 
 @section('content')
@@ -16,6 +13,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 m-auto">
+                    @if (session('success'))
+                        <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 m-5" role="alert">
+                            <p>{{ session('success') }}</p>
+                        </div>
+                    @endif
                     <div class="ml-5 justify-end">
                         <a href="{{ route('school.create') }}"
                             class=" inline-block bg-green-600 hover:bg-green-500 text-lg border-2 border-green-700 text-white py-1 px-3 rounded">
@@ -41,24 +43,16 @@
                                                         class="inline-block bg-sky-600 text-white hover: text-lg hover:bg-sky-800 shadow  py-1 px-2 border-2 border-sky-900 rounded">
                                                         Editar
                                                     </a>
-                                                    <form action="{{ route('school.destroy', $school->id) }}" method="POST" style="display: inline-block;">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" class="inline-block text-lg bg-orange-500 hover:bg-orange-600 shadow text-white py-1 px-2 border-2 border-orange-900 rounded"
-                                                                onclick="return confirm('¿Está seguro que desea eliminar esta escuela?')">
-                                                            Eliminar
-                                                        </button>
-                                                    </form>
-
-                                                    {{-- <form action="{{ route('school.destroy', $school->id) }}" method="POST"
+                                                    <form action="{{ route('school.destroy', $school->id) }}" method="POST"
                                                         style="display: inline-block;">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit"
-                                                            class="inline-block text-lg bg-orange-500 hover:bg-orange-600 shadow text-white py-1 px-2 border-2 border-orange-900 rounded">
+                                                            class="inline-block text-lg bg-orange-500 hover:bg-orange-600 shadow text-white py-1 px-2 border-2 border-orange-900 rounded"
+                                                            onclick="return confirm('¿Está seguro que desea eliminar esta escuela?')">
                                                             Eliminar
                                                         </button>
-                                                    </form> --}}
+                                                    </form>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -68,11 +62,6 @@
                         </div>
                     </div>
                 </div>
-                @if (session('success'))
-                    <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mt-5" role="alert">
-                        <p>{{ session('success') }}</p>
-                    </div>
-                @endif
             </div>
         </div>
     </div>

@@ -1,8 +1,8 @@
 @vite(['resources/js/app.js', 'resources/css/app.css'])
 @extends('adminlte::page')
-@section('title', 'Postulados F5')
+@section('title', 'Postulantes F5')
 @section('content_header')
-    <h1>Postulados</h1>
+    <h1>Postulantes</h1>
 @stop
 
 @section('content')

@@ -18,13 +18,21 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 m-auto">
+                @if (session('success'))
+                    <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 m-5" role="alert">
+                        <p>{{ session('success') }}</p>
+                    </div>
+                @endif
                 <div class="box">
                     <div class="box-header flex justify-end">
                         <x-atoms.search-bootcamp></x-atoms.search-bootcamp>
                         <div class="box-tools ml-5">
-                            <a href="{{ route('bootcamps.create') }}" class="inline-block bg-green-600 hover:bg-green-500 text-lg border-2 border-green-700 text-white py-1 px-3 rounded">Añadir </a>
+                            <a href="{{ route('bootcamps.create') }}"
+                                class="inline-block bg-green-600 hover:bg-green-500 text-lg border-2 border-green-700 text-white py-1 px-3 rounded">Añadir
+                            </a>
                         </div>
                     </div>
+
                     <div class="box-body m-auto">
                         <table class="table table-bordered rounded-full">
                             <thead class=" bg-naranja text-white ">
@@ -59,7 +67,8 @@
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit"
-                                                    class="inline-block text-lg bg-orange-500 hover:bg-orange-600 shadow text-white py-1 px-2 border-2 border-orange-900 rounded">
+                                                    class="inline-block text-lg bg-orange-500 hover:bg-orange-600 shadow text-white py-1 px-2 border-2 border-orange-900 rounded"
+                                                    onclick="return confirm('¿Está seguro que desea eliminar este bootcamp?')">
                                                     Eliminar
                                                 </button>
                                             </form>

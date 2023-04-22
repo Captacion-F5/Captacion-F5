@@ -51,7 +51,7 @@ class EventController extends Controller
     $evento = $evento->refresh();
     $evento->bootcamp()->sync($bootcamp_ids);
 
-    return redirect()->route('eventos.index');
+    return redirect()->route('eventos.index')->with('success', 'Se ha añadido un nuevo evento.');
 }
     /**
      * Display the specified resource.
@@ -101,18 +101,18 @@ class EventController extends Controller
             'fecha' => 'sometimes|date',
             'bootcamp_id' => 'sometimes|array',
         ]);
-       
-    
+
+
         $bootcamp_nombres = $request->input('bootcamp_id', []);
         $bootcamp_ids = Bootcamp::whereIn('nombre', $bootcamp_nombres)->pluck('id')->toArray();
-    
+
         $evento = Event::findOrFail($id);
         $evento->nombre = $request->input('nombre');
         $evento->fecha = $request->input('fecha');
         $evento->bootcamp()->sync($bootcamp_ids);
         $evento->save();
-    
-        return redirect()->route('eventos.index');
+
+        return redirect()->route('eventos.index')->with('success','El evento se ha actualizado correctamente');
     }
 
     /**
@@ -123,6 +123,6 @@ class EventController extends Controller
         $evento = Event::findOrFail($id);
         $evento->delete();
 
-        return redirect()->route('eventos.index');
+        return redirect()->route('eventos.index')->with('success','El evento se ha eliminado.');
     }
 }

@@ -76,7 +76,7 @@ class PostuladoController extends Controller
             $postulado->bootcamp()->syncWithoutDetaching($bootcamp->id);
         }
 
-        return redirect('/dashboard')->with('success', 'El postulante ha sido añadido exitosamente.');
+        return redirect('/dashboard')->with('success', 'El postulante ha sido añadido con éxito.');
 
     }
 
