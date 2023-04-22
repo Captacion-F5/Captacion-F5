@@ -15,13 +15,13 @@
             <th scope="col" class="p-4">JPA</th>
             <th scope="col" class="p-4">TPB</th>
             <th scope="col" class="p-4">TF5</th>
-            <th scope="col" class="p-4">Estatus</th>
+            <th scope="col" class="p-4">PROCESO</th>
         </tr>
     </thead>
     <tbody>
     @foreach ($bootcamps as $bootcamp)
     <tr>
-        <td>{{ $bootcamp->school->name }}</td>
+        <td scope="col" class="p-3.5">{{ $bootcamp->school->name }}</td>
         <td>{{ $bootcamp->nombre }}</td>
         <td>{{ $bootcamp->postulado_count }}</td>
         <td>{{ $bootcamp->ejercicios_count }}</td>
@@ -29,7 +29,7 @@
         <td>{{ $bootcamp->asistencia_jpa_count }}</td>
         <td>{{ $bootcamp->asistencia_tpb_count }}</td>
         <td>{{ $bootcamp->asistencia_tf5_count }}</td>
-        <td>{{ $bootcamp->active ? 'Sí' : 'No' }}</td>
+        <td>{{ $bootcamp->active ? 'Abierto' : 'Cerrado' }}</td>
     </tr>
     @endforeach
     </tbody>
