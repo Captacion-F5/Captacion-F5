@@ -125,9 +125,10 @@ Route::resource('eventos',EventController::class);
 //Route::get('/eventos/{id}', 'App\Http\Controllers\EventController@show')->name('eventos.show');
 //Route::get('/eventos', [EventPostuladoController::class, 'index'])->name('eventos.index');
 
-Route::get('/mail', function(){
-    Mail::to('a20monicarr@gmail.com')
-    ->send(new PruebaMail());
-});
+// Route::get('/mail', function(){
+//     Mail::to('a20monicarr@gmail.com')
+//     ->send(new PruebaMail());
+// });
+
 Route::get('/exercises/{id}', [BootcampController::class, 'exercises'])->name('exercises');
 
