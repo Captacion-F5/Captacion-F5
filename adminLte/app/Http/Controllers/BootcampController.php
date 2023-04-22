@@ -135,9 +135,6 @@ class BootcampController extends Controller
         return view('pages.general', $data);
     }
 
-
-
-
     public function obtener_datos_tabla_principal()
     {
         //obtiene datos desde el modelo Bootcamp, de bootcamp, escuela y postulado
