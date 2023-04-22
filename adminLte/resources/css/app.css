@@ -38,5 +38,7 @@ i:hover {
     font-weight: bold;
 }
 
-.active:hover
- { background: #000;}
+a.nav-link.active:hover
+ { background-color: #a12424;}
+/* li>a.nav-link.active
+ { background-color: #a12424;} */
