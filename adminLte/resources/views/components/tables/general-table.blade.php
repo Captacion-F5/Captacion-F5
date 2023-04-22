@@ -1,35 +1,37 @@
 @vite(['resources/js/app.js', 'resources/css/app.css'])
 
-<div class="m-auto">
-    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-        <div class="flex">
-            <table class="w-full text-md text-center shadow">
-                <thead class="px-4 py-6 m-3 text-center text-white uppercase bg-naranja  dark:text-gray-400">
-                    <tr>
-                        <th class=" ml-5 p-2 text-left">Escuela</th>
-                        <th class=" text-left">Bootcamp</th>
-                        <th>Inscritos</th>
-                        <th> >50%</th>
-                        <th>RIC</th>
-                        <th>JPA</th>
-                        <th>TPB</th>
-                        <th>TF5</th>
-                        <th>Proceso</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($bootcamps as $bootcamp)
-                        <tr class="hover:bg-orange-200">
-                            <td class="p-2 m-1 text-left">{{ $bootcamp->school->name }}</td>
-                            <td class="p-2 text-left">{{ $bootcamp->nombre }}</td>
-                            <td class="p-2">{{ $bootcamp->postulado_count }}</td>
-                            <td class="p-2">{{ $bootcamp->ejercicios_count }}</td>
-                            <td class="p-2">{{ $bootcamp->asistencia_ric_count }}</td>
-                            <td class="p-2">{{ $bootcamp->asistencia_jpa_count }}</td>
-                            <td class="p-2">{{ $bootcamp->asistencia_tpb_count }}</td>
-                            <td class="p-2">{{ $bootcamp->asistencia_tf5_count }}</td>
-                            <td class="p-2">{{ $bootcamp->active ? 'Sí' : 'No' }}</td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
+ <?php
+ use App\Models\Bootcamp;
+ use App\Models\BootcampPostulado; ?>
+
+<table class="w-full text-sm text-gray-500 dark:text-gray-400 text-center">
+    <thead class="px- py-2 text-xs text-white uppercase bg-naranja dark:text-gray-400">
+        <tr>
+            <th scope="col" class="p-4">Escuela</th>
+            <th scope="col" class="p-4">Bootcamp</th>
+            <th scope="col" class="p-4">Inscritos</th>
+            <th scope="col" class="p-4"> >50%</th>
+            <th scope="col" class="p-4">RIC</th>
+            <th scope="col" class="p-4">JPA</th>
+            <th scope="col" class="p-4">TPB</th>
+            <th scope="col" class="p-4">TF5</th>
+            <th scope="col" class="p-4">PROCESO</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach ($bootcamps as $bootcamp)
+    <tr>
+        <td scope="col" class="p-3.5">{{ $bootcamp->school->name }}</td>
+        <td>{{ $bootcamp->nombre }}</td>
+        <td>{{ $bootcamp->postulado_count }}</td>
+        <td>{{ $bootcamp->ejercicios_count }}</td>
+        <td>{{ $bootcamp->asistencia_ric_count }}</td>
+        <td>{{ $bootcamp->asistencia_jpa_count }}</td>
+        <td>{{ $bootcamp->asistencia_tpb_count }}</td>
+        <td>{{ $bootcamp->asistencia_tf5_count }}</td>
+        <td>{{ $bootcamp->active ? 'Abierto' : 'Cerrado' }}</td>
+    </tr>
+    @endforeach
+    </tbody>
+</table>
+
