@@ -28,22 +28,6 @@ class SchoolController extends Controller
         return view('school.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-
-    // public function store(Request $request)
-    // {
-    //     $request->validate([
-    //         'name' => 'required',
-    //     ]);
-
-    //     School::create($request->all());
-
-    //     return redirect('school')
-    //                     ->with('success','Se ha añadido una nueva escuela.');
-    // }
-
     public function store(Request $request)
     {
         $request->validate([

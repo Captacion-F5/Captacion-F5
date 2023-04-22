@@ -19,7 +19,7 @@
                         <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
-            </form>
+
             <div class="flex justify-around mt-5">
                 <a class="text-lg" href="{{ route('school.index') }}">
                     <i class="fa fa-school text-naranja m-2 "></i>Todas las escuelas
@@ -28,6 +28,7 @@
                     Actualizar escuela
                 </button>
             </div>
+        </form>
         </div>
     </div>
 @stop
