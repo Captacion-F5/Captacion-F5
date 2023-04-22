@@ -1,9 +1,9 @@
 @vite(['resources/js/app.js', 'resources/css/app.css'])
 @extends('adminlte::page')
-@section('title', 'Crear nuevo evento')
+@section('title', 'Crear nuevo postulado')
 
 @section('content_header')
-    <h1>Crear nuevo evento</h1>
+    <h1>Crear nuevo postulado</h1>
 @stop
 @section('content')
 
@@ -73,7 +73,7 @@
                 @endif
                 <div class="flex justify-around mt-5">
                     <a class="text-lg" href="{{ route('postulado') }}">
-                        <i class="fa fa-arrow-alt-circle-left text-naranja m-2 "></i>Todos los postulados
+                        <i class="fa fa-users text-naranja m-2 "></i>Todos los postulados
                     </a>
                     <button type="submit" class="bg-green-600 hover:bg-green-400 text-white font-bold py-2 px-4 rounded">
                         Crear postulado

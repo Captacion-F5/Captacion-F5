@@ -63,7 +63,7 @@
                       </div>
                       <div>
                           <a class="text-lg" href="{{ route('bootcamps.index') }}">
-                              <i class="fa fa-arrow-alt-circle-left text-naranja m-2 "></i>Todos los bootcamps
+                              <i class="fa fa-flag text-naranja m-2 "></i>Todos los bootcamps
                           </a>
                       </div>
               </form>

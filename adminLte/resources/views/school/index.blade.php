@@ -16,7 +16,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 m-auto">
-                    <div class="ml-5">
+                    <div class="ml-5 justify-end">
                         <a href="{{ route('school.create') }}"
                             class=" inline-block bg-green-600 hover:bg-green-500 text-lg border-2 border-green-700 text-white py-1 px-3 rounded">
                             Añadir

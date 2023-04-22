@@ -34,7 +34,7 @@
                 <div class="mb-3">
                     <label for="bootcamp_id" class="form-label">Bootcamp</label>
                     @foreach ($bootcamp as $id => $nombre)
-                        <div>
+                        <div class="">
                             <input type="checkbox" id="bootcamp_{{ $id }}" name="bootcamp_id[]"
                                 value="{{ $nombre }}" @if (in_array($nombre, old('bootcamp_id', []))) checked @endif>
                             <label for="bootcamp_{{ $id }}">{{ $nombre }}</label>

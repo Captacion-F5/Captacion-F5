@@ -12,14 +12,13 @@
         <div class="row">
             <div class="col-xs-12 mx-auto">
                 <div class="box">
-                    <div class="box-header flex justify-end">
+                    <div class="box-header flex justify-end m-3">
                         <div class="box-tools">
                             <a href="{{ route('eventos.create') }}"
                                 class="inline-block bg-green-600 hover:bg-green-500 text-lg border-2 border-green-700 text-white py-1 px-3 rounded">Añadir
                             </a>
                         </div>
                     </div>
-                    <br>
                     <div class="box-body m-auto">
                         <table class="table table-bordered">
                             <thead class="bg-naranja text-white rounded">
@@ -33,9 +32,9 @@
                             <tbody>
                                 @foreach ($events as $event)
                                     <tr>
-                                        <td><a href="{{ route('eventos.show', $event->id) }}">{{ $event->nombre }}</a></td>
-                                        <td>{{ $event->fecha }}</td>
-                                        <td>{{ implode(', ', $event->bootcamp->pluck('nombre')->toArray()) }}</td>
+                                        <td class="text-center align-middle font-bold items-center"><a href="{{ route('eventos.show', $event->id) }}">{{ $event->nombre }}</a></td>
+                                        <td class="text-center align-middle items-center">{{ $event->fecha }}</td>
+                                        <td class="text-center align-middle items-center">{{ implode(', ', $event->bootcamp->pluck('nombre')->toArray()) }}</td>
                                         <td>
                                             <a href="{{ route('eventos.edit', $event->id) }}"
                                                 class="inline-block bg-sky-600 text-white hover: text-lg hover:bg-sky-800 shadow  py-1 px-2 border-2 border-sky-900 rounded">

@@ -32,7 +32,7 @@
                 </div>
                 <div class="flex justify-around">
                     <a class="text-lg" href="{{ route('eventos.index') }}">
-                        <i class="fa fa-arrow-alt-circle-left text-naranja m-2 "></i>Todos los eventos
+                        <i class="fa fa-calendar text-naranja m-2 "></i>Todos los eventos
                     </a>
                     <button type="submit" class="bg-green-600 hover:bg-green-400 text-white font-bold py-2 px-4 rounded">
                         Crear evento

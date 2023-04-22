@@ -14,11 +14,11 @@
             <p class="text-xl text-bold">{{ $countNo }}</p>
             <p>Ejercicios Sin terminar</p>
         </div>
-        <div class="m-3">
-            <p class="text-center">{{ $eventos }}</p>
-            @foreach ($event as $evento)
-                <p>{{ $evento->asistencias_count }}</p>
-            @endforeach
-        </div>
+        @foreach ($event as $evento)
+            <div class="m-3">
+                <p class="text-xl text-bold">{{ $evento->asistencias_count }}</p>
+                <p>{{ $evento->nombre }}</p>
+            </div>
+        @endforeach
     </div>
 </div>

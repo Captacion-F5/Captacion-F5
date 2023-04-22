@@ -10,8 +10,6 @@
     <div class="ml-3">
         @include('/components/atoms/panel')
     </div>
-
-    {{-- <x-atoms.panel></x-atoms.panel> --}}
     <br>
     <div class="flex flex-row">
         @include('/components/grafics/genre')
@@ -42,11 +40,6 @@
                 <x-section-button class="">
                     {{ __('TPB') }}
                 </x-section-button>
-                <a href="{{ url('/postulado') }}">
-                    <x-section-button class="">
-                        {{ __('Datos Postulantes') }}
-                    </x-section-button>
-                </a>
             </div>
         </div>
         <x-atoms.searchbar></x-atoms.searchbar>
