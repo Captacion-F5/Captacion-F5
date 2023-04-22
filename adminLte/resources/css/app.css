@@ -7,7 +7,7 @@
 }
 .nav-link:hover {
     color: white;
-    text-shadow:  3px 3px 4px #000000;
+    text-shadow: 3px 3px 4px #000000;
 }
 
 .bootcamp-form {
@@ -38,7 +38,19 @@ i:hover {
     font-weight: bold;
 }
 
-a.nav-link.active:hover
- { background-color: #a12424;}
-/* li>a.nav-link.active
- { background-color: #a12424;} */
+a.nav-link.active:hover {
+    background-color: #a12424;
+}
+
+@keyframes slideout {
+    from {
+        right: 0;
+    }
+    to {
+        right: -400px;
+        opacity: 0;
+    }
+}
+.animate-slideout {
+    animation: slideout 5s ease-in-out forwards;
+}

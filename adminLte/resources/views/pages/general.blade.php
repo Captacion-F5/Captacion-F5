@@ -7,7 +7,8 @@
 {{-- use App\Http\Controllers\BootcampController; --}}
 
 @section('content')
-    <div class="ml-3">
+<h2 class="text-naranja text-lg mt-2">Bienvenida a tu panel de administradora</h2>
+<div class="ml-3">
         @include('/components/atoms/panel')
     </div>
 <div class="flex m-6">

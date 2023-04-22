@@ -5,12 +5,19 @@
 @section('title', 'Bootcamps')
 
 @section('content_header')
-    <div class="flex justify-between">
+    <div class="flex mt-2">
         <h1>Bootcamps</h1>
+        <div class="flex space-x-56">
+        <div class="box-tools ml-5">
+            <a href="{{ route('bootcamps.create') }}"
+                class="inline-block bg-green-600 hover:bg-green-500 text-lg border-2 border-green-700 text-white py-1 px-3 rounded">Añadir
+            </a>
+        </div>
         <div>
             <a class="m-3 text-naranja" href="{{ route('bootcamps.index', ['active' => 1]) }}">Abiertos</a>
             <a class="m-3 text-naranja" href="{{ route('bootcamps.index', ['active' => 0]) }}">Cerrados</a>
         </div>
+    </div>
     </div>
 @stop
 
@@ -18,21 +25,16 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 m-auto">
-                @if (session('success'))
-                    <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 m-5" role="alert">
-                        <p>{{ session('success') }}</p>
-                    </div>
-                @endif
-                <div class="box">
-                    <div class="box-header flex justify-end">
-                        <x-atoms.search-bootcamp></x-atoms.search-bootcamp>
-                        <div class="box-tools ml-5">
-                            <a href="{{ route('bootcamps.create') }}"
-                                class="inline-block bg-green-600 hover:bg-green-500 text-lg border-2 border-green-700 text-white py-1 px-3 rounded">Añadir
-                            </a>
+                <div class="fixed right-0 top-12 mt-10 mr-8 z-50">
+                    @if (session('success'))
+                        <div
+                            class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded shadow-md animate-slideout">
+                            <p>{{ session('success') }}</p>
                         </div>
-                    </div>
-
+                    @endif
+                </div>
+                <div class="box">
+                    <x-atoms.search-bootcamp></x-atoms.search-bootcamp>
                     <div class="box-body m-auto">
                         <table class="table table-bordered rounded-full">
                             <thead class=" bg-naranja text-white ">

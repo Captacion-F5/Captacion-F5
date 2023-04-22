@@ -53,7 +53,7 @@ class BootcampController extends Controller
 
         $bootcamp->save();
 
-        return redirect()->route('bootcamps.index')->with('success', 'Bootcamp creado exitosamente.');
+        return redirect()->route('bootcamps.index')->with('success', 'Bootcamp creado!!');
     }
 
     public function show(Bootcamp $bootcamp)
@@ -83,14 +83,14 @@ class BootcampController extends Controller
 
         $bootcamp->save();
 
-        return redirect()->route('bootcamps.index')->with('success', 'Bootcamp actualizado exitosamente.');
+        return redirect()->route('bootcamps.index')->with('success', 'Bootcamp actualizado!!');
     }
 
 
     public function destroy(Bootcamp $bootcamp)
     {
         $bootcamp->delete();
-        return redirect()->route('bootcamps.index')->with('success', 'El bootcamp ha sido eliminado.');
+        return redirect()->route('bootcamps.index')->with('success', 'Bootcamp eliminado!!');
     }
 
 
@@ -183,13 +183,13 @@ class BootcampController extends Controller
         $bootcamp = Bootcamp::findOrFail($bootcampId);
         $postulados = $bootcamp->postulado;
 
+        //estoe es lo que hemos añadido ahora
         $postulados = $bootcamp->postulado()
         ->select('nombre', 'url_perfil', 'ejercicios')
         ->with(['event' => function($query) use ($bootcampId) {
             $query->where('postulado_id', $bootcampId);
         }])
         ->get();
-
 
         $asistance = $bootcamp->event()
         ->with(['postulados' => function ($query) {

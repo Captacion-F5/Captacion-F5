@@ -18,7 +18,7 @@ use App\Http\Controllers\BootcampController;
     </a>
 </div>
 
-    <x-tables.exercices-table>
+    <x-tables.exercices-table :postulados="$postulado">
     </x-tables.exercices-table>
 
 

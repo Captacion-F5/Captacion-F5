@@ -78,7 +78,6 @@ class SchoolController extends Controller
     {
         $school->delete();
 
-        return redirect('school')
-                        ->with('success','La escuela se ha eliminado.');
+        return redirect('school')->with('success','La escuela se ha eliminado.');
     }
 }

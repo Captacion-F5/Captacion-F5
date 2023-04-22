@@ -11,13 +11,16 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 mx-auto">
-                @if (session('success'))
-                    <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 m-5" role="alert">
-                        <p>{{ session('success') }}</p>
-                    </div>
-                @endif
+                <div class="fixed right-0 top-12 mt-10 mr-8 z-50">
+                    @if (session('success'))
+                        <div
+                            class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded shadow-md animate-slideout">
+                            <p>{{ session('success') }}</p>
+                        </div>
+                    @endif
+                </div>
                 <div class="box">
-                    <div class="box-header flex justify-end m-3">
+                    <div class="box-header flex justify-start mb-3">
                         <div class="box-tools">
                             <a href="{{ route('eventos.create') }}"
                                 class="inline-block bg-green-600 hover:bg-green-500 text-lg border-2 border-green-700 text-white py-1 px-3 rounded">Añadir

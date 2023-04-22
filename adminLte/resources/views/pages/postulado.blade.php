@@ -12,7 +12,14 @@
             <a href="{{ route('aplicant-form.create') }}" class="inline-block bg-green-600 hover:bg-green-500 text-lg border-2 border-green-700 text-white py-1 px-3 rounded">Añadir </a>
         </div> --}}
     </div>
-
+    <div class="fixed right-0 top-12 mt-10 mr-8 z-50">
+        @if (session('success'))
+            <div
+                class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded shadow-md animate-slideout">
+                <p>{{ session('success') }}</p>
+            </div>
+        @endif
+    </div>
     <table class="w-full text-sm text-left">
         <thead class="bg-naranja text-xs text-white uppercase rounded-lg">
             <tr>
