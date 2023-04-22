@@ -28,9 +28,6 @@ class SchoolController extends Controller
         return view('school.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $request->validate([
@@ -39,9 +36,9 @@ class SchoolController extends Controller
 
         School::create($request->all());
 
-        return redirect('school')
-                        ->with('success','Se ha añadido una nueva escuela.');
+        return redirect('school')->with('success', 'Se ha añadido una nueva escuela.');
     }
+
 
     /**
      * Display the specified resource.

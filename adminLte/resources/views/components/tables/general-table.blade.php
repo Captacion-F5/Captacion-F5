@@ -1,6 +1,6 @@
 @vite(['resources/js/app.js', 'resources/css/app.css'])
 
- <?php 
+ <?php
  use App\Models\Bootcamp;
  use App\Models\BootcampPostulado; ?>
 

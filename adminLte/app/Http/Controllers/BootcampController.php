@@ -93,12 +93,12 @@ class BootcampController extends Controller
         return redirect()->route('bootcamps.index')->with('success', 'El bootcamp ha sido eliminado.');
     }
 
-   
+
     public function general($bootcampId)
     {
         $bootcamp = Bootcamp::findOrFail($bootcampId);
         $postulados = $bootcamp->postulado;
-        
+
 
         $postulados = $bootcamp->postulado()
             ->with(['event' => function($query) use ($bootcampId) {
@@ -109,13 +109,13 @@ class BootcampController extends Controller
         $asistance = $bootcamp->event()
         ->with(['postulados' => function ($query) {
         $query->where('asistencia', 1);
-        }]) ->get();    
-            
-        
+        }]) ->get();
+
+
 
         $event = $bootcamp->event()->withCount(['postulados as asistencias_count' => function($query) {
             $query->where('asistencia', 1);
-        }])->get();   
+        }])->get();
             $countSi = $postulados->where('ejercicios', 1)->count();
             $countNo = $postulados->where('ejercicios', 0)->count();
             $totalPostulantes = $bootcamp->postulado()->count();
@@ -134,7 +134,7 @@ class BootcampController extends Controller
 
         return view('pages.general', $data);
     }
-    
+
 
 
 
@@ -177,7 +177,7 @@ class BootcampController extends Controller
                 ->where('event_postulado.asistencia', true),
         ])
         ->get();
-    
+
         return view('dashboard', ['bootcamps' => $bootcamps]);
     }
 
@@ -185,28 +185,28 @@ class BootcampController extends Controller
     {
         $bootcamp = Bootcamp::findOrFail($bootcampId);
         $postulados = $bootcamp->postulado;
-        
+
         $postulados = $bootcamp->postulado()
             ->with(['event' => function($query) use ($bootcampId) {
                 $query->where('postulado_id', $bootcampId);
             }])
             ->get();
-    
+
         $asistance = $bootcamp->event()
         ->with(['postulados' => function ($query) {
         $query->where('asistencia', 1);
-        }]) ->get();    
-        
+        }]) ->get();
+
         $exercises = $bootcamp->exercises;
-    
+
         $event = $bootcamp->event()->withCount(['postulados as asistencias_count' => function($query) {
             $query->where('asistencia', 1);
-        }])->get();   
+        }])->get();
             $countSi = $postulados->where('ejercicios', 1)->count();
             $countNo = $postulados->where('ejercicios', 0)->count();
             $totalPostulantes = $bootcamp->postulado()->count();
             $eventos = $bootcamp->event()->pluck('nombre');
-    
+
         return view('pages.exercises', [
             'bootcamp' => $bootcamp,
             'postulado' => $postulados,

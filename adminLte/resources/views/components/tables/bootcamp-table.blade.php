@@ -32,7 +32,7 @@
             <td class="px-5 py-4">
                 <span
                     class="inline-block rounded-full text-center px-2 py-1 font-semibold {{ $postulado->ejercicios ? 'bg-green-500 text-white' : 'bg-red-500 text-white' }}">
-                    {{ $postulado->ejercicios ? 'No' : 'Si' }}
+                    {{ $postulado->ejercicios ? 'Si' : 'No' }}
                 </span>
             </td>
             @foreach ($asistance as $evento)

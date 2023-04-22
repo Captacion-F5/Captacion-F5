@@ -76,10 +76,10 @@ class PostuladoController extends Controller
             $postulado->bootcamp()->syncWithoutDetaching($bootcamp->id);
         }
 
-        return redirect('/dashboard')->with('success', 'El postulante ha sido añadido exitosamente.');
+        return redirect('/dashboard')->with('success', 'El postulante ha sido añadido con éxito.');
 
     }
-   
+
     public function edit($id)
     {
         $postulado = Postulado::find($id);
@@ -128,8 +128,8 @@ class PostuladoController extends Controller
         }
         return redirect('postulado')->with('success', 'El archivo ha sido añadido correctamente.');
     }
-   
-    
+
+
     public function obtener_datos_bootcamp($bootcampId)
     {
         $bootcamp = Bootcamp::findOrFail($bootcampId);
@@ -147,8 +147,8 @@ class PostuladoController extends Controller
         // Retorna los datos de los candidatos en formato JSON
         return response()->json(['postulados' => $postulados, 'ejercicios' => $ejercicio]);
     }
-   
-    
+
+
 
     public function obtener_datos_event($bootcampId)
     {
@@ -181,11 +181,11 @@ class PostuladoController extends Controller
         $asistenciaTotal = $postuladosPorEvento->sum(function ($evento) {
             return $evento['asistencia'];
         });
-        
+
         $inscripcionTotal = $postuladosPorEvento->sum(function ($evento) {
             return $evento['inscripcion'];
         });
-        
+
         $datos = [
             'eventos' => $eventos->pluck('nombre'),
             'postuladosPorEvento' => $postuladosPorEvento,
@@ -215,6 +215,6 @@ class PostuladoController extends Controller
         return back()->with('success', 'El estado del postulante ha sido actualizado correctamente.');
     }
 
-  
-    
+
+
 }

@@ -2,15 +2,8 @@
 @extends('adminlte::page')
 
 @section('content')
-
-
-
     <x-atoms.searchbar></x-atoms.searchbar>
-
     <x-tables.event-table></x-tables.event-table>
-
-
-
 @stop
 
 
