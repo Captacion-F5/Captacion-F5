@@ -184,10 +184,12 @@ class BootcampController extends Controller
         $postulados = $bootcamp->postulado;
 
         $postulados = $bootcamp->postulado()
-            ->with(['event' => function($query) use ($bootcampId) {
-                $query->where('postulado_id', $bootcampId);
-            }])
-            ->get();
+        ->select('nombre', 'url_perfil', 'ejercicios')
+        ->with(['event' => function($query) use ($bootcampId) {
+            $query->where('postulado_id', $bootcampId);
+        }])
+        ->get();
+
 
         $asistance = $bootcamp->event()
         ->with(['postulados' => function ($query) {
