@@ -22,11 +22,9 @@
                         <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
-
                 <div class="mb-3">
                     <label for="fecha" class="form-label">Fecha del evento</label>
-                    <input type="date" class="form-control @error('fecha') is-invalid @enderror" id="fecha"
-                        name="fecha" value="{{ $evento->fecha }}">
+                    <input type="date" class="form-control @error('fecha') is-invalid @enderror" id="fecha" name="fecha" value="{{ $evento->fecha }}">
                     @error('fecha')
                         <span class="invalid-feedback">{{ $message }}</span>
                     @enderror

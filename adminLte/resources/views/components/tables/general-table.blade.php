@@ -1,8 +1,5 @@
 @vite(['resources/js/app.js', 'resources/css/app.css'])
 
-{{-- <?php
-use App\Models\Bootcamp;
-use App\Models\BootcampPostulado; ?> --}}
 
 <table class="w-full text-sm text-gray-500 dark:text-gray-400 text-center">
     <thead class="px-3 py-2 text-xs text-white uppercase bg-naranja dark:text-gray-400">

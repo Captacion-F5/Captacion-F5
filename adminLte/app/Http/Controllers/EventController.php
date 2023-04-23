@@ -9,9 +9,7 @@ use Illuminate\Http\Request;
 
 class EventController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    
     public function index()
     {
         $sort = request()->get('sort');
@@ -32,20 +30,13 @@ class EventController extends Controller
     }
 
 
-
-
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         $bootcamps = Bootcamp::pluck('nombre', 'id')->toArray();
         return view('eventos.create', compact('bootcamps'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+  
     public function store(Request $request)
     {
         $request->validate([
@@ -66,9 +57,7 @@ class EventController extends Controller
 
         return redirect()->route('eventos.index')->with('success', 'Se ha añadido un nuevo evento.');
     }
-    /**
-     * Display the specified resource.
-     */
+   
     public function show($id)
     {
         $evento = Event::with('bootcamp')->findOrFail($id);
@@ -76,9 +65,7 @@ class EventController extends Controller
     }
 
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+   
     public function edit($id)
     {
         $evento = Event::findOrFail($id);
@@ -88,25 +75,7 @@ class EventController extends Controller
     }
 
 
-    /**
-     * Update the specified resource in storage.
-     */
-    // public function update(Request $request, $id)
-    // {
-    //     $request->validate([
-    //         'nombre' => 'required',
-    //         'fecha' => 'required|date',
-    //         'bootcamp_id' => 'required',
-    //     ]);
 
-    //     $evento = Event::findOrFail($id);
-    //     $evento->nombre = $request->input('nombre');
-    //     $evento->fecha = $request->input('fecha');
-    //     $evento->bootcamp_id = $request->input('bootcamp_id');
-    //     $evento->save();
-
-    //     return redirect()->route('eventos.index');
-    // }
     public function update(Request $request, $id)
     {
         $request->validate([
@@ -128,9 +97,7 @@ class EventController extends Controller
         return redirect()->route('eventos.index')->with('success', 'El evento se ha actualizado correctamente');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+   
     public function destroy($id)
     {
         $evento = Event::findOrFail($id);

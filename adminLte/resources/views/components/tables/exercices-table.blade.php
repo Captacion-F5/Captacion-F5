@@ -29,7 +29,6 @@
                             <option value="1" @if ($postulado->ejercicios === 1) selected @endif>Si</option>
                             <option value="0" @if ($postulado->ejercicios === 0) selected @endif>No</option>
                         </select>
-                        {{-- {{ $postulado->ejercicios ? 'Sí' : 'No' }} --}}
                     </td>
                     <td class="">
                         <x-mail-button></x-mail-button>

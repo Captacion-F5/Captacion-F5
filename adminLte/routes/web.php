@@ -12,16 +12,7 @@ use App\Http\Controllers\BootcampEvent;
 use App\Http\Controllers\EventController;
 
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+
 
 Route::get('/', function () {
     return view('auth.login');
@@ -80,8 +71,6 @@ Route::get('/obtener_datos_ejercicios/{bootcampId}', [PostuladoController::class
 Route::get('/obtener_datos_event/{bootcampId}', [PostuladoController::class, 'obtener_datos_event']);
 
 
-
-
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -89,23 +78,8 @@ Route::middleware('auth')->group(function () {
 
 });
 
-// Bootcamp
-
 Route::resource('bootcamps', BootcampController::class);
 Route::get('/general/{id}', [BootcampController::class, 'general'])->name('general');
-// Route::get('/bootcamp', function () {
-//     return view('bootcamp.index');
-// })->name('bootcamp.index');
-
-
-// Route::get('/bootcamps/create', [BootcampController::class, 'create'])->name('bootcamps.create');
-// Route::get('/bootcamps/index', [BootcampController::class, 'index'])->name('bootcamps.index');
-// Route::get('/bootcamps/{bootcamp}/edit', [BootcampController::class, 'edit'])->name('bootcamps.edit');
-// Route::get('/bootcamps/{bootcamp}', [BootcampController::class, 'show'])->name('bootcamps.show');
-// Route::post('/bootcamps/store', [BootcampController::class, 'store'])->name('bootcamps.store');
-// Route::put('/bootcamps/{bootcamp}', [BootcampController::class, 'update'])->name('bootcamps.update');
-// Route::delete('/bootcamps/destroy/{id}', [BootcampController::class, 'destroy'])->name('bootcamps.destroy');
-
 
 require __DIR__.'/auth.php';
 
@@ -113,22 +87,8 @@ Route::resource('school',SchoolController::class);
 Route::post('/school/index', [SchoolController::class, 'index'])->name('school.index');
 Route::post('/school/create', [SchoolController::class, 'create'])->name('school.create');
 Route::post('/school/store', [SchoolController::class, 'store'])->name('school.store');
-// Route::get('/sidebar_home', [SchoolController::class, 'sidebar_home'])->name('sidebar_home');
-// Route::post('/school/index', [SchoolController::class, 'index'])->name('school.index');
-// Route::get('/sidebar', [SchoolController::class, 'sidebar'])->name('sidebar');
-
-// routes/web.php
-
-//Eventos
 
 Route::resource('eventos',EventController::class);
-//Route::get('/eventos/{id}', 'App\Http\Controllers\EventController@show')->name('eventos.show');
-//Route::get('/eventos', [EventPostuladoController::class, 'index'])->name('eventos.index');
-
-// Route::get('/mail', function(){
-//     Mail::to('a20monicarr@gmail.com')
-//     ->send(new PruebaMail());
-// });
 
 Route::get('/exercises/{id}', [BootcampController::class, 'exercises'])->name('exercises');
 

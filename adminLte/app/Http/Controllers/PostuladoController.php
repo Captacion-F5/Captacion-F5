@@ -21,15 +21,6 @@ class PostuladoController extends Controller
         $searchPost = $request->input('search');
         $postulados = Postulado::with('bootcamp')->searchPost($searchPost)->get();
         return view('pages.postulado')->with('postulados', $postulados);
-
-        // $searchPost = $request->input('search');
-        // $postulados = Postulado::with('bootcamp')
-        //     ->searchPost($searchPost)
-        //     ->when($request->has('ejercicios'), function ($query) use ($request) {
-        //         $query->where('ejercicios', $request->ejercicios);
-        //     })
-        //     ->get();
-        // return view('pages.postulado')->with('postulados', $postulados);
     }
 
 
@@ -85,7 +76,7 @@ class PostuladoController extends Controller
             $postulado->bootcamp()->syncWithoutDetaching($bootcamp->id);
         }
 
-        return redirect('/dashboard')->with('success', 'El postulante ha sido añadido con éxito.');
+        return redirect('postulado')->with('success', 'El postulante ha sido añadido con éxito.');
 
     }
 
@@ -223,7 +214,5 @@ class PostuladoController extends Controller
 
         return back()->with('success', 'El estado del postulante ha sido actualizado correctamente.');
     }
-
-
 
 }
