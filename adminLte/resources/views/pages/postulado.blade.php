@@ -1,19 +1,27 @@
 @vite(['resources/js/app.js', 'resources/css/app.css'])
 @extends('adminlte::page')
-@section('title', 'Captación F5')
-@section('plugins.Sweetalert2', true)
-{{-- @include('layouts.navigation')
-<aside class="col-span-5 lg:col-span-2">
-    @include('layouts.sidebarHome')
-</aside> --}}
+@section('title', 'Postulantes F5')
+@section('content_header')
+    <h1>Postulantes</h1>
+@stop
+
 @section('content')
-    <h2 class="text-naranja text-lg mt-2">Bienvenida a tu panel de administradora</h2>
-
-
-    <x-atoms.searchbar></x-atoms.searchbar>
-
+    <div class="box-header flex justify between">
+        <x-atoms.searchbar></x-atoms.searchbar>
+        {{-- <div class="box-tools ml-5">
+            <a href="{{ route('aplicant-form.create') }}" class="inline-block bg-green-600 hover:bg-green-500 text-lg border-2 border-green-700 text-white py-1 px-3 rounded">Añadir </a>
+        </div> --}}
+    </div>
+    <div class="fixed right-0 top-12 mt-10 mr-8 z-50">
+        @if (session('success'))
+            <div
+                class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded shadow-md animate-slideout">
+                <p>{{ session('success') }}</p>
+            </div>
+        @endif
+    </div>
     <table class="w-full text-sm text-left">
-        <thead class="bg-naranja text-xs text-white uppercase rounded-lg dark:text-gray-400">
+        <thead class="bg-naranja text-xs text-white uppercase rounded-lg">
             <tr>
                 <th scope="col" class="px-6 py-4">Nombre</th>
                 <th scope="col" class="px-6 py-4">Género</th>
@@ -45,6 +53,7 @@
                             @endphp
                         @endif
                     </td>
+
                     <td class="px-4 py-2">
                         <div class="flex">
                             <div class="w-4 mr-2 transform hover:text-naranja hover:scale-150">

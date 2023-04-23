@@ -1,27 +1,24 @@
-@vite(['resources/js/app.js','resources/css/app.css'])
-<div class="bg-[#FF4700] rounded shadow w-full flex" >
-    <div class="text-xs m-auto flex"  >
-        <div class="bg-[#ffffff] rounded shadow w-full h-1/5 m-2 ml-4 " >
-           <p style="text-align: center;">{{$totalPostulantes}} Inscrito </p>
+@vite(['resources/js/app.js', 'resources/css/app.css'])
+
+<div class="bg-naranja rounded w-full">
+    <div class="m-auto flex text-center text-white justify-around">
+        <div class="m-3">
+            <p class="text-xl text-bold">{{ $totalPostulantes }}</p>
+            <p class="text-sm">Inscritos </p>
         </div>
-        <div class="bg-[#ffffff] rounded shadow w-full h-1/5 m-2 ml-4 ">
-            <p style="text-align: center;" class="inline-block align-middle">Ejercicios terminados:{{ $countSi }}</p>
+        <div class="m-3">
+            <p class="text-xl text-bold">{{ $countSi }}</p>
+            <p class="">Ejercicios terminados</p>
         </div>
-        <div class="bg-[#ffffff] rounded shadow w-full h-1/5 m-2 ml-4">
-            <p style="text-align: center; ">Ejercicios Sin terminar:{{ $countNo }}</p>
+        <div class="m-3">
+            <p class="text-xl text-bold">{{ $countNo }}</p>
+            <p>Ejercicios Sin terminar</p>
         </div>
-        {{-- <div class="bg-[#ffffff] rounded shadow w-full h-1/5 m-2 ml-4">
-            <p style="text-align: center; ">XX Poner algo aqui</p>
-        </div> --}}
-    </div>
-    <div  class="text-xs m-auto flex">
-        <div class="bg-[#ffffff] rounded shadow w-full h-1/5 m-2 ml-4">
-            <p style="text-align: center; ">{{$eventos}}</p>
-            @foreach ($event as $evento)
-             <p>{{$evento->asistencias_count}}</p>
-            @endforeach
-           
-        </div>
-        
+        @foreach ($event as $evento)
+            <div class="m-3">
+                <p class="text-xl text-bold">{{ $evento->asistencias_count }}</p>
+                <p>{{ $evento->nombre }}</p>
+            </div>
+        @endforeach
     </div>
 </div>

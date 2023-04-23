@@ -1,8 +1,10 @@
 @vite(['resources/js/app.js','resources/css/app.css'])
 @extends('adminlte::page')
-@section('title', 'Captación F5')
+@section('title', 'Crear nuevo evento')
 
-
+@section('content_header')
+    <h1>Crear nuevo evento</h1>
+@stop
 @section('content')
 <div class="card">
     <div class="card-body">
@@ -28,7 +30,14 @@
                     @endforeach
                     </select>
                 </div>
-                <button type="submit"  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Crear Evento</button>
+                <div class="flex justify-around">
+                    <a class="text-lg" href="{{ route('eventos.index') }}">
+                        <i class="fa fa-calendar text-naranja m-2 "></i>Todos los eventos
+                    </a>
+                    <button type="submit" class="bg-green-600 hover:bg-green-400 text-white font-bold py-2 px-4 rounded">
+                        Crear evento
+                    </button>
+                </div>
             </form>
     </div>
 </div>

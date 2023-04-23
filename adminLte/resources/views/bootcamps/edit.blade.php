@@ -44,7 +44,7 @@
                 <div class="mb-4">
                     <label for="active" class="block text-gray-700 font-bold mb-2">Activo:</label>
                     <div class="flex">
-                      <select id="active" name="active" class="block appearance-none w-1/3 bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+                      <select id="active" name="active" class="block appearance-none w-1/6 bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
                         <option value="1" @if ($bootcamp->active == 1) selected @endif>Si</option>
                         <option value="0" @if ($bootcamp->active == 0) selected @endif>No</option>
                       </select>
@@ -54,19 +54,16 @@
                     @enderror
                   </div>
 
-                <div class="flex justify-center">
-                    <button type="submit" class="bg-naranja hover:bg-melocoton text-white font-bold py-2 px-4 rounded">
-                        Actualizar bootcamp
-                    </button>
-                </div>
+                  <div class="flex justify-around">
+                    <a class="text-lg" href="{{ route('postulado') }}">
+                       <i class="fa fa-flag text-naranja m-2 "></i>Ver bootcamps
+                   </a>
+                   <button type="submit" class="bg-green-600 hover:bg-green-400 text-white font-bold py-2 px-4 rounded">
+                       Actualizar bootcamp
+                   </button>
+               </div>
             </form>
-            <a href="{{ route('bootcamps.index') }}" class="flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white bg-naranja rounded-full mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                  </svg>
 
-                Ver bootcamps
-            </a>
         </div>
     </div>
 @stop

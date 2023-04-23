@@ -53,7 +53,7 @@ class BootcampController extends Controller
 
         $bootcamp->save();
 
-        return redirect()->route('bootcamps.index')->with('success', 'Bootcamp creado exitosamente.');
+        return redirect()->route('bootcamps.index')->with('success', 'Bootcamp creado!!');
     }
 
     public function show(Bootcamp $bootcamp)
@@ -63,7 +63,8 @@ class BootcampController extends Controller
 
     public function edit(Bootcamp $bootcamp)
     {
-        return view('bootcamps.edit', compact('bootcamp'));
+        $schools = School::all();
+        return view('bootcamps.edit', compact('bootcamp','schools'));
     }
 
     public function update(Request $request, Bootcamp $bootcamp)
@@ -82,22 +83,22 @@ class BootcampController extends Controller
 
         $bootcamp->save();
 
-        return redirect()->route('bootcamps.index')->with('success', 'Bootcamp actualizado exitosamente.');
+        return redirect()->route('bootcamps.index')->with('success', 'Bootcamp actualizado!!');
     }
 
 
     public function destroy(Bootcamp $bootcamp)
     {
         $bootcamp->delete();
-        return redirect()->route('bootcamps.index')->with('success', 'El bootcamp ha sido eliminado.');
+        return redirect()->route('bootcamps.index')->with('success', 'Bootcamp eliminado!!');
     }
 
-   
+
     public function general($bootcampId)
     {
         $bootcamp = Bootcamp::findOrFail($bootcampId);
         $postulados = $bootcamp->postulado;
-        
+
 
         $postulados = $bootcamp->postulado()
             ->with(['event' => function($query) use ($bootcampId) {
@@ -108,13 +109,13 @@ class BootcampController extends Controller
         $asistance = $bootcamp->event()
         ->with(['postulados' => function ($query) {
         $query->where('asistencia', 1);
-        }]) ->get();    
-            
-        
+        }]) ->get();
+
+
 
         $event = $bootcamp->event()->withCount(['postulados as asistencias_count' => function($query) {
             $query->where('asistencia', 1);
-        }])->get();   
+        }])->get();
             $countSi = $postulados->where('ejercicios', 1)->count();
             $countNo = $postulados->where('ejercicios', 0)->count();
             $totalPostulantes = $bootcamp->postulado()->count();
@@ -133,11 +134,6 @@ class BootcampController extends Controller
 
         return view('pages.general', $data);
     }
-
-
-
-    
-
 
     public function obtener_datos_tabla_principal()
     {
@@ -178,7 +174,51 @@ class BootcampController extends Controller
                 ->where('event_postulado.asistencia', true),
         ])
         ->get();
-    
+
         return view('dashboard', ['bootcamps' => $bootcamps]);
     }
+
+    public function exercises($bootcampId)
+    {
+        $bootcamp = Bootcamp::findOrFail($bootcampId);
+        $postulados = $bootcamp->postulado;
+
+        //estoe es lo que hemos añadido ahora
+        $postulados = $bootcamp->postulado()
+        ->select('nombre', 'url_perfil', 'ejercicios')
+        ->with(['event' => function($query) use ($bootcampId) {
+            $query->where('postulado_id', $bootcampId);
+        }])
+        ->get();
+
+        $asistance = $bootcamp->event()
+        ->with(['postulados' => function ($query) {
+        $query->where('asistencia', 1);
+        }]) ->get();
+
+        $exercises = $bootcamp->exercises;
+
+        $event = $bootcamp->event()->withCount(['postulados as asistencias_count' => function($query) {
+            $query->where('asistencia', 1);
+        }])->get();
+            $countSi = $postulados->where('ejercicios', 1)->count();
+            $countNo = $postulados->where('ejercicios', 0)->count();
+            $totalPostulantes = $bootcamp->postulado()->count();
+            $eventos = $bootcamp->event()->pluck('nombre');
+
+        return view('pages.exercises', [
+            'bootcamp' => $bootcamp,
+            'postulado' => $postulados,
+            'countSi' => $countSi,
+            'countNo' => $countNo,
+            'totalPostulantes' => $totalPostulantes,
+            'eventos' => $eventos,
+            'event' => $event,
+            'asistance' => $asistance,
+            'exercises' => $exercises,
+        ]);
+    }
+
+
 }
+
