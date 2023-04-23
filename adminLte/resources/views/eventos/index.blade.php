@@ -37,8 +37,8 @@
                                         <a class="text-white fa fa-arrow-alt-circle-down" href="{{ route('eventos.index', ['sort' => '-nombre']) }}"></a>
                                     </th>
                                     <th>Fecha
-                                        <a class="text-white ml-2 fa fa-arrow-alt-circle-up " href="{{ route('eventos.index', ['sort' => 'asc']) }}"></a>
-                                        <a class="text-white ml-2 fa fa-arrow-alt-circle-down" href="{{ route('eventos.index', ['sort' => 'desc']) }}"></a>
+                                        <a class="text-white ml-2 fa fa-arrow-alt-circle-up" href="{{ route('eventos.index', ['sort' => 'fecha']) }}"></a>
+                                        <a class="text-white ml-2 fa fa-arrow-alt-circle-down" href="{{ route('eventos.index', ['sort' => '-fecha']) }}"></a>
                                     </th>
 
                                     <th>Bootcamp</th>
