@@ -18,17 +18,19 @@
 
 ## Instalación:mechanic:
 
-* Clona este repositorio en tu ordenador utilizando el comando: git clone https://github.com/Captacion-F5/Captacion-F5.git
-* Navega hasta la carpeta del proyecto utilizando el comando: cd .\adminLte\
-* Instala las dependencias utilizando el comando: npm install
+* Clona este repositorio en tu ordenador utilizando el comando: ***git clone https://github.com/Captacion-F5/Captacion-F5.git***
+* Navega hasta la carpeta del proyecto utilizando el comando: ***cd .\adminLte\***
+* Instala las dependencias utilizando el comando: ***npm install***
 * Configura la base de datos en tu archivo .env. 
-* Ejecuta las migraciones a tu base de datos utilizando el comando: php artisan migrate
-* Ejecuta ahora el comando: npm run dev
-* En una nueva terminal, ejecuta el comando: php artisan serve 
-* Accede desde la terminal a tu http://localhost:8000 
+* Ejecuta las migraciones a tu base de datos utilizando el comando: ***php artisan migrate***
+* Si quieres utilizar nuestros seeders, utiliza el comando: ***php artisan migrate:fresh --seed***
+***Si lo prefieres, puedes insertar manualmente los datos desde la plataforma e insertar tu excel con los datos de los postulados. Para ello ejecuta los dos comando que vienen a continuación.***
+* Ejecuta ahora el comando: ***npm run dev***
+* En una nueva terminal, ejecuta el comando: ***php artisan serve*** 
+* Accede desde la terminal a tu ***http://localhost:8000*** 
 
 ## Test
-* Para poder ejecutar los test, utiliza en tu terminal el comando: php artisan test
+* Para poder ejecutar los test, utiliza en tu terminal el comando: ***php artisan test***
 
 
 ## Contributors :family_woman_woman_girl_girl: 
