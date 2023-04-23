@@ -37,7 +37,7 @@
 
 * [Mónica Raña](https://github.com/a20monicarr) Developer
 * [Ana García](https://github.com/anagararna) Developer
-* [Jéssica Ríos](https://github.com/JessRm04)Scrum Master y Developer
+* [Jéssica Ríos](https://github.com/JessRm04) Scrum Master y Developer
 * [Tania Díaz](https://github.com/TaniaPandal) Developer y Product Owner
 
 
