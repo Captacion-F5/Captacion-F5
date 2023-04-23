@@ -1,7 +1,7 @@
 # CodeBusters :ghost:
 ***
 
-#### Este proceso nace para ayudar al equipo de Responsables de Promoción de Factoría F5 en los procesos de inscripción y selección de los nuevos aspirantes a los bootcamps.
+#### Este proyecto nace para ayudar al equipo de Responsables de Promoción de Factoría F5 en los procesos de inscripción y selección de los nuevos aspirantes a los bootcamps.
 #### CodeBusters está pensado para su uso en pantallas de ordenador.
 #### Hay muchos coders esperando su oportunidad para entrar y... ¡No hay tiempo que perder! 
 #### Echemos un vistazo al proyecto
