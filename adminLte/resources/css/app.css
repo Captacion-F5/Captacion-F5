@@ -1,3 +1,56 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.nav-link {
+    color: white;
+}
+.nav-link:hover {
+    color: white;
+    text-shadow: 3px 3px 4px #000000;
+}
+
+.bootcamp-form {
+    background-color: white;
+}
+
+.backgroundOrange {
+    background-color: #ff4700;
+    color: white;
+}
+.factoLogo {
+    border: none;
+    width: 120px;
+    height: 50px;
+    margin-left: 25px;
+}
+.textColor {
+    color: black;
+}
+a > p {
+    color: white;
+}
+a > p:hover {
+    font-weight: bold;
+    text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
+}
+i:hover {
+    font-weight: bold;
+}
+
+a.nav-link.active:hover {
+    background-color: #a12424;
+}
+
+@keyframes slideout {
+    from {
+        right: 0;
+    }
+    to {
+        right: -400px;
+        opacity: 0;
+    }
+}
+.animate-slideout {
+    animation: slideout 5s ease-in-out forwards;
+}

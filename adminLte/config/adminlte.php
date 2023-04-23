@@ -1,5 +1,6 @@
 <?php
 
+
 return [
 
     /*
@@ -63,10 +64,10 @@ return [
     |
     */
 
-    'logo' => 'Captación F5',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
-    'logo_img_class' => 'brand-image img-circle elevation-3',
-    'logo_img_xl' => null,
+    'logo' => 'assets/pequeno.png',
+    'logo_img' =>  'assets/pequeno.png',
+    'logo_img_class' =>null,
+    'logo_img_xl' => 'assets/blanco-factorizado.png',
     'logo_img_xl_class' => 'brand-image-xs',
     'logo_img_alt' => 'Admin Logo',
 
@@ -131,7 +132,7 @@ return [
 
     'usermenu_enabled' => true,
     'usermenu_header' => false,
-    'usermenu_header_class' => 'bg-primary',
+    'usermenu_header_class' => '',
     'usermenu_image' => false,
     'usermenu_desc' => false,
     'usermenu_profile_url' => false,
@@ -150,8 +151,8 @@ return [
 
     'layout_topnav' => null,
     'layout_boxed' => null,
-    'layout_fixed_sidebar' => null,
-    'layout_fixed_navbar' => null,
+    'layout_fixed_sidebar' => true,
+    'layout_fixed_navbar' => true,
     'layout_fixed_footer' => null,
     'layout_dark_mode' => null,
 
@@ -192,9 +193,9 @@ return [
     'classes_content_wrapper' => '',
     'classes_content_header' => '',
     'classes_content' => '',
-    'classes_sidebar' => 'sidebar-dark-primary elevation-4',
+    'classes_sidebar' => 'backgroundOrange white elevation-4',
     'classes_sidebar_nav' => '',
-    'classes_topnav' => 'navbar-white navbar-light',
+    'classes_topnav' => 'backgroundOrange',
     'classes_topnav_nav' => 'navbar-expand',
     'classes_topnav_container' => 'container',
 
@@ -252,14 +253,15 @@ return [
     |
     */
 
-    'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'use_route_url' => true,
+    'dashboard_url' => 'dashboard',
     'logout_url' => 'logout',
     'login_url' => 'login',
-    'register_url' => 'register',
+    'register_url' => 'myregister',
     'password_reset_url' => 'password/reset',
     'password_email_url' => 'password/email',
-    'profile_url' => false,
+    'profile_url' => 'profile.edit',
+
 
     /*
     |--------------------------------------------------------------------------
@@ -289,101 +291,92 @@ return [
     |
     */
 
+
     'menu' => [
         // Navbar items:
         [
-            'type'         => 'navbar-search',
-            'text'         => 'buscar',
+            'text' => '',
+            'route' => 'myregister',
+            'icon_color' => 'white',
+            'icon' => 'fa fa-user-plus',
             'topnav_right' => true,
         ],
         [
-            'type'         => 'fullscreen-widget',
-            'topnav_right' => true,
+            'type' => 'fullscreen-widget',
+            'topnav_right' => false,
         ],
 
         // Sidebar items:
+
+        ['header' => 'Navegar'],
         [
-            'type' => 'sidebar-menu-search',
-            'text' => 'buscar',
+            'text' => '- Escuelas',
+            'url' => 'school',
+            'icon_color' => 'white',
+            'icon' => 'fa fa-school'
         ],
         [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
+            'text' => '- Bootcamps',
+            'url' => 'bootcamps',
+            'icon_color' => 'white',
+            'icon' => 'fa fa-flag'
         ],
         [
-            'text'        => 'Páginas',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
-        ],
-        ['header' => 'Participantes'],
-        [
-            'text' => 'Admin',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
+            'text' => '- Eventos',
+            'url' => 'eventos',
+            'icon_color' => 'white',
+            'icon' => 'fa fa-calendar'
         ],
         [
-            'text' => 'Cambio de contraseña',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
+            'text' => '- Postulantes',
+            'url' => 'postulado',
+            'icon_color' => 'white',
+            'icon' => 'fa fa-users'
+        ],
+
+
+        ['header' => 'Crear'],
+        [
+
+            'text' => 'Añadir Escuela',
+            'url' => '/school/create',
+            'icon_color' => 'white',
+            'icon' => 'fa fa-plus',
         ],
         [
-            'text'    => 'Bootcamps',
-            'icon'    => 'fas fa-fw fa-share',
-            'submenu' => [
-                [
-                    'text' => 'Asturias',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'FemCoders Norte',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'Galicia',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'Asturias',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'Gijón',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'Oviedo',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'Rural Camp',
-                    'url'  => '#',
-                ],
-            ],
-        ],
-        ['header' => 'Proceso'],
-        [
-            'text'       => 'Descartados',
-            'icon_color' => 'red',
-            'url'        => '#',
+
+            'text' => 'Añadir Bootcamp',
+            'url' => '/bootcamps/create',
+            'icon_color' => 'white',
+            'icon' => 'fa fa-plus',
+
         ],
         [
-            'text'       => 'Preseleccionados',
-            'icon_color' => 'yellow',
-            'url'        => '#',
+
+            'text' => 'Añadir Evento',
+            'url' => '/eventos/create',
+            'icon_color' => 'white',
+            'icon' => 'fa fa-plus',
+
         ],
         [
-            'text'       => 'Seleccionados',
-            'icon_color' => 'cyan',
-            'url'        => '#',
+
+            'text' => 'Añadir Postulante',
+            'url' => '/components/forms/applicant-form',
+            'icon_color' => 'white',
+            'icon' => 'fa fa-plus',
+
+        ],
+        [
+
+            'text' => 'Importar Postulantes',
+            'url' => '/postulantes/importar',
+            'icon_color' => 'white',
+            'icon' => 'fa fa-plus',
+
         ],
     ],
+
 
     /*
     |--------------------------------------------------------------------------
@@ -491,6 +484,7 @@ return [
             ],
         ],
     ],
+
 
     /*
     |--------------------------------------------------------------------------
