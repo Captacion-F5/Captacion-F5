@@ -1,8 +1,4 @@
-{{--@extends('adminlte::page')
-@vite(['resources/js/app.js', 'resources/css/app.css'])
-
-
-<table class="table table-bordered">
+<table class="table table-bordered mi-tabla">
     <thead class="bg-naranja text-white">
         <tr>
             <th>Aplicante</th>
@@ -14,35 +10,144 @@
         </tr>
     </thead>
     <tbody>
-        @foreach ( $asistencia_evento as $event)
         <tr class="hover:bg-orange-200">
-            <td>{{ $event->nombre }}</td>
+            <td class="px-5 py-4 text-center">Sergio Lopez</td>
             <td class="px-5 py-4 text-center">
-                <select name="invitacion">
-                    <option value="1" @if($event->invitacion == 1) selected @endif>Sí</option>
-                    <option value="0" @if($event->invitacion == 0) selected @endif>No</option>
+                <select name="invitation">
+                    <option>Si</option>
+                    <option>No</option>
                 </select>
-            </td>
-            <td class="text-center">{{ $event->fecha }}</td>
-            <td class="text-center">
+            <td class="px-5 py-4 text-center">17/09/2023</td>
+            <td class="px-5 py-4 text-center">
                 <select name="inscripcion">
-                    <option value="1" @if($event->inscripcion == 1) selected @endif>No</option>
-                    <option value="0" @if($event->inscripcion == 0) selected @endif>Sí</option>
+                    <option >Si</option>
+                    <option >No</option>
                 </select>
             </td>
             <td class="px-5 py-4 text-center">
                 <select name="notificado">
-                    <option value="1" @if($event->notificado == 1) selected @endif>Sí</option>
-                    <option value="0" @if($event->notificado == 0) selected @endif>No</option>
+                    <option>Si</option>
+                    <option>No</option>
                 </select>
             </td>
             <td class="px-3 py-4 text-center">
                 <select name="asistencia">
-                    <option value="1" style="color:red" @if($event->asistencia == 1) selected @endif>No</option>
-                    <option value="0" style="color:green" @if($event->asistencia == 0) selected @endif>Sí</option>
+                    <option>Si</option>
+                    <option>No</option>
                 </select>
             </td>
         </tr>
-        @endforeach
+        <tr class="hover:bg-orange-200">
+            <td class="px-5 py-4 text-center">Maria Santin</td>
+            <td class="px-5 py-4 text-center">
+                <select name="invitation">
+                    <option>Si</option>
+                    <option>No</option>
+                </select>
+            <td class="px-5 py-4 text-center">09/13/2023</td>
+            <td class="px-5 py-4 text-center">
+                <select name="inscripcion">
+                    <option >Si</option>
+                    <option >No</option>
+                </select>
+            </td>
+            <td class="px-5 py-4 text-center">
+                <select name="notificado">
+                    <option>Si</option>
+                    <option>No</option>
+                </select>
+            </td>
+            <td class="px-3 py-4 text-center">
+                <select name="asistencia">
+                    <option>Si</option>
+                    <option>No</option>
+                </select>
+            </td>
+        </tr>
+        <tr class="hover:bg-orange-200">
+            <td class="px-5 py-4 text-center">Adrian Perez</td>
+            <td class="px-5 py-4 text-center">
+                <select name="invitation">
+                    <option>Si</option>
+                    <option>No</option>
+                </select>
+            <td class="px-5 py-4 text-center">24/09/2023</td>
+            <td class="px-5 py-4 text-center">
+                <select name="inscripcion">
+                    <option >Si</option>
+                    <option >No</option>
+                </select>
+            </td>
+            <td class="px-5 py-4 text-center">
+                <select name="notificado">
+                    <option>Si</option>
+                    <option>No</option>
+                </select>
+            </td>
+            <td class="px-3 py-4 text-center">
+                <select name="asistencia">
+                    <option>Si</option>
+                    <option>No</option>
+                </select>
+            </td>
+        </tr>
+        <tr class="hover:bg-orange-200">
+            <td class="px-5 py-4 text-center">Florentino Perez</td>
+            <td class="px-5 py-4 text-center">
+                <select name="invitation">
+                    <option>Si</option>
+                    <option>No</option>
+                </select>
+            <td class="px-5 py-4 text-center">24/09/2023</td>
+            <td class="px-5 py-4 text-center">
+                <select name="inscripcion">
+                    <option >Si</option>
+                    <option >No</option>
+                </select>
+            </td>
+            <td class="px-5 py-4 text-center">
+                <select name="notificado">
+                    <option>Si</option>
+                    <option>No</option>
+                </select>
+            </td>
+            <td class="px-3 py-4 text-center">
+                <select name="asistencia">
+                    <option>Si</option>
+                    <option>No</option>
+                </select>
+            </td>
+        </tr>
+        <tr class="hover:bg-orange-200">
+            <td class="px-5 py-4 text-center">Adelaida Gonzalez</td>
+            <td class="px-5 py-4 text-center">
+                <select name="invitation">
+                    <option>Si</option>
+                    <option>No</option>
+                </select>
+            <td class="px-5 py-4 text-center">24/09/2023</td>
+            <td class="px-5 py-4 text-center">
+                <select name="inscripcion">
+                    <option >Si</option>
+                    <option >No</option>
+                </select>
+            </td>
+            <td class="px-5 py-4 text-center">
+                <select name="notificado">
+                    <option>Si</option>
+                    <option>No</option>
+                </select>
+            </td>
+            <td class="px-3 py-4 text-center">
+                <select name="asistencia">
+                    <option>Si</option>
+                    <option>No</option>
+                </select>
+            </td>
+        </tr>
+        
+
+
+
     </tbody>
-</table>--}}
+</table>
