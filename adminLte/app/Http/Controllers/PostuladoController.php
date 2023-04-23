@@ -21,6 +21,15 @@ class PostuladoController extends Controller
         $searchPost = $request->input('search');
         $postulados = Postulado::with('bootcamp')->searchPost($searchPost)->get();
         return view('pages.postulado')->with('postulados', $postulados);
+
+        // $searchPost = $request->input('search');
+        // $postulados = Postulado::with('bootcamp')
+        //     ->searchPost($searchPost)
+        //     ->when($request->has('ejercicios'), function ($query) use ($request) {
+        //         $query->where('ejercicios', $request->ejercicios);
+        //     })
+        //     ->get();
+        // return view('pages.postulado')->with('postulados', $postulados);
     }
 
 
