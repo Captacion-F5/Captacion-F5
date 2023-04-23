@@ -12,21 +12,16 @@ class BootcampControllerTest extends TestCase
     use HasFactory;
     public function test_index()
     {
-        // Crea un Bootcamp y agrega una escuela asociada
         $bootcamp = Bootcamp::factory()->create();
         $school = School::factory()->create();
         $bootcamp->school()->associate($school)->save();
 
-        // Hace una solicitud GET a la ruta index de BootcampController
         $response = $this->get(route('bootcamps.index'));
 
-        // Verifica que la respuesta tenga un código de estado exitoso
         $response->assertStatus(200);
 
-        // Verifica que la respuesta contenga el nombre de la escuela asociada al Bootcamp
         $response->assertSee($school->name);
 
-        // Verifica que la respuesta contenga el nombre del Bootcamp
         $response->assertSee($bootcamp->nombre);
     }
     public function test_create_new_bootcamp()
@@ -71,4 +66,5 @@ class BootcampControllerTest extends TestCase
             ->assertViewIs('bootcamps.edit')
             ->assertViewHas('bootcamp', $bootcamp);
     }
+
 }
