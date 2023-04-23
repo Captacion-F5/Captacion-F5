@@ -38,37 +38,28 @@ class BootcampControllerTest extends TestCase
             ->assertViewHas('schools');
     }
 
-    public function test_store_bootcamp()
+    public function it_can_create_a_new_bootcamp()
     {
-        // Define los datos para crear un nuevo bootcamp
-        $data = [
-            'nombre' => 'Nuevo Bootcamp',
-            'inicio' => '2023-04-15',
-            'school_id' => 1,
-        ];
+        $school = School::factory()->create();
 
-        // Envía una petición POST para crear un nuevo bootcamp
-        $response = $this->post(route('bootcamps.store'), $data);
+        $response = $this->post(route('bootcamps.store'), [
+            'nombre' => 'Bootcamp de prueba',
+            'inicio' => '2022-05-01',
+            'school_id' => $school->id,
+            'active' => true,
+        ]);
 
-        // Verifica que el bootcamp se haya creado correctamente
         $response->assertRedirect(route('bootcamps.index'));
-        $this->assertDatabaseHas('bootcamp', $data);
+        $response->assertSessionHas('success');
+
+        $this->assertDatabaseHas('bootcamps', [
+            'nombre' => 'Bootcamp de prueba',
+            'inicio' => '2022-05-01',
+            'school_id' => $school->id,
+            'active' => true,
+        ]);
     }
 
-    // public function test_show_method()
-    // {
-    //     // Crear una instancia de Bootcamp
-    //     $bootcamp = Bootcamp::factory()->create();
-
-    //     // Llamar al método show con el id del Bootcamp
-    //     $response = $this->get(route('bootcamps.index', $bootcamp));
-
-    //     // Verificar que la respuesta tenga el código HTTP 200
-    //     $response->assertOk();
-
-    //     // Verificar que la vista cargada tenga el Bootcamp
-    //     $response->assertViewHas('bootcamp', $bootcamp);
-    // }
 
     public function test_edit_bootcamp()
     {
@@ -80,28 +71,4 @@ class BootcampControllerTest extends TestCase
             ->assertViewIs('bootcamps.edit')
             ->assertViewHas('bootcamp', $bootcamp);
     }
-
-
-
-// public function testUpdate()
-// {
-//     $bootcamp = Bootcamp::factory()->create();
-
-//     $response = $this->put(route('bootcamps.update', $bootcamp), [
-//         'nombre' => 'Nuevo nombre',
-//         'inicio' => '2023-04-15',
-//         'school_id' => $bootcamp->school_id,
-//     ]);
-
-//     $response->assertRedirect(route('bootcamps.index'))
-//         ->assertSessionHas('success', 'Bootcamp actualizado exitosamente.');
-
-//     $updatedBootcamp = Bootcamp::find($bootcamp);
-
-//     $this->assertEquals('Nuevo nombre', $updatedBootcamp->nombre);
-//     $this->assertEquals('2023-04-15', $updatedBootcamp->inicio);
-//     $this->assertEquals(1, $updatedBootcamp->school_id);
-// }
-
-
 }
