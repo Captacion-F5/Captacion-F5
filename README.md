@@ -29,6 +29,8 @@
 * En una nueva terminal, ejecuta el comando: ***php artisan serve*** 
 * Accede desde la terminal a tu ***http://localhost:8000*** 
 
+* Necesitas acceso para entrar en la plataforma. Para ello, envíanos un correo con tu nombre y correo electrónico a: ***admin@factoria.com***
+
 ## Test
 * Para poder ejecutar los test, utiliza en tu terminal el comando: ***php artisan test***
 
