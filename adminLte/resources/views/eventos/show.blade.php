@@ -1,7 +1,7 @@
 @vite(['resources/js/app.js', 'resources/css/app.css'])
 @extends('adminlte::page')
 @section('content_header')
-    <h1 class="text-center font-bold shadow w-1/6">{{ $evento->nombre }}</h1>
+    <h1 class="text-center w-1/2">{{ $evento->nombre }}</h1>
 @stop
 @section('content')
 

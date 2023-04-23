@@ -5,19 +5,12 @@
 @section('title', 'Bootcamps')
 
 @section('content_header')
-    <div class="flex mt-2">
+    <div class="flex mt-2 justify-items-start">
         <h1>Bootcamps</h1>
-        <div class="flex space-x-56">
-        <div class="box-tools ml-5">
-            <a href="{{ route('bootcamps.create') }}"
-                class="inline-block bg-green-600 hover:bg-green-500 text-lg border-2 border-green-700 text-white py-1 px-3 rounded">Añadir
-            </a>
-        </div>
-        <div>
+        <div class="flex space-x-56 ml-20">
             <a class="m-3 text-naranja" href="{{ route('bootcamps.index', ['active' => 1]) }}">Abiertos</a>
             <a class="m-3 text-naranja" href="{{ route('bootcamps.index', ['active' => 0]) }}">Cerrados</a>
         </div>
-    </div>
     </div>
 @stop
 
@@ -25,7 +18,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 m-auto">
-                <div class="fixed right-0 top-12 mt-10 mr-8 z-50">
+                <div class="fixed right-0 top-12 mt-6 mr-4 z-50">
                     @if (session('success'))
                         <div
                             class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded shadow-md animate-slideout">
@@ -33,8 +26,16 @@
                         </div>
                     @endif
                 </div>
+
                 <div class="box">
-                    <x-atoms.search-bootcamp></x-atoms.search-bootcamp>
+                    <div class="flex">
+                        <x-atoms.search-bootcamp></x-atoms.search-bootcamp>
+                        <div class="box-tools mb-3 ml-2">
+                            <a href="{{ route('bootcamps.create') }}"
+                                class="inline-block bg-green-600 hover:bg-green-500 text-lg border-2 border-green-700 text-white py-1 px-3 rounded">Añadir
+                            </a>
+                        </div>
+                    </div>
                     <div class="box-body m-auto">
                         <table class="table table-bordered rounded-full">
                             <thead class=" bg-naranja text-white ">

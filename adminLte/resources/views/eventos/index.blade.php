@@ -31,8 +31,16 @@
                         <table class="table table-bordered">
                             <thead class="bg-naranja text-white rounded">
                                 <tr>
-                                    <th>Nombre</th>
-                                    <th>Fecha</th>
+                                    <th>
+                                        Nombre
+                                        <a class="text-white fa fa-arrow-alt-circle-up" href="{{ route('eventos.index', ['sort' => 'nombre']) }}">A - Z</a>
+                                        <a class="text-white fa fa-arrow-alt-circle-down" href="{{ route('eventos.index', ['sort' => '-nombre']) }}"></a>
+                                    </th>
+                                    <th>Fecha
+                                        <a class="text-white ml-2 fa fa-arrow-alt-circle-up " href="{{ route('eventos.index', ['sort' => 'asc']) }}"></a>
+                                        <a class="text-white ml-2 fa fa-arrow-alt-circle-down" href="{{ route('eventos.index', ['sort' => 'desc']) }}"></a>
+                                    </th>
+
                                     <th>Bootcamp</th>
                                     <th>Acciones</th>
                                 </tr>

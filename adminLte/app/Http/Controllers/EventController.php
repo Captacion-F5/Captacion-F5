@@ -12,47 +12,60 @@ class EventController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index() {
-        {
-            $events = Event::with('bootcamp')->get();
-            return view('eventos.index')->with('events', $events);
+    public function index()
+    {
+        $sort = request()->get('sort');
 
+        if ($sort == 'nombre') {
+            $events = Event::with('bootcamp')->orderBy('nombre')->get();
+        } elseif ($sort == '-nombre') {
+            $events = Event::with('bootcamp')->orderByDesc('nombre')->get();
+        } elseif ($sort == 'fecha') {
+            $events = Event::with('bootcamp')->orderBy('fecha')->get();
+        } elseif ($sort == '-fecha') {
+            $events = Event::with('bootcamp')->orderByDesc('fecha')->get();
+        } else {
+            $events = Event::with('bootcamp')->get();
         }
 
+        return view('eventos.index')->with('events', $events);
     }
+
+
+
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
-{
-    $bootcamps = Bootcamp::pluck('nombre', 'id')->toArray();
-     return view('eventos.create', compact('bootcamps'));
-}
+    {
+        $bootcamps = Bootcamp::pluck('nombre', 'id')->toArray();
+        return view('eventos.create', compact('bootcamps'));
+    }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-{
-    $request->validate([
-        'nombre' => 'required',
-        'fecha' => 'required|date',
-        'bootcamp_id' => 'required|array|min:1',
-    ]);
+    {
+        $request->validate([
+            'nombre' => 'required',
+            'fecha' => 'required|date',
+            'bootcamp_id' => 'required|array|min:1',
+        ]);
 
-    $bootcamp_nombres = $request->input('bootcamp_id', []);
-    $bootcamp_ids = Bootcamp::whereIn('nombre', $bootcamp_nombres)->pluck('id')->toArray();
+        $bootcamp_nombres = $request->input('bootcamp_id', []);
+        $bootcamp_ids = Bootcamp::whereIn('nombre', $bootcamp_nombres)->pluck('id')->toArray();
 
-    $evento = new Event;
-    $evento->nombre = $request->input('nombre');
-    $evento->fecha = $request->input('fecha');
-    $evento->save();
-    $evento = $evento->refresh();
-    $evento->bootcamp()->sync($bootcamp_ids);
+        $evento = new Event;
+        $evento->nombre = $request->input('nombre');
+        $evento->fecha = $request->input('fecha');
+        $evento->save();
+        $evento = $evento->refresh();
+        $evento->bootcamp()->sync($bootcamp_ids);
 
-    return redirect()->route('eventos.index')->with('success', 'Se ha añadido un nuevo evento.');
-}
+        return redirect()->route('eventos.index')->with('success', 'Se ha añadido un nuevo evento.');
+    }
     /**
      * Display the specified resource.
      */
@@ -112,7 +125,7 @@ class EventController extends Controller
         $evento->bootcamp()->sync($bootcamp_ids);
         $evento->save();
 
-        return redirect()->route('eventos.index')->with('success','El evento se ha actualizado correctamente');
+        return redirect()->route('eventos.index')->with('success', 'El evento se ha actualizado correctamente');
     }
 
     /**
@@ -123,6 +136,6 @@ class EventController extends Controller
         $evento = Event::findOrFail($id);
         $evento->delete();
 
-        return redirect()->route('eventos.index')->with('success','El evento se ha eliminado.');
+        return redirect()->route('eventos.index')->with('success', 'El evento se ha eliminado.');
     }
 }
