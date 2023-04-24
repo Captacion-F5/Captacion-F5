@@ -11,6 +11,7 @@
 * Laravel, como framework de PHP.
 * Blade, motor de plantillas de Laravel
 * AdminLte nos proporciona una plantilla de administración
+* JavaScript para dar dinamismo a las tablas
 * Tailwind y Bootstrap para front-end
 * NPM para gestionar paquetes y dependencias
 * Unit testing para pruebas de test.
