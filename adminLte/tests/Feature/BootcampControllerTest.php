@@ -67,4 +67,12 @@ class BootcampControllerTest extends TestCase
             ->assertViewHas('bootcamp', $bootcamp);
     }
 
+    public function testDestroy()
+{
+    $bootcamp = Bootcamp::factory()->create();
+    $response = $this->delete(route('bootcamps.destroy', $bootcamp));
+    $response->assertRedirect(route('bootcamps.index'));
+}
+
+
 }
