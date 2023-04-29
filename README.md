@@ -5,6 +5,10 @@
 #### CodeBusters está pensado para su uso en pantallas de ordenador.
 #### Hay muchos coders esperando su oportunidad para entrar y... ¡No hay tiempo que perder! 
 #### Echemos un vistazo al proyecto
+![Captura de pantalla 2023-04-01 091857](https://user-images.githubusercontent.com/114427205/235303402-57ac269e-f7c1-4bc5-bff2-9fcd818b52d5.png)
+![Captura de pantalla 2023-04-23 210439](https://user-images.githubusercontent.com/114427205/235303413-df62a608-8f0c-4f33-a2df-e718bd8ce137.png)
+![Captura de pantalla 2023-04-23 210403](https://user-images.githubusercontent.com/114427205/235303423-55f9897b-dca6-4616-8c2e-1c3238a48c80.png)
+![Captura de pantalla 2023-04-23 210604](https://user-images.githubusercontent.com/114427205/235303429-ebe69eac-fb5a-4193-8a2f-36f9800c24c0.png)
 
 ## Technologías:gear:
 
